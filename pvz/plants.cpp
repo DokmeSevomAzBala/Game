@@ -1,9 +1,11 @@
 #include "plants.h"
-//khoda lanat kone gito
-//khoda gito lanat kone
-plants::boro_bemir();
-plants::plants()
-{
 
+plants::plants(int c, int s , float l)
+{
+    cost = c;
+    seeding_time = s;
+    life_time = l;
+    //Xpos = x;
+    //Ypos = y;
 }
 

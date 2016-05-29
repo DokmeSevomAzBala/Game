@@ -6,15 +6,16 @@ class plants
 {
     int cost;
     int seeding_time;
-    float damage_time;
+    float life_time;
     int Xpos;
     int Ypos;
     QPixmap PlantPic;
 public:
 
-    plants();
+    plants(int , int , float);
+    void add_to_yard();
     ~plants();
-void khat();
+
 
 };
 

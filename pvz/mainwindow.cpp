@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-image: url(:/new/images/images/Background1.jpg);");
+    this->setFixedSize(1014,597);
 }
 
 MainWindow::~MainWindow()
