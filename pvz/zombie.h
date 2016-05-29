@@ -11,6 +11,8 @@ class zombie
 
 public:
     zombie();
+    public slots:
+    void walk();
 };
 
 #endif // ZOMBIE_H
