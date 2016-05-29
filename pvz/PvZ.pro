@@ -22,3 +22,6 @@ HEADERS  += mainwindow.h \
     zombie.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    pvzresources.qrc

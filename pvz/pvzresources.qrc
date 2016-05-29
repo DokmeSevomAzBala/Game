@@ -1,2 +1,9 @@
-<RCC/>
-
+<RCC>
+    <qresource prefix="/new/images">
+        <file>ConeHead.png</file>
+        <file>Frontyard.png</file>
+        <file>PeaShooter.png</file>
+        <file>RegularZombie.png</file>
+        <file>Sunflower.png</file>
+    </qresource>
+</RCC>
