@@ -14,6 +14,8 @@ public:
 
     plants();
     ~plants();
+void khat();
+
 };
 
 
