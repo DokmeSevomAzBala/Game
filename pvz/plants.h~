@@ -13,7 +13,9 @@ class plants
 public:
 
     plants();
-    ~plants();
+
+
+	~plants();
 };
 
 
