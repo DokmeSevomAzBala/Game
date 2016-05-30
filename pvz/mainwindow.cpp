@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setStyleSheet("background-image: url(:/new/images/images/Background1.jpg);");
     this->setFixedSize(1014,597);
+    scene = new QGraphicsScene(this);
+    sf = new sunflower();
+    scene->addItem(sf);
 }
 
 MainWindow::~MainWindow()

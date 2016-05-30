@@ -8,20 +8,26 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
+
 TARGET = PvZ
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    plants.cpp \
     zombie.cpp \
-    yard.cpp
+    sunflower.cpp \
+    sun.cpp \
+    plant.cpp
 
 HEADERS  += mainwindow.h \
-    plants.h \
     zombie.h \
-    yard.h
+    sunflower.h \
+    sun.h \
+    plant.h
 
 FORMS    += mainwindow.ui
 
