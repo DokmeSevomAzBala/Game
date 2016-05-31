@@ -13,5 +13,7 @@
         <file>images/Zombies_3.gif</file>
         <file>images/Zombies_4.gif</file>
         <file>images/Background1.jpg</file>
+        <file>images/pvz_background.jpg</file>
+        <file>images/Sun.png</file>
     </qresource>
 </RCC>
