@@ -3,9 +3,11 @@
 #include "sunflower.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QVector>
 #include <QGraphicsView>
+#include <QWidget>
 namespace Ui {
 class MainWindow;
 }

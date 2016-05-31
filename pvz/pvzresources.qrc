@@ -15,5 +15,6 @@
         <file>images/Background1.jpg</file>
         <file>images/pvz_background.jpg</file>
         <file>images/Sun.png</file>
+        <file>images/dead.png</file>
     </qresource>
 </RCC>
