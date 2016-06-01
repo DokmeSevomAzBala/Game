@@ -6,7 +6,7 @@ sunflower::sunflower()
     life_time = 15;
     //PlantPic.load(":/new/images/images/Sunflower.png");
     //setPixmap(QPixmap(":/new/images/images/dead"));
-    setPixmap(QPixmap(":/new/images/images/Sunflower"));
+    setPixmap(QPixmap(":/new/images/images/SunFlower"));
 }
 void sunflower::makeSun(){
     sun s1;

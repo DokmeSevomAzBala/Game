@@ -1,18 +1,28 @@
 #ifndef SUN_H
 #define SUN_H
-#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QPixmap>
+#include <QGraphicsItem>
 #include <QMouseEvent>
-class sun : public QGraphicsItem
+#include <QPainter>
+#include <QObject>
+#include <QWidget>
+class sun : public QObject,public QGraphicsPixmapItem
 {
+    Q_OBJECT
 public:
+    bool Falling;
     static int SunScore;
-    QPixmap SunPic;
-    sun();
-    static void mouseReleaseEvent ( QMouseEvent * event);
+    sun(QGraphicsItem *parent = 0);
+    void mousePressEvent ( QGraphicsSceneMouseEvent * event);
     void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
     QRectF boundingRect() const;
     void advance(int);
+    ~sun();
+public slots:
+    void move_sun();
 };
+
+
 
 #endif // SUN_H

@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
     QGraphicsView *View;
     sunflower *sunfl;
     QTimer *t1;
+    QTimer *t2;
     QVector <sun*> SunVec;
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -28,6 +29,7 @@ private:
     Ui::MainWindow *ui;
 public slots:
     void MakeSun();
+    void MoveAllSuns();
 };
 
 #endif // MAINWINDOW_H

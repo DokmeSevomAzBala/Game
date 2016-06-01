@@ -16,5 +16,6 @@
         <file>images/pvz_background.jpg</file>
         <file>images/Sun.png</file>
         <file>images/dead.png</file>
+        <file>images/SunFlower.gif</file>
     </qresource>
 </RCC>

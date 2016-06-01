@@ -9,7 +9,7 @@ plant::~plant(){}
 
 QRectF plant::boundingRect() const
 {
-    return QRectF(0,0,85,85);   // Set boundingRect() to image size.
+    return QRectF(0,0,80,80);   // Set boundingRect() to image size.
 }
 
 
