@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     QGraphicsScene *scene;
+    QGraphicsView *View;
     QGraphicsView *graphicsView;
     sunflower *sunfl;
     QTimer *t1;

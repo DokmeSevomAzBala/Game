@@ -51,10 +51,6 @@ public:
         view = new QGraphicsView(centralWidget);
         view->setObjectName(QStringLiteral("view"));
         view->setGeometry(QRect(0, 0, 1032, 726));
-        view->setLayoutDirection(Qt::LeftToRight);
-        view->setInteractive(true);
-        view->setDragMode(QGraphicsView::NoDrag);
-        view->setTransformationAnchor(QGraphicsView::NoAnchor);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

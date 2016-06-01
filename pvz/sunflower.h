@@ -7,7 +7,9 @@
 class sunflower : public plant
 {
 public:
+
     sunflower();
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
 public slots:
     void makeSun();
 };
