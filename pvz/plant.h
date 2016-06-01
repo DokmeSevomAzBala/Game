@@ -14,6 +14,7 @@ public:
     float life_time;    //from the time that zombie encounter this plant, how mnay seconds should pass to die?
     int Xpos;
     int Ypos;
+    QPixmap *PlantPic;
 
     plant(QGraphicsItem *parent = 0);
     ~plant();
