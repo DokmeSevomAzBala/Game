@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "sunflower.h"
+#include "zombie.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
@@ -17,10 +18,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
     QGraphicsScene *scene;
     QGraphicsView *View;
+    QGraphicsView *graphicsView;
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
     QVector <sun*> SunVec;
+    zombie* zom1;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();

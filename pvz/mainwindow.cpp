@@ -17,6 +17,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->view->setScene(scene);
     sunfl = new sunflower();
     scene->addItem(sunfl);
+    sunflower *sf = new sunflower;
+    sf->setPos(100,100);
+    scene->addItem(sf);
+    class sunflower *sf1 = new class sunflower();
+    sf1->setPos(50,50);
+    qDebug() << sf1->boundingRect().center();
+    qDebug() << scene->sceneRect().center();
+    scene->addItem(sf1);
+    scene->setSceneRect(100,100,1000,700);
+    scene->setBackgroundBrush(Qt::white);// ///////////////////////////////////////////////////
+    //sunfl->setPos(100,100);
+    graphicsView = new QGraphicsView(scene);
+    QGraphicsRectItem * rect = new QGraphicsRectItem();
+    rect->setRect(500,500,50,50);
+    scene->addItem(rect);
+    //ui->label->setPixmap(sunfl->PlantPic.scaled(ui->label->size()));
+   //ui->label->setAttribute(Qt::WA_TranslucentBackground);
     sunfl->setPos(500,500);
     scene->setSceneRect(0,0,1031,726);
    t1 = new QTimer();
@@ -28,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    score sc;
+   zom1=new zombie;
+   zom1->setPos(150,100);
+   scene->addItem(zom1);
 
 }
 
