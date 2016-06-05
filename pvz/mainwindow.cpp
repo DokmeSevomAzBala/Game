@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug() << scene->sceneRect().center();
     scene->addItem(sf1);
     scene->setSceneRect(100,100,1000,700);
-    scene->setBackgroundBrush(Qt::white);// ///////////////////////////////////////////////////
+    //scene->setBackgroundBrush(Qt::white);// ///////////////////////////////////////////////////
     //sunfl->setPos(100,100);
     graphicsView = new QGraphicsView(scene);
     QGraphicsRectItem * rect = new QGraphicsRectItem();

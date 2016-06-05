@@ -56,6 +56,8 @@ SOURCES       = ../pvz/main.cpp \
 		../pvz/plant.cpp \
 		../pvz/score.cpp qrc_pvzresources.cpp \
 		moc_mainwindow.cpp \
+		moc_zombie.cpp \
+		moc_sun.cpp \
 		moc_plant.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
@@ -66,6 +68,8 @@ OBJECTS       = main.o \
 		score.o \
 		qrc_pvzresources.o \
 		moc_mainwindow.o \
+		moc_zombie.o \
+		moc_sun.o \
 		moc_plant.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -341,6 +345,7 @@ qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
 		../pvz/images/Sunflower.png \
 		../pvz/images/zombienewspaper.png \
 		../pvz/images/RegularZombie.png \
+		../pvz/images/SunFlower.gif \
 		../pvz/images/Zombies_2.gif \
 		../pvz/images/zombie.png \
 		../pvz/images/dead.png \
@@ -354,14 +359,21 @@ qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
 		../pvz/images/Sun.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name pvzresources ../pvz/pvzresources.qrc -o qrc_pvzresources.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_plant.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sun.cpp moc_plant.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_plant.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_zombie.cpp moc_sun.cpp moc_plant.cpp
 moc_mainwindow.cpp: ../pvz/sunflower.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
+		../pvz/zombie.h \
 		../pvz/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/mainwindow.h -o moc_mainwindow.cpp
+
+moc_zombie.cpp: ../pvz/zombie.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/zombie.h -o moc_zombie.cpp
+
+moc_sun.cpp: ../pvz/sun.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/sun.h -o moc_sun.cpp
 
 moc_plant.cpp: ../pvz/plant.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/plant.h -o moc_plant.cpp
@@ -387,13 +399,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 main.o: ../pvz/main.cpp ../pvz/mainwindow.h \
 		../pvz/sunflower.h \
 		../pvz/plant.h \
-		../pvz/sun.h
+		../pvz/sun.h \
+		../pvz/zombie.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../pvz/main.cpp
 
 mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
 		../pvz/sunflower.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
+		../pvz/zombie.h \
 		ui_mainwindow.h \
 		../pvz/score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../pvz/mainwindow.cpp
@@ -420,6 +434,12 @@ qrc_pvzresources.o: qrc_pvzresources.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_zombie.o: moc_zombie.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_zombie.o moc_zombie.cpp
+
+moc_sun.o: moc_sun.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sun.o moc_sun.cpp
 
 moc_plant.o: moc_plant.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_plant.o moc_plant.cpp

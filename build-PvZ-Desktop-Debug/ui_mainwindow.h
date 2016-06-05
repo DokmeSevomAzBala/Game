@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QToolBar>
@@ -27,8 +26,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QLabel *label;
-    QLabel *SunInWindowLabel;
     QGraphicsView *view;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -40,17 +37,9 @@ public:
         MainWindow->resize(500, 700);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(250, 140, 100, 100));
-        label->setAutoFillBackground(false);
-        label->setScaledContents(false);
-        SunInWindowLabel = new QLabel(centralWidget);
-        SunInWindowLabel->setObjectName(QStringLiteral("SunInWindowLabel"));
-        SunInWindowLabel->setGeometry(QRect(60, 40, 80, 80));
         view = new QGraphicsView(centralWidget);
         view->setObjectName(QStringLiteral("view"));
-        view->setGeometry(QRect(0, 0, 1032, 726));
+        view->setGeometry(QRect(0, 0, 1031, 726));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -68,8 +57,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        label->setText(QString());
-        SunInWindowLabel->setText(QApplication::translate("MainWindow", "TextLabel", 0));
     } // retranslateUi
 
 };
