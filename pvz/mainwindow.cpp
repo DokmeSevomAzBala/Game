@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     graphicsView = new QGraphicsView(scene);
     QGraphicsRectItem * rect = new QGraphicsRectItem();
     rect->setRect(500,500,50,50);
-    scene->addItem(rect);
+   // scene->addItem(rect);
     //ui->label->setPixmap(sunfl->PlantPic.scaled(ui->label->size()));
    //ui->label->setAttribute(Qt::WA_TranslucentBackground);
     sunfl->setPos(500,500);

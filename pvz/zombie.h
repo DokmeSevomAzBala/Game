@@ -12,11 +12,11 @@ class zombie:public QObject,public QGraphicsPixmapItem
     int Xpos;
     int Ypos;
     int power;  //how many bullet will kill zombie
-    QPixmap ZomPic;
+    //QPixmap ZomPic;
 
 public:
     zombie(QGraphicsItem *parent = 0);
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
+    void paint(QPainter *,const QStyleOptionGraphicsItem *, QWidget *);
     QRectF boundingRect() const;
      ~zombie();
 public slots:
