@@ -16,7 +16,6 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QGraphicsScene *scene;
     QGraphicsView *View;
     QGraphicsView *graphicsView;
     sunflower *sunfl;
@@ -28,6 +27,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QGraphicsScene *scene;
+
 
 private:
     Ui::MainWindow *ui;

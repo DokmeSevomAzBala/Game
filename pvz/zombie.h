@@ -1,10 +1,12 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
-//#include <QPixmap>
+
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QPainter>
 #include <QObject>
+#include <QGraphicsItem>
+
 
 class zombie:public QObject,public QGraphicsPixmapItem
 {
@@ -15,7 +17,7 @@ class zombie:public QObject,public QGraphicsPixmapItem
     //QPixmap ZomPic;
 
 public:
-    zombie(QGraphicsItem *parent = 0);
+    zombie(QGraphicsItem *parent =0);
     void paint(QPainter *,const QStyleOptionGraphicsItem *, QWidget *);
     QRectF boundingRect() const;
      ~zombie();
