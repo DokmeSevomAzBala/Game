@@ -13,51 +13,40 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
     this->setFixedSize(1031,726);
     scene = new QGraphicsScene(this);
-    View = new QGraphicsView(scene);
+    //View = new QGraphicsView(scene);
     ui->view->setScene(scene);
     sunfl = new sunflower();
     scene->addItem(sunfl);
-    sunflower *sf = new sunflower;
-    sf->setPos(100,100);
-    scene->addItem(sf);
-    class sunflower *sf1 = new class sunflower();
-    sf1->setPos(50,50);
-    qDebug() << sf1->boundingRect().center();
-    qDebug() << scene->sceneRect().center();
-    scene->addItem(sf1);
+    //scene->addItem(sunfl->s1);
     scene->setSceneRect(100,100,1000,700);
-    scene->setBackgroundBrush(Qt::white);// ///////////////////////////////////////////////////
-    //sunfl->setPos(100,100);
-    graphicsView = new QGraphicsView(scene);
-    QGraphicsRectItem * rect = new QGraphicsRectItem();
-    rect->setRect(500,500,50,50);
-    scene->addItem(rect);
-    //ui->label->setPixmap(sunfl->PlantPic.scaled(ui->label->size()));
-   //ui->label->setAttribute(Qt::WA_TranslucentBackground);
     sunfl->setPos(500,500);
     scene->setSceneRect(0,0,1031,726);
    t1 = new QTimer();
-   connect(t1,SIGNAL(timeout()),this,SLOT(MakeSun()));
+   connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
    t1->start(1000);
    t2 = new QTimer();
    connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
    t2->start(10);
-
-
-   score sc;
-   zom1=new zombie;
+   connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
+   zom1 = new zombie();
    zom1->setPos(150,100);
    scene->addItem(zom1);
 
 }
 
-void MainWindow::MakeSun(){
+void MainWindow::MakeSunOnScene(){
     sun *Sun;
     Sun = new sun();
     qreal sunX = rand() % 1000;
-    scene->addItem(Sun);
     Sun->setPos(sunX,10);
     SunVec.push_back(Sun);
+    scene->addItem(Sun);
+}
+
+void MainWindow::MakeSunForSunFlower()
+{
+    sunfl->s1->setPos(sunfl->x()+30,sunfl->y()+40);
+    scene->addItem(sunfl->s1);
 }
 
 void MainWindow::MoveAllSuns()
