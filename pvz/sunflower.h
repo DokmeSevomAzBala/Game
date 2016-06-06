@@ -5,6 +5,7 @@
 #include "sun.h"
 #include <QTimer>
 #include <QObject>
+
 class sunflower : public plant
 {
     Q_OBJECT
@@ -12,7 +13,6 @@ class sunflower : public plant
 public:
     sun *s1;
     sunflower();
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
 public slots:
     void makeSun();
 };

@@ -15,9 +15,3 @@ void sunflower::makeSun(){
 
 }
 
-void sunflower::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
-{
-    painter->drawPixmap(boundingRect(), this->pixmap(), boundingRect());
-}
-
-

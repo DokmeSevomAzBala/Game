@@ -2,7 +2,10 @@
 
 zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
-    setPixmap(QPixmap(":/new/images/images/zombies_1"));
+   setPixmap(QPixmap(":/new/images/images/Zombies_1.gif"));
+   Xpos=100;
+   Ypos=150;
+   power=10;
 
 }
 
@@ -11,20 +14,7 @@ void zombie::walk()
 
 }
 
-QRectF zombie::boundingRect() const
-{
-    return QRectF(0,0,80,80);   // Set boundingRect() to image size.
-}
+zombie::~zombie(){
 
-
-void zombie::paint(QPainter *painter1, const QStyleOptionGraphicsItem *, QWidget *)
-{
-    //QRectF rec1 = boundingRect();
-    painter1->drawPixmap(boundingRect(), this->pixmap(), boundingRect());
-}
-void zombie::advance(int)
-{
 
 }
-
-

@@ -13,11 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
     this->setFixedSize(1031,726);
     scene = new QGraphicsScene(this);
-    //View = new QGraphicsView(scene);
     ui->view->setScene(scene);
     sunfl = new sunflower();
     scene->addItem(sunfl);
-    //scene->addItem(sunfl->s1);
     scene->setSceneRect(100,100,1000,700);
     sunfl->setPos(500,500);
     scene->setSceneRect(0,0,1031,726);
