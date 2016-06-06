@@ -10,9 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
-    //this->setFixedSize(1031,726);
-    this->setFixedSize(500,500);
+    ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
+    this->setFixedSize(1031,726);
 
     scene = new QGraphicsScene(this);
     View = new QGraphicsView(scene);
