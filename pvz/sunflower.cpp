@@ -4,20 +4,14 @@ sunflower::sunflower()
     cost = 50;
     seeding_time = 10;
     life_time = 15;
-    //PlantPic.load(":/new/images/images/Sunflower.png");
-    //setPixmap(QPixmap(":/new/images/images/dead"));
     setPixmap(QPixmap(":/new/images/images/SunFlower"));
+    MakeSunTimer = new QTimer;
+    MakeSunTimer->start(1000);
+    connect (MakeSunTimer,SIGNAL(timeout()),this,SLOT(makeSun()));
+    this->s1 = new sun();
+
 }
 void sunflower::makeSun(){
-    sun s1;
-    s1.setX(this->x());
-    s1.setY(this->y());
 
 }
-
-void sunflower::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
-{
-    painter->drawPixmap(boundingRect(), this->pixmap(), boundingRect());
-}
-
 

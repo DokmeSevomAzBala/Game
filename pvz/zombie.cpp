@@ -1,14 +1,15 @@
 #include "zombie.h"
 
- zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
+zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
-    setPixmap(QPixmap(":/new/images/images/Zombies_1.gif"));
-    Xpos=100;
-    Ypos=150;
-    power=10;
+   setPixmap(QPixmap(":/new/images/images/Zombies_1.gif"));
+   Xpos=100;
+   Ypos=150;
+   power=10;
 
 }
 
+<<<<<<< HEAD
 
 //QRectF zombie::boundingRect() const
 //{
@@ -21,9 +22,14 @@
 //}
 zombie::~zombie(){
 
+=======
+void zombie::walk()
+{
+>>>>>>> 42fd64c7569d50bc50047128c0f0829581196887
 
 }
 
-void zombie::walk(){
+zombie::~zombie(){
+
 
 }
