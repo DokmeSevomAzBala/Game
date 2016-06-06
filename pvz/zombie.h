@@ -17,10 +17,10 @@ class zombie:public QObject,public QGraphicsPixmapItem
     //QPixmap ZomPic;
 
 public:
-    zombie(QGraphicsItem *parent =0);
-    void paint(QPainter *,const QStyleOptionGraphicsItem *, QWidget *);
-    QRectF boundingRect() const;
-     ~zombie();
+    zombie(QGraphicsItem *parent =0);    //  v
+//    void paint(QPainter *,const QStyleOptionGraphicsItem *, QWidget *);
+//    QRectF boundingRect() const;
+    ~zombie();
 public slots:
     void walk();
 
