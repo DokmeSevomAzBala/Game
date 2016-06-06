@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
    zom1 = new zombie();
    zom1->setPos(150,100);
    scene->addItem(zom1);
+   pshr = new peashooter();
+   scene->addItem(pshr);
+   pshr->setPos(200,100);
+
 
 }
 
