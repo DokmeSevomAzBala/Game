@@ -1,7 +1,6 @@
 #ifndef PLANT_H
 #define PLANT_H
 #include <QGraphicsPixmapItem>
-#include <QGraphicsItem>
 #include <QPixmap>
 #include <QPainter>
 #include <QObject>
@@ -18,9 +17,6 @@ public:
 
     plant(QGraphicsItem *parent = 0);
     ~plant();
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
-    QRectF boundingRect() const;
-    void advance(int);
 
 
 };

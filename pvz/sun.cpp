@@ -19,10 +19,10 @@ void sun::move_sun()
 }
 
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
-    if(event->button()){
+    if(event->button() ){
         SunScore += 50;
         qDebug() << SunScore;
-
+        this->~sun();
     }
 }
 
@@ -42,5 +42,9 @@ void sun::advance(int)
 
 }
 
-sun::~sun(){}
+sun::~sun(){
+    qDebug() <<"j";
+
+
+}
 

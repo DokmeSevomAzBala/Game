@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow
     QTimer *t1;
     QTimer *t2;
     QVector <sun*> SunVec;
-    zombie* zom1;
+    zombie *zom1;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -33,7 +33,8 @@ public:
 private:
     Ui::MainWindow *ui;
 public slots:
-    void MakeSun();
+    void MakeSunOnScene();
+    void MakeSunForSunFlower();
     void MoveAllSuns();
 };
 
