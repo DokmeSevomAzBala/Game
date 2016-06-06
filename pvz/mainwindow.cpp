@@ -52,6 +52,10 @@ MainWindow::MainWindow(QWidget *parent) :
    //zom1->setFlag(QGraphicsItem::ItemIsFocusable);
    //zom1->setFocus();
    scene->addItem(zom1);
+   pshr = new peashooter();
+   scene->addItem(pshr);
+   pshr->setPos(200,100);
+
 
 }
 
