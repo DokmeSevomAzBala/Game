@@ -19,11 +19,11 @@ void sun::move_sun()
 }
 
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
-    if(event->button() ){
+        QGraphicsPixmapItem::mousePressEvent(event);
         SunScore += 50;
         qDebug() << SunScore;
-        this->~sun();
-    }
+        delete this;
+
 }
 
 
