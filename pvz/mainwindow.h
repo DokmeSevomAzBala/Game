@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 #include "sunflower.h"
 #include "zombie.h"
+#include "pea.h"
+#include "peashooter.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
@@ -23,6 +25,7 @@ class MainWindow : public QMainWindow
     QTimer *t2;
     QVector <sun*> SunVec;
     zombie *zom1;
+    peashooter *pshr;
 
 public:
     explicit MainWindow(QWidget *parent = 0);

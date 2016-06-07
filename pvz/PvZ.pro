@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     sun.cpp \
     plant.cpp \
     score.cpp \
-    gamescreen.cpp
+    gamescreen.cpp \
+    pea.cpp \
+    peashooter.cpp
 
 HEADERS  += mainwindow.h \
     zombie.h \
@@ -31,7 +33,9 @@ HEADERS  += mainwindow.h \
     sun.h \
     plant.h \
     score.h \
-    gamescreen.h
+    gamescreen.h \
+    pea.h \
+    peashooter.h
 
 FORMS    += mainwindow.ui
 
