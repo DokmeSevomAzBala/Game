@@ -22,14 +22,16 @@ SOURCES += main.cpp\
     sunflower.cpp \
     sun.cpp \
     plant.cpp \
-    score.cpp
+    score.cpp \
+    gamescreen.cpp
 
 HEADERS  += mainwindow.h \
     zombie.h \
     sunflower.h \
     sun.h \
     plant.h \
-    score.h
+    score.h \
+    gamescreen.h
 
 FORMS    += mainwindow.ui
 

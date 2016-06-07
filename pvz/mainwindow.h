@@ -29,13 +29,14 @@ public:
     ~MainWindow();
     QGraphicsScene *scene;
 
-
 private:
     Ui::MainWindow *ui;
 public slots:
     void MakeSunOnScene();
     void MakeSunForSunFlower();
     void MoveAllSuns();
+private slots:
+    void on_SunflowerButton_clicked();
 };
 
 #endif // MAINWINDOW_H
