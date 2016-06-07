@@ -9,6 +9,7 @@ zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 
 }
 
+
 void zombie::walk()
 {
 
