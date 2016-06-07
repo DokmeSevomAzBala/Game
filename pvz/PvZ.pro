@@ -22,16 +22,22 @@ SOURCES += main.cpp\
     sunflower.cpp \
     sun.cpp \
     plant.cpp \
-    score.cpp
+    score.cpp \
+    peashooter.cpp \
+    pea.cpp
 
 HEADERS  += mainwindow.h \
     zombie.h \
     sunflower.h \
     sun.h \
     plant.h \
-    score.h
+    score.h \
+    peashooter.h \
+    pea.h
 
 FORMS    += mainwindow.ui
 
 RESOURCES += \
     pvzresources.qrc
+
+OTHER_FILES +=

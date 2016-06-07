@@ -32,7 +32,24 @@ MainWindow::MainWindow(QWidget *parent) :
    pshr = new peashooter();
    scene->addItem(pshr);
    pshr->setPos(200,100);
+   //if zobmbie too line has
+  this->make_pea();
+ // pea* p1;
 
+
+
+}
+void MainWindow::make_pea()
+{
+  pea* p1;
+  p1=new pea();
+  scene->addPixmap(p1->ret_pix());
+  p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
+  //p1->move_p();////////////////thread
+//  moveP=new QTimer();
+//  connect(moveP,SIGNAL(timeout()),this,SLOT(move_p( )));
+//  emit p1->move_p();
+//  moveP->start(10);
 
 }
 

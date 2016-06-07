@@ -1,12 +1,16 @@
 #include "pea.h"
+#include <QGraphicsView>
+#include <QGraphicsView>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 
 pea::pea()
 {
     accident=0;
-    QPixmap pixmap(":/new/images/images/Giant_Pea.png");
-    pixmap.scaled(p_x,p_y);
-    this->P=pixmap;
-   // this->scaled(p_x,p_y);///////////////////////////////////////////////////???????????????
+    QPixmap pixmap(":/new/images/images/PeaShooter.png");
+    P=pixmap;
+    setPixmap(P);
+    accident=0;
 }
 float pea::width()
 {
@@ -14,8 +18,17 @@ float pea::width()
 }
 void pea::move_p()
 {
-    p_x+=20;
+//this->setPos(p_x+400,p_y);
 
 }
+QPixmap pea::ret_pix()
+{
+   return P;
+}
+void pea::set_x_y(int x,int y)
+{
+    this->setPos(x,y);
+}
+
 pea::~pea(){};
 
