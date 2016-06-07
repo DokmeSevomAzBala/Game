@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
-    this->setFixedSize(1031,726);
+    ui->view->setStyleSheet("background-image: url(:/new/images/images/Background1);");
+    this->setFixedSize(1030,700);
     scene = new QGraphicsScene(this);
     ui->view->setScene(scene);
     sunfl = new sunflower();
@@ -82,3 +82,7 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::on_SunflowerButton_clicked()
+{
+
+}
