@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/new/images">
         <file>images/ConeHead.png</file>
-        <file>images/Frontyard.png</file>
         <file>images/PeaShooter.png</file>
         <file>images/plants_vs_zombies.png</file>
         <file>images/RegularZombie.png</file>
@@ -13,9 +12,8 @@
         <file>images/Zombies_3.gif</file>
         <file>images/Zombies_4.gif</file>
         <file>images/Background1.jpg</file>
-        <file>images/pvz_background.jpg</file>
         <file>images/Sun.png</file>
-        <file>images/dead.png</file>
         <file>images/SunFlower.gif</file>
+        <file>images/Giant_Pea.png</file>
     </qresource>
 </RCC>
