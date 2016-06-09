@@ -19,18 +19,22 @@ void zombie::walk()
     QList<plant *>collid;
     int k=0;
      for (int i = 0, n = colliding_items.size(); i < n; ++i){
+
     if(typeid(*(colliding_items[i])) == typeid(plant)){
     collid[k]=(plant*)colliding_items[i];
+    qDebug()<<"arrrreeeee!";
     k++;
     }
      }
-     if(!collid.empty())
-     move->stop();
-    for (int i = 0, n = collid.size(); i < n; ++i){
+     if(!collid.empty()){
+         disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
+     for (int i = 0, n = collid.size(); i < n; ++i){
         //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
-        move->stop();
+     //   move->stop();
+         qDebug()<<"fuck off baw-_-";
         move->start(5000);
         connect(move,SIGNAL(timeout()),collid[i],SLOT (die()));
+     }
 
 
     }

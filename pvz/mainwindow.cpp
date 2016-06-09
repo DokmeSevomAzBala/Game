@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
    t2->start(10);
    connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
    zom1 = new zombie();
-   zom1->setPos(750,100);
+   zom1->setPos(250,100);
    scene->addItem(zom1);
 
    //if zobmbie too line has
@@ -82,7 +82,7 @@ void MainWindow::make_pea()
   pea* p1;
   p1=new pea();
   scene->addPixmap(p1->ret_pix());
-  p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
+  //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
 
   //p1->move_p();////////////////thread
 //  moveP=new QTimer();

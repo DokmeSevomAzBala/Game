@@ -30,5 +30,5 @@ void pea::set_x_y(int x,int y)
     this->setPos(x,y);
 }
 
-pea::~pea(){};
+pea::~pea(){}
 
