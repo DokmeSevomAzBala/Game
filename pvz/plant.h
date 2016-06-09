@@ -4,7 +4,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QObject>
-class plant :public QObject , public QGraphicsPixmapItem
+class plant :public QObject , public QGraphicsItem  //public QGraphicsPixmapItem
 {
      Q_OBJECT
 public:
@@ -17,7 +17,8 @@ public:
 
     plant(QGraphicsItem *parent = 0);
     ~plant();
-
+public slots:
+    void die();
 
 };
 

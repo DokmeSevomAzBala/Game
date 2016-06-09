@@ -6,8 +6,11 @@
 #include <QPainter>
 #include <QObject>
 #include <QGraphicsItem>
-
-
+#include <QTimer>
+#include <QDebug>
+#include <typeinfo>
+#include "sun.h"
+#include "plant.h"
 class zombie:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -15,10 +18,10 @@ class zombie:public QObject,public QGraphicsPixmapItem
     int Ypos;
     int power;  //how many bullet will kill zombie
     //QPixmap ZomPic;
-
+    QTimer *move;
 public:
     zombie(QGraphicsItem *parent = 0);
-     ~zombie();
+
 public slots:
     void walk();
 };
