@@ -17,6 +17,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -27,6 +28,8 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QGraphicsView *view;
+    QPushButton *SunflowerButton;
+    QPushButton *PeashooterButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
 
@@ -39,7 +42,13 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         view = new QGraphicsView(centralWidget);
         view->setObjectName(QStringLiteral("view"));
-        view->setGeometry(QRect(0, 0, 1031, 726));
+        view->setGeometry(QRect(0, 100, 1031, 726));
+        SunflowerButton = new QPushButton(centralWidget);
+        SunflowerButton->setObjectName(QStringLiteral("SunflowerButton"));
+        SunflowerButton->setGeometry(QRect(60, 10, 91, 91));
+        PeashooterButton = new QPushButton(centralWidget);
+        PeashooterButton->setObjectName(QStringLiteral("PeashooterButton"));
+        PeashooterButton->setGeometry(QRect(150, 10, 101, 91));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -57,6 +66,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        SunflowerButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
+        PeashooterButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
     } // retranslateUi
 
 };

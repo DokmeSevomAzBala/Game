@@ -24,7 +24,7 @@ GameScreen::~GameScreen()
 bool GameScreen::rectAvailable()
 {
     QGraphicsRectItem *collisionRect = new QGraphicsRectItem(currentGridPoint.x(),currentGridPoint.y(),85,100);
-    QList<QGraphicsPixmapItem *> list = scene()->collidingItems(collisionRect);
+    QList<QGraphicsItem *> list = scene()->collidingItems(collisionRect);
     for (int i = 0; i < list.size(); i++)
     {
         plant *item = dynamic_cast<plant *>(list[i]);

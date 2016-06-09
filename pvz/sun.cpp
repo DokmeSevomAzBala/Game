@@ -43,12 +43,9 @@ void sun::advance(int)
 }
 
 sun::~sun(){
-<<<<<<< HEAD
-   // qDebug() <<"j";
-=======
+
     delete this;
     qDebug() <<"j";
->>>>>>> 4f2f156444eb394623d4b5ee6466d80b76a35669
 
 
 }

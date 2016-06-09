@@ -4,7 +4,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QObject>
-class plant :public QObject , public QGraphicsItem  //public QGraphicsPixmapItem
+class plant :public QObject , public QGraphicsPixmapItem  //public QGraphicsPixmapItem
 {
      Q_OBJECT
 public:

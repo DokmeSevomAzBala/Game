@@ -11,34 +11,26 @@ zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 
 }
 
-<<<<<<< HEAD
 void zombie::walk()
 {
     setPos(x()-0.1 ,y());
-=======
-
-<<<<<<< HEAD
-
-void zombie::walk()
-{
-
-=======
-void zombie::walk()
-{
->>>>>>> 4f2f156444eb394623d4b5ee6466d80b76a35669
->>>>>>> 9f8d83c30750237ac974a871eacfc1759b3f1ce4
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
     QList<plant *>collid;
+    int k=0;
      for (int i = 0, n = colliding_items.size(); i < n; ++i){
     if(typeid(*(colliding_items[i])) == typeid(plant)){
-    collid[i]=colliding_items[i];
+    collid[k]=(plant*)colliding_items[i];
+    k++;
     }
+     }
+     if(!collid.empty())
+     move->stop();
     for (int i = 0, n = collid.size(); i < n; ++i){
         //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
         move->stop();
         move->start(5000);
-        connect(move,SIGNAL(timeout()),(*(colliding_items[i])),SLOT (die()));
+        connect(move,SIGNAL(timeout()),collid[i],SLOT (die()));
 
     }
 
