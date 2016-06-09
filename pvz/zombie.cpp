@@ -11,9 +11,22 @@ zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 
 }
 
+<<<<<<< HEAD
 void zombie::walk()
 {
     setPos(x()-0.1 ,y());
+=======
+
+<<<<<<< HEAD
+
+void zombie::walk()
+{
+
+=======
+void zombie::walk()
+{
+>>>>>>> 4f2f156444eb394623d4b5ee6466d80b76a35669
+>>>>>>> 9f8d83c30750237ac974a871eacfc1759b3f1ce4
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
     QList<plant *>collid;

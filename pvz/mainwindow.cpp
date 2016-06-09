@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->view->setStyleSheet("background-image: url(:/new/images/images/pvz_background);");
-    this->setFixedSize(1031,726);
+    ui->view->setStyleSheet("background-image: url(:/new/images/images/Background1);");
+    this->setFixedSize(1030,700);
     scene = new QGraphicsScene(this);
     ui->view->setScene(scene);
     sunfl = new sunflower();
@@ -29,6 +29,27 @@ MainWindow::MainWindow(QWidget *parent) :
    zom1 = new zombie();
    zom1->setPos(750,500);
    scene->addItem(zom1);
+   pshr = new peashooter();
+   scene->addItem(pshr);
+   pshr->setPos(200,100);
+   //if zobmbie too line has
+  this->make_pea();
+ // pea* p1;
+
+
+
+}
+void MainWindow::make_pea()
+{
+  pea* p1;
+  p1=new pea();
+  scene->addPixmap(p1->ret_pix());
+  p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
+  //p1->move_p();////////////////thread
+//  moveP=new QTimer();
+//  connect(moveP,SIGNAL(timeout()),this,SLOT(move_p( )));
+//  emit p1->move_p();
+//  moveP->start(10);
 
 }
 
@@ -61,3 +82,7 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::on_SunflowerButton_clicked()
+{
+
+}
