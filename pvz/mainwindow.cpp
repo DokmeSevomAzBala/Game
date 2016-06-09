@@ -18,8 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     scene->setSceneRect(0,0,1031,726);
     sunfl = new sunflower();
-      scene->addItem(sunfl);
-       sunfl->setPos(500,500);
+    scene->addItem(sunfl);
+    sunfl->setPos(500,500);
    t1 = new QTimer();
    connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
    t1->start(1000);

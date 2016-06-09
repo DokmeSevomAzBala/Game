@@ -9,6 +9,7 @@ INPUT(
 ./release\gamescreen.o
 ./release\pea.o
 ./release\peashooter.o
+./release\drag.o
 ./release\moc_mainwindow.o
 ./release\moc_zombie.o
 ./release\moc_sunflower.o

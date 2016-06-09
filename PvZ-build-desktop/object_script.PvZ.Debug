@@ -9,6 +9,7 @@ INPUT(
 ./debug\gamescreen.o
 ./debug\pea.o
 ./debug\peashooter.o
+./debug\drag.o
 ./debug\moc_mainwindow.o
 ./debug\moc_zombie.o
 ./debug\moc_sunflower.o
