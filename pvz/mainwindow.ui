@@ -18,36 +18,49 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>100</y>
+      <y>60</y>
       <width>1031</width>
       <height>726</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="SunflowerButton">
+   <widget class="QPushButton" name="walnutB">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>20</x>
       <y>10</y>
-      <width>91</width>
-      <height>91</height>
+      <width>120</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>walnut,cost:50</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="PeashooterButton">
+   <widget class="QPushButton" name="peashooterB">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>10</y>
-      <width>101</width>
-      <height>91</height>
+      <width>120</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>peashooter,cost:150</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sunflowerB">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>120</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>sunflower,cost:50</string>
     </property>
    </widget>
   </widget>
@@ -57,7 +70,7 @@
      <x>0</x>
      <y>0</y>
      <width>500</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -27,6 +27,7 @@ public:
    // bool peaShooterRect();      // Returns whether grid contains peaShooter.
 
 private:
+
     // Virtual QGraphicsView functions.
      void mousePressEvent(QMouseEvent *e);
      QPoint getGridPoint(QMouseEvent *e);

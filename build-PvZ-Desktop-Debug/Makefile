@@ -57,15 +57,16 @@ SOURCES       = ../pvz/main.cpp \
 		../pvz/score.cpp \
 		../pvz/gamescreen.cpp \
 		../pvz/pea.cpp \
-		../pvz/peashooter.cpp qrc_pvzresources.cpp \
+		../pvz/peashooter.cpp \
+		../pvz/drag.cpp qrc_pvzresources.cpp \
 		moc_mainwindow.cpp \
 		moc_zombie.cpp \
 		moc_sunflower.cpp \
 		moc_sun.cpp \
 		moc_plant.cpp \
-		moc_gamescreen.cpp \
 		moc_pea.cpp \
-		moc_peashooter.cpp
+		moc_peashooter.cpp \
+		moc_gamescreen.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		zombie.o \
@@ -76,15 +77,16 @@ OBJECTS       = main.o \
 		gamescreen.o \
 		pea.o \
 		peashooter.o \
+		drag.o \
 		qrc_pvzresources.o \
 		moc_mainwindow.o \
 		moc_zombie.o \
 		moc_sunflower.o \
 		moc_sun.o \
 		moc_plant.o \
-		moc_gamescreen.o \
 		moc_pea.o \
-		moc_peashooter.o
+		moc_peashooter.o \
+		moc_gamescreen.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -149,9 +151,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/sun.h \
 		../pvz/plant.h \
 		../pvz/score.h \
-		../pvz/gamescreen.h \
 		../pvz/pea.h \
-		../pvz/peashooter.h ../pvz/main.cpp \
+		../pvz/peashooter.h \
+		../pvz/gamescreen.h \
+		../pvz/drag.h ../pvz/main.cpp \
 		../pvz/mainwindow.cpp \
 		../pvz/zombie.cpp \
 		../pvz/sunflower.cpp \
@@ -160,7 +163,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/score.cpp \
 		../pvz/gamescreen.cpp \
 		../pvz/pea.cpp \
-		../pvz/peashooter.cpp
+		../pvz/peashooter.cpp \
+		../pvz/drag.cpp
 QMAKE_TARGET  = PvZ
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = PvZ
@@ -333,8 +337,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/pvzresources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/gamescreen.h ../pvz/pea.h ../pvz/peashooter.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/gamescreen.h ../pvz/drag.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/drag.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/mainwindow.ui $(DISTDIR)/
 
 
@@ -368,26 +372,26 @@ qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
 		../pvz/images/SunFlower.gif \
 		../pvz/images/Zombies_2.gif \
 		../pvz/images/zombie.png \
-		../pvz/images/dead.png \
 		../pvz/images/ConeHead.png \
 		../pvz/images/plants_vs_zombies.png \
 		../pvz/images/Zombies_1.gif \
-		../pvz/images/Frontyard.png \
-		../pvz/images/pvz_background.jpg \
 		../pvz/images/Zombies_4.gif \
 		../pvz/images/Background1.jpg \
-		../pvz/images/Sun.png
+		../pvz/images/Sun.png \
+		../pvz/images/Giant_Pea.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name pvzresources ../pvz/pvzresources.qrc -o qrc_pvzresources.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_gamescreen.cpp moc_pea.cpp moc_peashooter.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_gamescreen.cpp moc_pea.cpp moc_peashooter.cpp
-moc_mainwindow.cpp: ../pvz/sunflower.h \
+	-$(DEL_FILE) moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp
+moc_mainwindow.cpp: ../pvz/drag.h \
+		../pvz/sunflower.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
 		../pvz/zombie.h \
 		../pvz/pea.h \
 		../pvz/peashooter.h \
+		../pvz/score.h \
 		../pvz/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/mainwindow.h -o moc_mainwindow.cpp
 
@@ -407,12 +411,6 @@ moc_sun.cpp: ../pvz/sun.h
 moc_plant.cpp: ../pvz/plant.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/plant.h -o moc_plant.cpp
 
-moc_gamescreen.cpp: ../pvz/plant.h \
-		../pvz/peashooter.h \
-		../pvz/pea.h \
-		../pvz/gamescreen.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/gamescreen.h -o moc_gamescreen.cpp
-
 moc_pea.cpp: ../pvz/pea.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/pea.h -o moc_pea.cpp
 
@@ -420,6 +418,12 @@ moc_peashooter.cpp: ../pvz/plant.h \
 		../pvz/pea.h \
 		../pvz/peashooter.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/peashooter.h -o moc_peashooter.cpp
+
+moc_gamescreen.cpp: ../pvz/plant.h \
+		../pvz/peashooter.h \
+		../pvz/pea.h \
+		../pvz/gamescreen.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/gamescreen.h -o moc_gamescreen.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -440,23 +444,26 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 main.o: ../pvz/main.cpp ../pvz/mainwindow.h \
-		../pvz/sunflower.h \
-		../pvz/plant.h \
-		../pvz/sun.h \
-		../pvz/zombie.h \
-		../pvz/pea.h \
-		../pvz/peashooter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../pvz/main.cpp
-
-mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
+		../pvz/drag.h \
 		../pvz/sunflower.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
 		../pvz/zombie.h \
 		../pvz/pea.h \
 		../pvz/peashooter.h \
-		ui_mainwindow.h \
 		../pvz/score.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../pvz/main.cpp
+
+mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
+		../pvz/drag.h \
+		../pvz/sunflower.h \
+		../pvz/plant.h \
+		../pvz/sun.h \
+		../pvz/zombie.h \
+		../pvz/pea.h \
+		../pvz/peashooter.h \
+		../pvz/score.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../pvz/mainwindow.cpp
 
 zombie.o: ../pvz/zombie.cpp ../pvz/zombie.h \
@@ -492,6 +499,9 @@ peashooter.o: ../pvz/peashooter.cpp ../pvz/peashooter.h \
 		../pvz/pea.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o peashooter.o ../pvz/peashooter.cpp
 
+drag.o: ../pvz/drag.cpp ../pvz/drag.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o drag.o ../pvz/drag.cpp
+
 qrc_pvzresources.o: qrc_pvzresources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_pvzresources.o qrc_pvzresources.cpp
 
@@ -510,14 +520,14 @@ moc_sun.o: moc_sun.cpp
 moc_plant.o: moc_plant.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_plant.o moc_plant.cpp
 
-moc_gamescreen.o: moc_gamescreen.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_gamescreen.o moc_gamescreen.cpp
-
 moc_pea.o: moc_pea.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pea.o moc_pea.cpp
 
 moc_peashooter.o: moc_peashooter.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_peashooter.o moc_peashooter.cpp
+
+moc_gamescreen.o: moc_gamescreen.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_gamescreen.o moc_gamescreen.cpp
 
 ####### Install
 

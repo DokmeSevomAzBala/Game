@@ -7,7 +7,7 @@
 pea::pea()
 {
     accident=0;
-    QPixmap pixmap(":/new/images/images/PeaShooter.png");
+    QPixmap pixmap(":/new/images/images/Giant_Pea.png");
     P=pixmap;
     setPixmap(P);
     accident=0;

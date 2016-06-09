@@ -28,8 +28,9 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QGraphicsView *view;
-    QPushButton *SunflowerButton;
-    QPushButton *PeashooterButton;
+    QPushButton *walnutB;
+    QPushButton *peashooterB;
+    QPushButton *sunflowerB;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
 
@@ -42,17 +43,20 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         view = new QGraphicsView(centralWidget);
         view->setObjectName(QStringLiteral("view"));
-        view->setGeometry(QRect(0, 100, 1031, 726));
-        SunflowerButton = new QPushButton(centralWidget);
-        SunflowerButton->setObjectName(QStringLiteral("SunflowerButton"));
-        SunflowerButton->setGeometry(QRect(60, 10, 91, 91));
-        PeashooterButton = new QPushButton(centralWidget);
-        PeashooterButton->setObjectName(QStringLiteral("PeashooterButton"));
-        PeashooterButton->setGeometry(QRect(150, 10, 101, 91));
+        view->setGeometry(QRect(0, 60, 1031, 726));
+        walnutB = new QPushButton(centralWidget);
+        walnutB->setObjectName(QStringLiteral("walnutB"));
+        walnutB->setGeometry(QRect(20, 10, 120, 50));
+        peashooterB = new QPushButton(centralWidget);
+        peashooterB->setObjectName(QStringLiteral("peashooterB"));
+        peashooterB->setGeometry(QRect(160, 10, 120, 50));
+        sunflowerB = new QPushButton(centralWidget);
+        sunflowerB->setObjectName(QStringLiteral("sunflowerB"));
+        sunflowerB->setGeometry(QRect(300, 10, 120, 50));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 500, 22));
+        menuBar->setGeometry(QRect(0, 0, 500, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -66,8 +70,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        SunflowerButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
-        PeashooterButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
+        walnutB->setText(QApplication::translate("MainWindow", "walnut,cost:50", 0));
+        peashooterB->setText(QApplication::translate("MainWindow", "peashooter,cost:150", 0));
+        sunflowerB->setText(QApplication::translate("MainWindow", "sunflower,cost:50", 0));
     } // retranslateUi
 
 };

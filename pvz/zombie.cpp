@@ -32,6 +32,7 @@ void zombie::walk()
         move->start(5000);
         connect(move,SIGNAL(timeout()),collid[i],SLOT (die()));
 
+
     }
 
 

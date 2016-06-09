@@ -21,23 +21,24 @@ GameScreen::~GameScreen()
 
 }
 
-bool GameScreen::rectAvailable()
-{
-    QGraphicsRectItem *collisionRect = new QGraphicsRectItem(currentGridPoint.x(),currentGridPoint.y(),85,100);
-    QList<QGraphicsItem *> list = scene()->collidingItems(collisionRect);
-    for (int i = 0; i < list.size(); i++)
-    {
-        plant *item = dynamic_cast<plant *>(list[i]);
-        if (item)
-        {
-            delete collisionRect;
-            return false;
-        }
-    }
 
-    delete collisionRect;
-    return true;
-}
+//bool GameScreen::rectAvailable()
+//{
+//    QGraphicsRectItem *collisionRect = new QGraphicsRectItem(currentGridPoint.x(),currentGridPoint.y(),85,100);
+//    QList<QGraphicsPixmapItem *> list = scene()->collidingItems(collisionRect);
+//    for (int i = 0; i < list.size(); i++)
+//    {
+//        plant *item = dynamic_cast<plant *>(list[i]);
+//        if (item)
+//        {
+//            delete collisionRect;
+//            return false;
+//        }
+//    }
+
+//    delete collisionRect;
+//    return true;
+//}
 
 //bool GameScreen::peaShooterRect()
 //{
