@@ -1,35 +1,34 @@
 #include "zombie.h"
+#include "sun.h"
 
 zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/Zombies_1.gif"));
-   Xpos=100;
-   Ypos=150;
    power=10;
+   move=new QTimer;
+   move->start(3);
+   connect (move,SIGNAL(timeout()),this,SLOT(walk()));
 
 }
 
-<<<<<<< HEAD
-
-//QRectF zombie::boundingRect() const
-//{
-//    return QRectF(0,0,80,80);   // Set boundingRect() to image size.
-//}
-
-//void zombie::paint(QPainter *painter, const QStyleOptionGraphicsItem * , QWidget *)
-//{
-//    painter->drawPixmap(boundingRect(), this->pixmap(), boundingRect());
-//}
-zombie::~zombie(){
-
-=======
 void zombie::walk()
 {
->>>>>>> 42fd64c7569d50bc50047128c0f0829581196887
+    setPos(x()-0.1 ,y());
+
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<plant *>collid;
+     for (int i = 0, n = colliding_items.size(); i < n; ++i){
+    if(typeid(*(colliding_items[i])) == typeid(plant)){
+    collid[i]=colliding_items[i];
+    }
+    for (int i = 0, n = collid.size(); i < n; ++i){
+        //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
+        move->stop();
+        move->start(5000);
+        connect(move,SIGNAL(timeout()),(*(colliding_items[i])),SLOT (die()));
+
+    }
+
 
 }
 
-zombie::~zombie(){
-
-
-}

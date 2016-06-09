@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
    t2->start(10);
    connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
    zom1 = new zombie();
-   zom1->setPos(150,100);
+   zom1->setPos(750,500);
    scene->addItem(zom1);
 
 }
