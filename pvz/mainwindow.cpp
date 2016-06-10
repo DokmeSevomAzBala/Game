@@ -82,7 +82,8 @@ void MainWindow::make_pea()
   pea* p1;
   p1=new pea();
   scene->addPixmap(p1->ret_pix());
-  p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
+ //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
+  //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
 
   //p1->move_p();////////////////thread
 //  moveP=new QTimer();
