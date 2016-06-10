@@ -4,6 +4,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QObject>
+#include <QDebug>
 class plant :public QObject , public QGraphicsPixmapItem  //public QGraphicsPixmapItem
 {
      Q_OBJECT
