@@ -30,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
    zom1 = new zombie();
    zom1->setPos(250,100);
    scene->addItem(zom1);
+   zombie *zom2 = new zombie();
+   zom2->setPos(500,500);
+   scene->addItem(zom2);
+
 
    //if zobmbie too line has
   this->make_pea();

@@ -1,5 +1,4 @@
 #include "zombie.h"
-#include "sun.h"
 
 zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
@@ -20,9 +19,9 @@ void zombie::walk()
     int k=0;
      for (int i = 0, n = colliding_items.size(); i < n; ++i){
 
-    if(typeid(*(colliding_items[i])) == typeid(plant)){
-    collid[k]=(plant*)colliding_items[i];
-    qDebug()<<"arrrreeeee!";
+    if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ){
+    collid.insert(k,(plant*)colliding_items[i]);
+   // qDebug()<<"arrrreeeee!";
     k++;
     }
      }
@@ -31,7 +30,7 @@ void zombie::walk()
      for (int i = 0, n = collid.size(); i < n; ++i){
         //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
      //   move->stop();
-         qDebug()<<"fuck off baw-_-";
+         qDebug()<<" jeeeein٫!";
         move->start(5000);
         connect(move,SIGNAL(timeout()),collid[i],SLOT (die()));
      }

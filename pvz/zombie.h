@@ -11,6 +11,9 @@
 #include <typeinfo>
 #include "sun.h"
 #include "plant.h"
+#include "peashooter.h"
+#include "sunflower.h"
+
 class zombie:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
