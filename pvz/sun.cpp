@@ -22,7 +22,6 @@ void sun::move_sun()
 
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
         QGraphicsPixmapItem::mousePressEvent(event);
-        SunScore += 50;
         qDebug() << SunScore;
         //delete this;
         w->MyScore->add();
