@@ -15,5 +15,9 @@
         <file>images/Sun.png</file>
         <file>images/SunFlower.gif</file>
         <file>images/Giant_Pea.png</file>
+        <file>images/peashooter_card3.png</file>
+        <file>images/score_background_note.png</file>
+        <file>images/sunflower_card3.png</file>
+        <file>images/walnut_card3.png</file>
     </qresource>
 </RCC>

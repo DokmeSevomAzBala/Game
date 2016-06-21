@@ -1,21 +1,27 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sun.h"
-#include <QImage>
+#include <QPixmap>
+#include <QBrush>
+#include <QPalette>
 #include <QDebug>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
-    ui->view->setStyleSheet("background-image: url(:/new/images/images/Background1);");
+    ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
     scene = new QGraphicsScene(this);
     ui->view->setScene(scene);
-
-    scene->setSceneRect(100,100,1000,700);
-
+    scene->setSceneRect(0,0,1000,700);
+    QPixmap bkgnd(":/new/images/images/Background1");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
     scene->setSceneRect(0,0,1031,726);
     sunfl = new sunflower();
     scene->addItem(sunfl);
@@ -30,22 +36,27 @@ MainWindow::MainWindow(QWidget *parent) :
    zom1 = new zombie();
    zom1->setPos(250,100);
    scene->addItem(zom1);
-
    //if zobmbie too line has
   this->make_pea();
-  QPixmap a(":/new/images/images/PeaShooter.png");
-  QPixmap b(":/new/images/images/index");
-  QPixmap c(":/new/images/images/SunFlower");
- ui->walnutB->setIcon(b);
- ui->peashooterB->setIcon(a);
- ui->sunflowerB->setIcon(c);
+  QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
+  item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
+  scene->addItem(item);
+  QPixmap a(":/new/images/images/peashooter_card3");
+  QPixmap b(":/new/images/images/walnut_card3");
+  QPixmap c(":/new/images/images/sunflower_card3");
+  ui->walnutB->setIcon(b);
+  ui->peashooterB->setIcon(a);
+  ui->sunflowerB->setIcon(c);
   QTimer *ck;
-ck=new QTimer();
- connect(ck,SIGNAL(timeout()),SLOT(check()));
+  ck=new QTimer();
+  connect(ck,SIGNAL(timeout()),SLOT(check()));
   ck->start(20);
 connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
 //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
 //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
+    MyScore = new score();
+    scene->addItem(MyScore);
+    MyScore->setPos(70,25);
 }
 void MainWindow::planting_peashooter()
 {

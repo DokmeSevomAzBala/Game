@@ -35,9 +35,10 @@ class MainWindow : public QMainWindow
     QTimer *t2;
     QVector <sun*> SunVec;
     zombie *zom1;
-
     peashooter* pshr;
 public:
+    score *MyScore;
+
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void mousePressEvent(QMouseEvent* ) ;
