@@ -25,7 +25,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Ui::MainWindow *ui;
-    score player1;
     qreal x_mouse;
     qreal y_mouse;
     QGraphicsView *View;
@@ -50,7 +49,7 @@ public slots:
     void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
- //void planting_sunflower();
+ void planting_sunflower();
 //   void planting_walnut();
   void planting_peashooter();
     void check();

@@ -27,40 +27,58 @@
    <widget class="QPushButton" name="walnutB">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>10</y>
-      <width>120</width>
-      <height>50</height>
+      <x>25</x>
+      <y>120</y>
+      <width>106</width>
+      <height>142</height>
      </rect>
     </property>
     <property name="text">
-     <string>walnut,cost:50</string>
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>106</width>
+      <height>142</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="peashooterB">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>10</y>
-      <width>120</width>
-      <height>50</height>
+      <x>25</x>
+      <y>280</y>
+      <width>106</width>
+      <height>142</height>
      </rect>
     </property>
     <property name="text">
-     <string>peashooter,cost:150</string>
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>106</width>
+      <height>142</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="sunflowerB">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>10</y>
-      <width>120</width>
-      <height>50</height>
+      <x>25</x>
+      <y>440</y>
+      <width>106</width>
+      <height>142</height>
      </rect>
     </property>
     <property name="text">
-     <string>sunflower,cost:50</string>
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>106</width>
+      <height>142</height>
+     </size>
     </property>
    </widget>
   </widget>
