@@ -30,7 +30,7 @@ void zombie::walk()
      for (int i = 0, n = collid.size(); i < n; ++i){
         //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
      //   move->stop();
-         qDebug()<<" jeeeein٫!";
+         qDebug()<<"yess!";
         move->start(5000);
         connect(move,SIGNAL(timeout()),collid[i],SLOT (die()));
      }
