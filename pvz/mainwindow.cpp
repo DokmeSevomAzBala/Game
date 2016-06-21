@@ -36,6 +36,14 @@ MainWindow::MainWindow(QWidget *parent) :
    zom1 = new zombie();
    zom1->setPos(250,100);
    scene->addItem(zom1);
+<<<<<<< HEAD
+=======
+   zombie *zom2 = new zombie();
+   zom2->setPos(500,500);
+   scene->addItem(zom2);
+
+
+>>>>>>> e989b74e149510f1e26368d2e0dbc9d1f97b8f66
    //if zobmbie too line has
   this->make_pea();
   QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
