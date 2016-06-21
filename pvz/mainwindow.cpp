@@ -23,41 +23,39 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
     scene->setSceneRect(0,0,1031,726);
-    sunfl = new sunflower();
-    scene->addItem(sunfl);
-    sunfl->setPos(500,500);
-   t1 = new QTimer();
-   connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-   t1->start(1000);
-   t2 = new QTimer();
-   connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
-   t2->start(10);
-   connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
-   zom1 = new zombie();
-   zom1->setPos(250,100);
-   scene->addItem(zom1);
-   zombie *zom2 = new zombie();
-   zom2->setPos(500,500);
-   scene->addItem(zom2);
-   //if zobmbie too line has
-  //this->make_pea();
-  QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
-  item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
-  scene->addItem(item);
-  QPixmap a(":/new/images/images/peashooter_card3");
-  QPixmap b(":/new/images/images/walnut_card3");
-  QPixmap c(":/new/images/images/sunflower_card3");
-  ui->walnutB->setIcon(b);
-  ui->peashooterB->setIcon(a);
-  ui->sunflowerB->setIcon(c);
-  MyScore = new score();
-  MyScore->setPos(70,25);
-  scene->addItem(MyScore);
-  QTimer *ck;
-  ck=new QTimer();
-  connect(ck,SIGNAL(timeout()),SLOT(check()));
-  ck->start(20);
-  connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
+    t1 = new QTimer();
+    connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
+    t1->start(10000);
+    t2 = new QTimer();
+    connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
+    t2->start(10);
+//    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
+    zom1 = new zombie();
+    zom1->setPos(250,100);
+    scene->addItem(zom1);
+    zombie *zom2 = new zombie();
+    zom2->setPos(500,500);
+    scene->addItem(zom2);
+    //if zobmbie too line has
+    //this->make_pea();
+    QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
+    item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
+    scene->addItem(item);
+    QPixmap a(":/new/images/images/peashooter_card3");
+    QPixmap b(":/new/images/images/walnut_card3");
+    QPixmap c(":/new/images/images/sunflower_card3");
+    ui->walnutB->setIcon(b);
+    ui->peashooterB->setIcon(a);
+    ui->sunflowerB->setIcon(c);
+    MyScore = new score();
+    MyScore->setPos(70,25);
+    scene->addItem(MyScore);
+    QTimer *ck;
+    ck=new QTimer();
+    connect(ck,SIGNAL(timeout()),SLOT(check()));
+    ck->start(20);
+    connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
+    //connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(mousePressEvent(QMouseEvent*)));
     //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
 }
@@ -66,12 +64,14 @@ void MainWindow::planting_peashooter()
      pshr = new peashooter();
      scene->addItem(pshr);
      pshr->setPos(x_mouse,y_mouse);
+     this->MyScore->subtract(100);
 }
 void MainWindow::planting_sunflower()
 {
     sunfl = new sunflower();
     scene->addItem(sunfl);
     sunfl->setPos(x_mouse,y_mouse);
+    this->MyScore->subtract(50);
 
 }
 void MainWindow::check()
@@ -119,11 +119,6 @@ void MainWindow::MakeSunOnScene(){
     scene->addItem(Sun);
 }
 
-void MainWindow::MakeSunForSunFlower()
-{
-//    sunfl->s1->setPos(sunfl->x()+30,sunfl->y()+40);
-//    scene->addItem(sunfl->s1);
-}
 
 void MainWindow::MoveAllSuns()
 {
@@ -138,15 +133,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_SunflowerButton_clicked()
-{
-
-}
  void MainWindow::mousePressEvent(QMouseEvent *ev){
      x_mouse= ev->x();
       y_mouse=ev->y();
-      qDebug()<<x_mouse;
-      qDebug()<<y_mouse;
+//      qDebug()<<x_mouse;
+//      qDebug()<<y_mouse;
 
      }
+
+//void MainWindow::on_peashooterB_clicked()
+//{
+//    pshr = new peashooter();
+//    scene->addItem(pshr);
+//    pshr->setPos(x_mouse,y_mouse);
+//}

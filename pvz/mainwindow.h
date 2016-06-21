@@ -40,21 +40,22 @@ public:
 
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void mousePressEvent(QMouseEvent* ) ;
     QGraphicsScene *scene;
 
 public slots:
+    void mousePressEvent(QMouseEvent* ) ;
     void make_pea();
     void MakeSunOnScene();
-    void MakeSunForSunFlower();
+    //void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
  void planting_sunflower();
 //   void planting_walnut();
   void planting_peashooter();
     void check();
-    void on_SunflowerButton_clicked();
+//    void on_SunflowerButton_clicked();
 
+    //void on_peashooterB_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -20,11 +20,16 @@ void sun::move_sun()
     }
 }
 
+void sun::DeleteSun()
+{
+    w->scene->removeItem(this);
+
+}
+
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
         QGraphicsPixmapItem::mousePressEvent(event);
-        qDebug() << SunScore;
-        //delete this;
         w->MyScore->add();
+        DeleteSun();
 }
 
 
@@ -44,8 +49,6 @@ void sun::advance(int)
 }
 
 sun::~sun(){
-
-    delete this;
     qDebug() <<"j";
 
 
