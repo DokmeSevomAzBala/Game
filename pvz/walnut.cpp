@@ -2,8 +2,26 @@
 
 walnut::walnut()
 {
+    life_time = 25;
     cost = 30;
-    life_time = 20;
-    setPixmap(QPixmap(":/Desktopr/walnut"));
+//    Xpos=100;
+//    Ypos=120;
+    seeding_time = 50;
+    QPixmap m(":/new/images/images/f693410b2cd415bee518a697f727ed09.jpg");
+    PlantPic=m;
+    setPixmap(PlantPic);
 
 }
+
+//void walnut::setLife(int newLife)
+//{
+//    life_time = newLife;
+//}
+//void walnut::onPlant()
+//{
+
+//}
+//void walnut::paint(QPainter *painter,const QStyleOptionGraphicsItem *, QWidget *)
+//{
+ //   painter->drawPixmap(boundingRect(),this->pixmap(), boundingRect());
+//}

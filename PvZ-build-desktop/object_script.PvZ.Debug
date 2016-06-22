@@ -10,6 +10,7 @@ INPUT(
 ./debug\pea.o
 ./debug\peashooter.o
 ./debug\drag.o
+./debug\walnut.o
 ./debug\moc_mainwindow.o
 ./debug\moc_zombie.o
 ./debug\moc_sunflower.o
@@ -18,5 +19,6 @@ INPUT(
 ./debug\moc_pea.o
 ./debug\moc_peashooter.o
 ./debug\moc_gamescreen.o
+./debug\moc_walnut.o
 ./debug\qrc_pvzresources.o
 );

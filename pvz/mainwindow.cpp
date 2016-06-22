@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "sun.h"
 #include <QPixmap>
 #include <QBrush>
@@ -10,7 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+<<<<<<< HEAD
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
+=======
 
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
@@ -67,12 +74,28 @@ void MainWindow::planting_peashooter()
      pshr->setPos(x_mouse,y_mouse);
      this->MyScore->subtract(100);
 }
+<<<<<<< HEAD
+void MainWindow::planting_walnut()
+{
+ wl = new walnut();
+ scene->addItem(wl);
+ wl->setPos(x_mouse,y_mouse);
+ qDebug()<<x_mouse;
+ qDebug()<<y_mouse;
+}
+//void MainWindow::planting_sunflower()
+//{
+//    sunfl = new sunflower();
+//    scene->addItem(sunfl);
+//    sunfl->setPos(x_mouse,y_mouse);
+=======
 void MainWindow::planting_sunflower()
 {
     sunfl = new sunflower();
     scene->addItem(sunfl);
     sunfl->setPos(x_mouse,y_mouse);
     this->MyScore->subtract(50);
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
 
 }
 void MainWindow::check()
