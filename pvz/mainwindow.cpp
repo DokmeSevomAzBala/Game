@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     gs = new GameScreen();
     t1 = new QTimer();
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-    t1->start(10000);
+    t1->start(1000);
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
@@ -40,8 +40,6 @@ MainWindow::MainWindow(QWidget *parent) :
     zombie *zom2 = new zombie();
     zom2->setPos(700,400);
     scene->addItem(zom2);
-    //if zobmbie too line has
-    //this->make_pea();
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -68,7 +66,10 @@ void MainWindow::planting_peashooter()
      pshr = new peashooter();
      scene->addItem(pshr);
      pshr->setPos(x_mouse,y_mouse);
+     pshr->Xpos=x_mouse;
+     pshr->Ypos=y_mouse;
      this->MyScore->subtract(100);
+      pshr->make_pea();////////////////////////////////////////in nbayad inja bashe
 }
 void MainWindow::planting_walnut()
 {
@@ -90,6 +91,7 @@ void MainWindow::planting_sunflower()
     sunfl->setPos(x_mouse,y_mouse);
     this->MyScore->subtract(50);
 
+
 }
 void MainWindow::check()
 {
@@ -106,25 +108,6 @@ void MainWindow::check()
     if(this->MyScore->ret_score()>=100)
         ui->peashooterB->setEnabled(true);
    else ui->peashooterB->setEnabled(false);
-}
-void MainWindow::make_pea()
-{
-
-  pea* p1;
-  p1=new pea();
-  scene->addPixmap(p1->ret_pix());
- //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
-
-  //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
-
-     //p1->move_p();////////////////thread
-    //  moveP=new QTimer();
-    //  connect(moveP,SIGNAL(timeout()),this,SLOT(move_p( )));
-    //  emit p1->move_p();
-    //  moveP->start(10);
-
-
-
 }
 
 void MainWindow::MakeSunOnScene(){
