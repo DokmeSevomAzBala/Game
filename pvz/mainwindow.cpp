@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
     scene->setSceneRect(0,0,1031,726);
+    gs = new GameScreen();
     t1 = new QTimer();
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
     t1->start(10000);
@@ -136,10 +137,43 @@ MainWindow::~MainWindow()
  void MainWindow::mousePressEvent(QMouseEvent *ev){
      x_mouse= ev->x();
       y_mouse=ev->y();
-//      qDebug()<<x_mouse;
-//      qDebug()<<y_mouse;
+      screen(x_mouse,y_mouse);
 
      }
+ void MainWindow::screen(qreal x , qreal y){
+     for (int i = 0 ; i < 9 ; i++){
+         for (int j = 0 ; j < 5 ; j++){
+             if (i < 8 && j<4 ){
+                if(x > gs->grid[i][j].x() && x < (gs->grid[i+1][j].x()) &&
+                   y > gs->grid[i][j].y() && y < (gs->grid[i][j+1].y())){
+                    x_mouse = gs->grid[i][j].x();
+                    y_mouse = gs->grid[i][j].y();
+                 }
+             }
+             else if (i == 8 && j < 4){
+                if(x > gs->grid[i][j].x() && x < (gs->grid[i][j].x() + 100) &&
+                   y > gs->grid[i][j].y() && y < (gs->grid[i][j+1].y()) ){
+                    qDebug() << i << j << gs->grid[i][j];
+                }
+             }
+             else if (j == 4 && i < 8){
+                 if(x > gs->grid[i][j].x() && x < (gs->grid[i+1][j].x()) &&
+                    y > gs->grid[i][j].y() && y < (gs->grid[i][j].y() + 100)){
+                     x_mouse = gs->grid[i][j].x();
+                     y_mouse = gs->grid[i][j].y();
+
+                 }
+             }
+             if (i == 8 && j == 4){
+                 if(x > gs->grid[i][j].x() && x < (gs->grid[i][j].x() + 100) &&
+                    y > gs->grid[i][j].y() && y < (gs->grid[i][j].y() + 100)){
+                     x_mouse = gs->grid[i][j].x();
+                     y_mouse = gs->grid[i][j].y();
+                 }
+             }
+         }
+     }
+ }
 
 //void MainWindow::on_peashooterB_clicked()
 //{

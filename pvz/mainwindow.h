@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "drag.h"
+#include "gamescreen.h"
 #include "sunflower.h"
 #include "zombie.h"
 #include "pea.h"
@@ -35,9 +35,10 @@ class MainWindow : public QMainWindow
     QVector <sun*> SunVec;
     zombie *zom1;
     peashooter* pshr;
+    GameScreen *gs;
 public:
     score *MyScore;
-
+    void screen(qreal,qreal);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QGraphicsScene *scene;
