@@ -1,27 +1,18 @@
 <RCC>
     <qresource prefix="/new/images">
-        <file>images/ConeHead.png</file>
-        <file>images/PeaShooter.png</file>
-        <file>images/plants_vs_zombies.png</file>
-        <file>images/RegularZombie.png</file>
-        <file>images/Sunflower.png</file>
-        <file>images/zombie.png</file>
-        <file>images/zombienewspaper.png</file>
-        <file>images/Zombies_1.gif</file>
-        <file>images/Zombies_2.gif</file>
-        <file>images/Zombies_3.gif</file>
-        <file>images/Zombies_4.gif</file>
         <file>images/Background1.jpg</file>
-        <file>images/Sun.png</file>
-        <file>images/SunFlower.gif</file>
-        <file>images/Giant_Pea.png</file>
-<<<<<<< HEAD
-        <file>f693410b2cd415bee518a697f727ed09.jpg</file>
-=======
         <file>images/peashooter_card3.png</file>
         <file>images/score_background_note.png</file>
         <file>images/sunflower_card3.png</file>
         <file>images/walnut_card3.png</file>
->>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
+        <file>images/ConeHead.png</file>
+        <file>images/Giant_Pea.png</file>
+        <file>images/images.jpg</file>
+        <file>images/PeaShooter.png</file>
+        <file>images/Sun.png</file>
+        <file>images/SunFlower.gif</file>
+        <file>images/Sunflower.png</file>
+        <file>images/zombie.png</file>
+        <file>images/Walnut.png</file>
     </qresource>
 </RCC>

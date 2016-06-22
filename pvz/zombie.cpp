@@ -2,7 +2,7 @@
 
 zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
-   setPixmap(QPixmap(":/new/images/images/Zombies_1.gif"));
+   setPixmap(QPixmap(":/new/images/images/zombie"));
    power=10;
    move=new QTimer;
    move->start(3);

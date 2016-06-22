@@ -7,8 +7,9 @@ walnut::walnut()
 //    Xpos=100;
 //    Ypos=120;
     seeding_time = 50;
-    QPixmap m(":/new/images/images/f693410b2cd415bee518a697f727ed09.jpg");
-    PlantPic=m;
+
+    QPixmap m(":/new/images/images/Walnut.png");
+    PlantPic = m;
     setPixmap(PlantPic);
 
 }

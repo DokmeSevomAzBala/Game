@@ -39,17 +39,11 @@ HEADERS  += mainwindow.h \
     score.h \
     pea.h \
     peashooter.h \
-<<<<<<< HEAD
     drag.h \
-    gamescreen.h
-=======
     gamescreen.h \
-    drag.h \
-    walnut.h
->>>>>>> e30761a494f12beb6a413be4c1070c18120b0e5d
+    walnut.h\
 
-
-FORMS    += mainwindow.ui
+FORMS  += mainwindow.ui
 
 RESOURCES += \
     pvzresources.qrc

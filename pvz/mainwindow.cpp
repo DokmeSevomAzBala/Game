@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 #include "sun.h"
 #include <QPixmap>
 #include <QBrush>
@@ -11,13 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-<<<<<<< HEAD
     wl = new walnut();
     scene->addItem(wl);
     wl->setPos(10,10);
-=======
 
->>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
@@ -39,10 +35,10 @@ MainWindow::MainWindow(QWidget *parent) :
     t2->start(10);
 //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
     zom1 = new zombie();
-    zom1->setPos(250,100);
+    zom1->setPos(500,100);
     scene->addItem(zom1);
     zombie *zom2 = new zombie();
-    zom2->setPos(500,500);
+    zom2->setPos(700,400);
     scene->addItem(zom2);
     //if zobmbie too line has
     //this->make_pea();
@@ -74,7 +70,6 @@ void MainWindow::planting_peashooter()
      pshr->setPos(x_mouse,y_mouse);
      this->MyScore->subtract(100);
 }
-<<<<<<< HEAD
 void MainWindow::planting_walnut()
 {
  wl = new walnut();
@@ -88,14 +83,12 @@ void MainWindow::planting_walnut()
 //    sunfl = new sunflower();
 //    scene->addItem(sunfl);
 //    sunfl->setPos(x_mouse,y_mouse);
-=======
 void MainWindow::planting_sunflower()
 {
     sunfl = new sunflower();
     scene->addItem(sunfl);
     sunfl->setPos(x_mouse,y_mouse);
     this->MyScore->subtract(50);
->>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
 
 }
 void MainWindow::check()
