@@ -34,12 +34,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
 //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
-    zom1 = new zombie();
+/*    zom1 = new zombie();
     zom1->setPos(500,100);
     scene->addItem(zom1);
     zombie *zom2 = new zombie();
     zom2->setPos(700,400);
-    scene->addItem(zom2);
+    scene->addItem(zom2);*/
+    zomcrt->start(5000);
+    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -125,6 +128,13 @@ void MainWindow::MoveAllSuns()
         for (int i= 0; i< SunVec.size() ; i++){
             SunVec.at(i)->move_sun();
         }
+
+}
+
+void MainWindow::creatzom()
+{
+    zombie* zom1=new zombie();
+    zomvec.push_back(zom1);
 
 }
 

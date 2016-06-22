@@ -24,6 +24,7 @@ class zombie:public QObject,public QGraphicsPixmapItem
     QTimer *move;
 public:
     zombie(QGraphicsItem *parent = 0);
+    ~zombie();
 
 public slots:
     void walk();
