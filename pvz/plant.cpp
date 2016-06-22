@@ -8,6 +8,9 @@ plant::~plant(){
     qDebug()<<"die die die die die die3:))";
 }
 void plant::die(){
+    life_time-=0.003;
+    if (life_time<=10)
+        this->~plant();
 
-    this->~plant();
+
 }
