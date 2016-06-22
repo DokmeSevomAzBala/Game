@@ -26,6 +26,7 @@ void pea::move_p(int a,int b)
       this->setPos(p_x,p_y);
 
    }
+    this->~pea();
 
 }
 void pea::delay( int millisecondsToWait )
