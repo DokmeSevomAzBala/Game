@@ -9,31 +9,30 @@
 #include <QStyleOptionGraphicsItem>
 #include <QWidget>
 #include <QGraphicsPixmapItem>
+#include <QDebug>
+#include <QEventLoop>
+#include <QTime>
+#include <QCoreApplication>
 using namespace std;
 
 class pea:public QObject , public QGraphicsPixmapItem
 {
+     Q_OS_WIN
     Q_OBJECT
     friend class peashooter;
 private:
+
  QPixmap P;
- //int accident;
  int p_x;
- int p_y;
+int p_y;
 
 public:
- int accident;
-//  QRectF boundingRect() const;
-// void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
- void set_x_y(int,int );
-
- QPixmap ret_pix();
+void delay( int);
     pea();
-    float width();
     ~pea();
-
+ void move_p(int,int);
 public slots:
-   void move_p();
+  // void move_p(int,int);
 };
 
 #endif // PEA_H

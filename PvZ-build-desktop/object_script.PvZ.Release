@@ -17,6 +17,5 @@ INPUT(
 ./release\moc_plant.o
 ./release\moc_pea.o
 ./release\moc_peashooter.o
-./release\moc_gamescreen.o
 ./release\qrc_pvzresources.o
 );

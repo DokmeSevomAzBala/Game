@@ -45,7 +45,6 @@ public:
 
 public slots:
     void mousePressEvent(QMouseEvent* ) ;
-    void make_pea();
     void MakeSunOnScene();
     //void MakeSunForSunFlower();
     void MoveAllSuns();

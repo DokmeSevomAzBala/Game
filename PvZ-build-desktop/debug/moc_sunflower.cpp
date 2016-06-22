@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'sunflower.h'
 **
-** Created: Tue Jun 7 14:57:52 2016
+** Created: Wed Jun 22 13:30:52 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -37,7 +37,7 @@ static const uint qt_meta_data_sunflower[] = {
 };
 
 static const char qt_meta_stringdata_sunflower[] = {
-    "sunflower\0\0makeSun()\0"
+    "sunflower\0\0MakeSunForSunFlower()\0"
 };
 
 const QMetaObject sunflower::staticMetaObject = {
@@ -69,7 +69,7 @@ int sunflower::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: makeSun(); break;
+        case 0: MakeSunForSunFlower(); break;
         default: ;
         }
         _id -= 1;
