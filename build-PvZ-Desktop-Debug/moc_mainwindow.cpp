@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[9];
-    char stringdata[121];
+    QByteArrayData data[10];
+    char stringdata[122];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,20 +30,21 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 8), // "make_pea"
-QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 14), // "MakeSunOnScene"
-QT_MOC_LITERAL(4, 36, 19), // "MakeSunForSunFlower"
-QT_MOC_LITERAL(5, 56, 11), // "MoveAllSuns"
-QT_MOC_LITERAL(6, 68, 19), // "planting_peashooter"
-QT_MOC_LITERAL(7, 88, 5), // "check"
-QT_MOC_LITERAL(8, 94, 26) // "on_SunflowerButton_clicked"
+QT_MOC_LITERAL(1, 11, 15), // "mousePressEvent"
+QT_MOC_LITERAL(2, 27, 0), // ""
+QT_MOC_LITERAL(3, 28, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(4, 41, 8), // "make_pea"
+QT_MOC_LITERAL(5, 50, 14), // "MakeSunOnScene"
+QT_MOC_LITERAL(6, 65, 11), // "MoveAllSuns"
+QT_MOC_LITERAL(7, 77, 18), // "planting_sunflower"
+QT_MOC_LITERAL(8, 96, 19), // "planting_peashooter"
+QT_MOC_LITERAL(9, 116, 5) // "check"
 
     },
-    "MainWindow\0make_pea\0\0MakeSunOnScene\0"
-    "MakeSunForSunFlower\0MoveAllSuns\0"
-    "planting_peashooter\0check\0"
-    "on_SunflowerButton_clicked"
+    "MainWindow\0mousePressEvent\0\0QMouseEvent*\0"
+    "make_pea\0MakeSunOnScene\0MoveAllSuns\0"
+    "planting_sunflower\0planting_peashooter\0"
+    "check"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,16 +62,16 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   49,    2, 0x0a /* Public */,
-       3,    0,   50,    2, 0x0a /* Public */,
-       4,    0,   51,    2, 0x0a /* Public */,
-       5,    0,   52,    2, 0x0a /* Public */,
-       6,    0,   53,    2, 0x08 /* Private */,
-       7,    0,   54,    2, 0x08 /* Private */,
-       8,    0,   55,    2, 0x08 /* Private */,
+       1,    1,   49,    2, 0x0a /* Public */,
+       4,    0,   52,    2, 0x0a /* Public */,
+       5,    0,   53,    2, 0x0a /* Public */,
+       6,    0,   54,    2, 0x0a /* Public */,
+       7,    0,   55,    2, 0x08 /* Private */,
+       8,    0,   56,    2, 0x08 /* Private */,
+       9,    0,   57,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -86,17 +87,16 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->make_pea(); break;
-        case 1: _t->MakeSunOnScene(); break;
-        case 2: _t->MakeSunForSunFlower(); break;
+        case 0: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 1: _t->make_pea(); break;
+        case 2: _t->MakeSunOnScene(); break;
         case 3: _t->MoveAllSuns(); break;
-        case 4: _t->planting_peashooter(); break;
-        case 5: _t->check(); break;
-        case 6: _t->on_SunflowerButton_clicked(); break;
+        case 4: _t->planting_sunflower(); break;
+        case 5: _t->planting_peashooter(); break;
+        case 6: _t->check(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject MainWindow::staticMetaObject = {

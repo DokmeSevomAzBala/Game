@@ -43,20 +43,23 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         view = new QGraphicsView(centralWidget);
         view->setObjectName(QStringLiteral("view"));
-        view->setGeometry(QRect(0, 60, 1031, 726));
+        view->setGeometry(QRect(0, 0, 1031, 726));
         walnutB = new QPushButton(centralWidget);
         walnutB->setObjectName(QStringLiteral("walnutB"));
-        walnutB->setGeometry(QRect(20, 10, 120, 50));
+        walnutB->setGeometry(QRect(25, 120, 106, 142));
+        walnutB->setIconSize(QSize(106, 142));
         peashooterB = new QPushButton(centralWidget);
         peashooterB->setObjectName(QStringLiteral("peashooterB"));
-        peashooterB->setGeometry(QRect(160, 10, 120, 50));
+        peashooterB->setGeometry(QRect(25, 280, 106, 142));
+        peashooterB->setIconSize(QSize(106, 142));
         sunflowerB = new QPushButton(centralWidget);
         sunflowerB->setObjectName(QStringLiteral("sunflowerB"));
-        sunflowerB->setGeometry(QRect(300, 10, 120, 50));
+        sunflowerB->setGeometry(QRect(25, 440, 106, 142));
+        sunflowerB->setIconSize(QSize(106, 142));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 500, 20));
+        menuBar->setGeometry(QRect(0, 0, 500, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -70,9 +73,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        walnutB->setText(QApplication::translate("MainWindow", "walnut,cost:50", 0));
-        peashooterB->setText(QApplication::translate("MainWindow", "peashooter,cost:150", 0));
-        sunflowerB->setText(QApplication::translate("MainWindow", "sunflower,cost:50", 0));
+        walnutB->setText(QString());
+        peashooterB->setText(QString());
+        sunflowerB->setText(QString());
     } // retranslateUi
 
 };

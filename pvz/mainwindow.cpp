@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "sun.h"
 #include <QPixmap>
 #include <QBrush>
@@ -10,7 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+<<<<<<< HEAD
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
+=======
 
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
@@ -68,12 +75,28 @@ void MainWindow::planting_peashooter()
      this->MyScore->subtract(100);
       pshr->make_pea();////////////////////////////////////////in nbayad inja bashe
 }
+<<<<<<< HEAD
+void MainWindow::planting_walnut()
+{
+ wl = new walnut();
+ scene->addItem(wl);
+ wl->setPos(x_mouse,y_mouse);
+ qDebug()<<x_mouse;
+ qDebug()<<y_mouse;
+}
+//void MainWindow::planting_sunflower()
+//{
+//    sunfl = new sunflower();
+//    scene->addItem(sunfl);
+//    sunfl->setPos(x_mouse,y_mouse);
+=======
 void MainWindow::planting_sunflower()
 {
     sunfl = new sunflower();
     scene->addItem(sunfl);
     sunfl->setPos(x_mouse,y_mouse);
     this->MyScore->subtract(50);
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
 
 
 }
@@ -118,14 +141,17 @@ MainWindow::~MainWindow()
 }
 
  void MainWindow::mousePressEvent(QMouseEvent *ev){
-     x_mouse= ev->x();
-      y_mouse=ev->y();
-      screen(x_mouse,y_mouse);
+     if (ev->x() < 1000 && ev->y() < 640 && ev->x() > 250 && ev->y() > 65){
+        x_mouse= ev->x();
+        y_mouse=ev->y();
+        screen(x_mouse,y_mouse);
+     }
 
      }
  void MainWindow::screen(qreal x , qreal y){
      for (int i = 0 ; i < 9 ; i++){
          for (int j = 0 ; j < 5 ; j++){
+             gs->IfGridIsFull[i][j] = 1;
              if (i < 8 && j<4 ){
                 if(x > gs->grid[i][j].x() && x < (gs->grid[i+1][j].x()) &&
                    y > gs->grid[i][j].y() && y < (gs->grid[i][j+1].y())){
