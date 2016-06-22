@@ -10,6 +10,42 @@ zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 
 }
 
+zombie::~zombie()
+{
+
+}
+
+void zombie::walk()
+{
+
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+//    QList<plant *>collidplant;
+    bool k=false;
+    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+        if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ){
+
+            ((plant*)colliding_items[i])->die();
+            k=true;
+        }
+        else if(typeid(*(colliding_items[i])) == typeid(pea) ){
+            ((pea*)colliding_items[i])->~pea();
+            power--;
+            if(power<=0)
+                this->~zombie();
+        }
+
+      //  else if (typeid(*(colliding_items[i])) == typeid(lawnmawner) )
+    }
+    if(k==false){
+        qDebug()<<"moved";
+        setPos(x()-0.1 ,y());
+     }
+}
+
+
+/*
+
+
 void zombie::walk()
 {
     //setPos(x()-0.1 ,y());
@@ -37,9 +73,4 @@ void zombie::walk()
          setPos(x()-0.1 ,y());
      }
 
-     }
-
-
-
-
-
+     }*/
