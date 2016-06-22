@@ -1,4 +1,9 @@
 #include "plant.h"
+void plant::Place(QPoint point)
+{
+    setPos(point);
+}
+
 plant::plant(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
 

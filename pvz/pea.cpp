@@ -3,32 +3,41 @@
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
+#include "mainwindow.h"
+#include <QThread>
+extern MainWindow *w;
 
 pea::pea()
 {
-    accident=0;
-    QPixmap pixmap(":/new/images/images/Giant_Pea.png");
-    P=pixmap;
-    setPixmap(P);
-    accident=0;
-}
-float pea::width()
-{
-    return P.width();///////////////
-}
-void pea::move_p()
-{
-//this->setPos(p_x+400,p_y);
+
+   QPixmap pixmap(":/new/images/images/Giant_Pea.png");
+   P=pixmap;
+   setPixmap(P);
 
 }
-QPixmap pea::ret_pix()
+
+void pea::move_p(int a,int b)
 {
-   return P;
+    p_x=a;
+    p_y=b;
+    while(p_x<1000){
+        this->delay(1000);
+      p_x=p_x+30;
+      this->setPos(p_x,p_y);
+
+   }
+    this->~pea();
+
 }
-void pea::set_x_y(int x,int y)
+void pea::delay( int millisecondsToWait )
 {
-    this->setPos(x,y);
+    QTime dieTime = QTime::currentTime().addMSecs( millisecondsToWait );
+    while( QTime::currentTime() < dieTime )
+    {
+        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+    }
 }
+
 
 pea::~pea(){}
 

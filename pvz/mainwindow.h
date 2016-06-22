@@ -4,6 +4,7 @@
 #include "sunflower.h"
 #include "zombie.h"
 #include "pea.h"
+#include "walnut.h"
 #include "peashooter.h"
 #include "score.h"
 #include <QPushButton>
@@ -32,8 +33,11 @@ class MainWindow : public QMainWindow
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
+    QTimer *zomcrt;
     QVector <sun*> SunVec;
+    QVector <zombie *> zomvec;
     zombie *zom1;
+    walnut* wl;
     peashooter* pshr;
     GameScreen *gs;
 public:
@@ -45,18 +49,25 @@ public:
 
 public slots:
     void mousePressEvent(QMouseEvent* ) ;
-    void make_pea();
     void MakeSunOnScene();
     //void MakeSunForSunFlower();
     void MoveAllSuns();
+    void creatzom();
 private slots:
- void planting_sunflower();
+    void planting_sunflower();
+    void planting_walnut();
+    void planting_peashooter();
+ //void planting_sunflower();
+   // void planting_walnut();
+  //  void planting_peashooter();
+// void planting_sunflower();
 //   void planting_walnut();
-  void planting_peashooter();
+//  void planting_peashooter();
     void check();
 //    void on_SunflowerButton_clicked();
-
     //void on_peashooterB_clicked();
+signals:
+    void click();
 };
 
 #endif // MAINWINDOW_H

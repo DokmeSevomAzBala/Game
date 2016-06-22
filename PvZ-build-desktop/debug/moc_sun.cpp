@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'sun.h'
 **
-** Created: Mon Jun 6 18:05:56 2016
+<<<<<<< HEAD
+** Created: Wed Jun 22 13:30:55 2016
+=======
+** Created: Sat Jun 11 21:22:44 2016
+>>>>>>> b0d766d7af0ba506c9839c167dd0c081f1e3b3f4
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +27,7 @@ static const uint qt_meta_data_sun[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,12 +36,13 @@ static const uint qt_meta_data_sun[] = {
 
  // slots: signature, parameters, type, tag, flags
        5,    4,    4,    4, 0x0a,
+      16,    4,    4,    4, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_sun[] = {
-    "sun\0\0move_sun()\0"
+    "sun\0\0move_sun()\0DeleteSun()\0"
 };
 
 const QMetaObject sun::staticMetaObject = {
@@ -72,9 +77,10 @@ int sun::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: move_sun(); break;
+        case 1: DeleteSun(); break;
         default: ;
         }
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

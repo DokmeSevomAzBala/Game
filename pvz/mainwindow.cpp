@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
 
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
@@ -26,19 +29,20 @@ MainWindow::MainWindow(QWidget *parent) :
     gs = new GameScreen();
     t1 = new QTimer();
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-    t1->start(10000);
+    t1->start(1000);
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
 //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
-    zom1 = new zombie();
-    zom1->setPos(250,100);
+/*    zom1 = new zombie();
+    zom1->setPos(500,100);
     scene->addItem(zom1);
     zombie *zom2 = new zombie();
-    zom2->setPos(500,500);
-    scene->addItem(zom2);
-    //if zobmbie too line has
-    //this->make_pea();
+    zom2->setPos(700,400);
+    scene->addItem(zom2);*/
+    zomcrt->start(5000);
+    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -65,14 +69,31 @@ void MainWindow::planting_peashooter()
      pshr = new peashooter();
      scene->addItem(pshr);
      pshr->setPos(x_mouse,y_mouse);
+     pshr->Xpos=x_mouse;
+     pshr->Ypos=y_mouse;
      this->MyScore->subtract(100);
+      pshr->make_pea();////////////////////////////////////////in nbayad inja bashe
 }
+void MainWindow::planting_walnut()
+{
+ wl = new walnut();
+ scene->addItem(wl);
+ wl->setPos(x_mouse,y_mouse);
+ qDebug()<<x_mouse;
+ qDebug()<<y_mouse;
+}
+//void MainWindow::planting_sunflower()
+//{
+//    sunfl = new sunflower();
+//    scene->addItem(sunfl);
+//    sunfl->setPos(x_mouse,y_mouse);
 void MainWindow::planting_sunflower()
 {
     sunfl = new sunflower();
     scene->addItem(sunfl);
     sunfl->setPos(x_mouse,y_mouse);
     this->MyScore->subtract(50);
+
 
 }
 void MainWindow::check()
@@ -90,25 +111,6 @@ void MainWindow::check()
     if(this->MyScore->ret_score()>=100)
         ui->peashooterB->setEnabled(true);
    else ui->peashooterB->setEnabled(false);
-}
-void MainWindow::make_pea()
-{
-
-  pea* p1;
-  p1=new pea();
-  scene->addPixmap(p1->ret_pix());
- //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
-
-  //p1->set_x_y(pshr->Xpos+2*(p1->width()),pshr->Ypos-4);
-
-     //p1->move_p();////////////////thread
-    //  moveP=new QTimer();
-    //  connect(moveP,SIGNAL(timeout()),this,SLOT(move_p( )));
-    //  emit p1->move_p();
-    //  moveP->start(10);
-
-
-
 }
 
 void MainWindow::MakeSunOnScene(){
@@ -129,20 +131,30 @@ void MainWindow::MoveAllSuns()
 
 }
 
+void MainWindow::creatzom()
+{
+    zombie* zom1=new zombie();
+    zomvec.push_back(zom1);
+
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
  void MainWindow::mousePressEvent(QMouseEvent *ev){
-     x_mouse= ev->x();
-      y_mouse=ev->y();
-      screen(x_mouse,y_mouse);
+     if (ev->x() < 1000 && ev->y() < 640 && ev->x() > 250 && ev->y() > 65){
+        x_mouse= ev->x();
+        y_mouse=ev->y();
+        screen(x_mouse,y_mouse);
+     }
 
      }
  void MainWindow::screen(qreal x , qreal y){
      for (int i = 0 ; i < 9 ; i++){
          for (int j = 0 ; j < 5 ; j++){
+             gs->IfGridIsFull[i][j] = 1;
              if (i < 8 && j<4 ){
                 if(x > gs->grid[i][j].x() && x < (gs->grid[i+1][j].x()) &&
                    y > gs->grid[i][j].y() && y < (gs->grid[i][j+1].y())){

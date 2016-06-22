@@ -10,6 +10,8 @@ class peashooter: public plant
     Q_OBJECT
  friend class pea;
 public:
+ void make_pea();
+
 peashooter();
 public slots:
 

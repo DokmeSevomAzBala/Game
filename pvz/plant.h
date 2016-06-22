@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QObject>
 #include <QDebug>
+#include <QPoint>
 class plant :public QObject , public QGraphicsPixmapItem  //public QGraphicsPixmapItem
 {
      Q_OBJECT
@@ -14,8 +15,8 @@ public:
     float life_time;    //from the time that zombie encounter this plant, how mnay seconds should pass to die?
     int Xpos;
     int Ypos;
-   QPixmap PlantPic;
-
+    QPixmap PlantPic;
+    void Place(QPoint);
     plant(QGraphicsItem *parent = 0);
     ~plant();
 public slots:

@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     gamescreen.cpp \
     pea.cpp \
     peashooter.cpp \
-    drag.cpp
+    drag.cpp \
+    walnut.cpp
 
 
 
@@ -38,11 +39,11 @@ HEADERS  += mainwindow.h \
     score.h \
     pea.h \
     peashooter.h \
+    drag.h \
     gamescreen.h \
-    drag.h
+    walnut.h\
 
-
-FORMS    += mainwindow.ui
+FORMS  += mainwindow.ui
 
 RESOURCES += \
     pvzresources.qrc

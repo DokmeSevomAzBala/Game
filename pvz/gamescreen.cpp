@@ -9,7 +9,7 @@ GameScreen::GameScreen()
         for (int j = 0; j < 5; j++)
         {
             grid[i][j] = QPoint(x[i],y[j]);
-
+            IfGridIsFull[i][j] = 0;
         }
     }
 }

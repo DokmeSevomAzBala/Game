@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'peashooter.h'
 **
-** Created: Tue Jun 7 18:24:17 2016
+<<<<<<< HEAD
+** Created: Wed Jun 22 14:41:42 2016
+=======
+** Created: Sat Jun 11 21:22:48 2016
+>>>>>>> b0d766d7af0ba506c9839c167dd0c081f1e3b3f4
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
