@@ -17,7 +17,7 @@ using namespace std;
 
 class pea:public QObject , public QGraphicsPixmapItem
 {
-     Q_OS_WIN
+     //Q_OS_WIN
     Q_OBJECT
     friend class peashooter;
 private:
