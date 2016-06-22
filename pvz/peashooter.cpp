@@ -21,7 +21,7 @@ void peashooter::make_pea()
  p1=new pea();
  w->scene->addItem(p1);
  p1->setPos(this->Xpos+70,this->Ypos);
- p1->move_p(Xpos,Ypos);
+ p1->move_p(Xpos+70,Ypos);
 
 }
 
