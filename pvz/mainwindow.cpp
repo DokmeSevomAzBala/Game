@@ -135,14 +135,17 @@ MainWindow::~MainWindow()
 }
 
  void MainWindow::mousePressEvent(QMouseEvent *ev){
-     x_mouse= ev->x();
-      y_mouse=ev->y();
-      screen(x_mouse,y_mouse);
+     if (ev->x() < 1000 && ev->y() < 640 && ev->x() > 250 && ev->y() > 65){
+        x_mouse= ev->x();
+        y_mouse=ev->y();
+        screen(x_mouse,y_mouse);
+     }
 
      }
  void MainWindow::screen(qreal x , qreal y){
      for (int i = 0 ; i < 9 ; i++){
          for (int j = 0 ; j < 5 ; j++){
+             gs->IfGridIsFull[i][j] = 1;
              if (i < 8 && j<4 ){
                 if(x > gs->grid[i][j].x() && x < (gs->grid[i+1][j].x()) &&
                    y > gs->grid[i][j].y() && y < (gs->grid[i][j+1].y())){

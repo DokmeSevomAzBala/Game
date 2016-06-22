@@ -50,13 +50,14 @@ public slots:
     //void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
- void planting_sunflower();
-//   void planting_walnut();
-  void planting_peashooter();
+    void planting_sunflower();
+//  void planting_walnut();
+    void planting_peashooter();
     void check();
 //    void on_SunflowerButton_clicked();
-
     //void on_peashooterB_clicked();
+signals:
+    click();
 };
 
 #endif // MAINWINDOW_H

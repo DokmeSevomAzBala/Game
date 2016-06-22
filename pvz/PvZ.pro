@@ -38,8 +38,8 @@ HEADERS  += mainwindow.h \
     score.h \
     pea.h \
     peashooter.h \
-    gamescreen.h \
-    drag.h
+    drag.h \
+    gamescreen.h
 
 
 FORMS    += mainwindow.ui
