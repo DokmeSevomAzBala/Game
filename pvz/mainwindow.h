@@ -35,14 +35,14 @@ class MainWindow : public QMainWindow
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
-    QTimer *zomcrt;
     QVector <sun*> SunVec;
-    QVector <zombie *> zomvec;
+    zombie * zoms[10];
     zombie *zom1;
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
     GameScreen *gs;
+    void creatzom();
     lawn_mower* LMs[5];
 public:
     score *MyScore;
@@ -56,7 +56,6 @@ public slots:
     void MakeSunOnScene();
     //void MakeSunForSunFlower();
     void MoveAllSuns();
-    void creatzom();
 private slots:
     void planting_sunflower();
     void planting_walnut();

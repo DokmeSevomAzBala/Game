@@ -15,8 +15,12 @@ class lawn_mower: public plant
    Q_OBJECT
 public:
     lawn_mower();
-public slots:
+    ~lawn_mower();
     void move_lawn();
+
+public slots:
+    void movinglawn();
+
 };
 
 #endif // LAWN_MOWER_H

@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[12];
-    char stringdata[144];
+    char stringdata[155];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,17 +36,18 @@ QT_MOC_LITERAL(3, 18, 15), // "mousePressEvent"
 QT_MOC_LITERAL(4, 34, 12), // "QMouseEvent*"
 QT_MOC_LITERAL(5, 47, 14), // "MakeSunOnScene"
 QT_MOC_LITERAL(6, 62, 11), // "MoveAllSuns"
-QT_MOC_LITERAL(7, 74, 8), // "creatzom"
-QT_MOC_LITERAL(8, 83, 18), // "planting_sunflower"
-QT_MOC_LITERAL(9, 102, 15), // "planting_walnut"
-QT_MOC_LITERAL(10, 118, 19), // "planting_peashooter"
-QT_MOC_LITERAL(11, 138, 5) // "check"
+QT_MOC_LITERAL(7, 74, 18), // "planting_sunflower"
+QT_MOC_LITERAL(8, 93, 15), // "planting_walnut"
+QT_MOC_LITERAL(9, 109, 19), // "planting_lawn_mower"
+QT_MOC_LITERAL(10, 129, 19), // "planting_peashooter"
+QT_MOC_LITERAL(11, 149, 5) // "check"
 
     },
     "MainWindow\0click\0\0mousePressEvent\0"
     "QMouseEvent*\0MakeSunOnScene\0MoveAllSuns\0"
-    "creatzom\0planting_sunflower\0planting_walnut\0"
-    "planting_peashooter\0check"
+    "planting_sunflower\0planting_walnut\0"
+    "planting_lawn_mower\0planting_peashooter\0"
+    "check"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +71,7 @@ static const uint qt_meta_data_MainWindow[] = {
        3,    1,   60,    2, 0x0a /* Public */,
        5,    0,   63,    2, 0x0a /* Public */,
        6,    0,   64,    2, 0x0a /* Public */,
-       7,    0,   65,    2, 0x0a /* Public */,
+       7,    0,   65,    2, 0x08 /* Private */,
        8,    0,   66,    2, 0x08 /* Private */,
        9,    0,   67,    2, 0x08 /* Private */,
       10,    0,   68,    2, 0x08 /* Private */,
@@ -101,9 +102,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         case 2: _t->MakeSunOnScene(); break;
         case 3: _t->MoveAllSuns(); break;
-        case 4: _t->creatzom(); break;
-        case 5: _t->planting_sunflower(); break;
-        case 6: _t->planting_walnut(); break;
+        case 4: _t->planting_sunflower(); break;
+        case 5: _t->planting_walnut(); break;
+        case 6: _t->planting_lawn_mower(); break;
         case 7: _t->planting_peashooter(); break;
         case 8: _t->check(); break;
         default: ;

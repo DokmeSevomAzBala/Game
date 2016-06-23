@@ -14,9 +14,6 @@ lawn_mower::lawn_mower()
     setPixmap(m);
      PlantPic = m;
     setPixmap(PlantPic);
-    QTimer* time = new QTimer();
-    connect(time,SIGNAL(timeout()),this,SLOT(move_lawn()));
-    time->start(50);
 
 
 
@@ -24,9 +21,24 @@ lawn_mower::lawn_mower()
 
 
 }
+
+lawn_mower::~lawn_mower()
+{
+
+}
 void lawn_mower::move_lawn()
 {
-    setPos(x()+10,y());
+    QTimer* time = new QTimer();
+    time->start(50);
+    connect(time,SIGNAL(timeout()),this,SLOT(movinglawn()));
 
+}
+
+void lawn_mower::movinglawn()
+{
+    setPos(x()+10,y());
+    if(this->x()>=1000){
+        this->~lawn_mower();
+    }
 }
 

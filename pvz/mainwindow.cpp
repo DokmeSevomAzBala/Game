@@ -42,23 +42,18 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
     //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
-/*    zom1 = new zombie();
-    zom1->setPos(500,100);
-    scene->addItem(zom1);
-    zombie *zom2 = new zombie();
-    zom2->setPos(700,400);
-    scene->addItem(zom2);*/
-    zomcrt = new QTimer();
-    zomcrt->start(5000);
-    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+//    zomcrt = new QTimer();
+//    zomcrt->start(5000);
+//    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+    creatzom();
 //<<<<<<< HEAD
 //    wl = new walnut();
 //    scene->addItem(wl);
 //    wl->setPos(500,500);
-    qDebug()<<"DSSDGDHFFGH";
+  /*  qDebug()<<"DSSDGDHFFGH";
     lawn = new lawn_mower();
     scene->addItem(lawn);
-    lawn->setPos(500,500);
+    lawn->setPos(500,500);*/
 
 
 //=======
@@ -173,9 +168,10 @@ void MainWindow::MoveAllSuns()
 
 void MainWindow::creatzom()
 {
-    zombie* zom1=new zombie();
-    scene->addItem(zom1);
-    zomvec.push_back(zom1);
+    for(int i=0;i<10;i++){
+        zoms[i]=new zombie();
+        scene->addItem(zoms[i]);
+    }
 
 }
 

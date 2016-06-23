@@ -13,6 +13,8 @@
 #include "plant.h"
 #include "peashooter.h"
 #include "sunflower.h"
+#include "lawn_mower.h"
+#include "walnut.h"
 
 class zombie:public QObject,public QGraphicsPixmapItem
 {

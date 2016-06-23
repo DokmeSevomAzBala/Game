@@ -25,7 +25,7 @@ void zombie::walk()
 //    QList<plant *>collidplant;
     bool k=false;
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-        if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ){
+        if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ||typeid(*(colliding_items[i])) == typeid(walnut) ){
 
             ((plant*)colliding_items[i])->die();
             k=true;
@@ -37,43 +37,13 @@ void zombie::walk()
                 this->~zombie();
         }
 
-      //  else if (typeid(*(colliding_items[i])) == typeid(lawnmawner) )
+        else if (typeid(*(colliding_items[i])) == typeid(lawn_mower)){
+            ((lawn_mower*)colliding_items[i])->move_lawn();
+            this->~zombie();
+        }
     }
     if(k==false){
         qDebug()<<"moved";
-        setPos(x()-0.1 ,y());
+        setPos(x()-1 ,y());
      }
 }
-
-
-/*
-
-
-void zombie::walk()
-{
-    //setPos(x()-0.1 ,y());
-
-    QList<QGraphicsItem *> colliding_items = collidingItems();
-    QList<plant *>collid;
-    int k=0;
-     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-    if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ){
-    collid.insert(k,(plant*)colliding_items[i]);
-    k++;
-    }
-    }
-
-     if(!collid.empty()){
-       //  disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
-     for (int i = 0, n = collid.size(); i < n; ++i){
-        //disconnect (move,SIGNAL(timeout()),this,SLOT(walk()));
-     //   move->stop();
-         qDebug()<<"yess!";
-       collid[i]->die();
-     }
-     }else{
-         qDebug()<<"moved";
-         setPos(x()-0.1 ,y());
-     }
-
-     }*/
