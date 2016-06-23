@@ -21,8 +21,8 @@ void pea::move_p(int a,int b)
     p_x=a;
     p_y=b;
     while(p_x<1000){
-        this->delay(1000);
-      p_x=p_x+30;
+        this->delay(500);
+      p_x=p_x+15;
       this->setPos(p_x,p_y);
 
    }

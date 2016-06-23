@@ -59,7 +59,8 @@ SOURCES       = ../pvz/main.cpp \
 		../pvz/pea.cpp \
 		../pvz/peashooter.cpp \
 		../pvz/drag.cpp \
-		../pvz/walnut.cpp qrc_pvzresources.cpp \
+		../pvz/walnut.cpp \
+		../pvz/level.cpp qrc_pvzresources.cpp \
 		moc_mainwindow.cpp \
 		moc_zombie.cpp \
 		moc_sunflower.cpp \
@@ -80,6 +81,7 @@ OBJECTS       = main.o \
 		peashooter.o \
 		drag.o \
 		walnut.o \
+		level.o \
 		qrc_pvzresources.o \
 		moc_mainwindow.o \
 		moc_zombie.o \
@@ -157,7 +159,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/peashooter.h \
 		../pvz/drag.h \
 		../pvz/gamescreen.h \
-		../pvz/walnut.h ../pvz/main.cpp \
+		../pvz/walnut.h \
+		../pvz/level.h ../pvz/main.cpp \
 		../pvz/mainwindow.cpp \
 		../pvz/zombie.cpp \
 		../pvz/sunflower.cpp \
@@ -168,7 +171,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/pea.cpp \
 		../pvz/peashooter.cpp \
 		../pvz/drag.cpp \
-		../pvz/walnut.cpp
+		../pvz/walnut.cpp \
+		../pvz/level.cpp
 QMAKE_TARGET  = PvZ
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = PvZ
@@ -341,8 +345,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/pvzresources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/drag.h ../pvz/gamescreen.h ../pvz/walnut.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/drag.cpp ../pvz/walnut.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/drag.h ../pvz/gamescreen.h ../pvz/walnut.h ../pvz/level.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/drag.cpp ../pvz/walnut.cpp ../pvz/level.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/mainwindow.ui $(DISTDIR)/
 
 
@@ -381,7 +385,8 @@ qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
 		../pvz/images/score_background_note.png \
 		../pvz/images/Giant_Pea.png \
 		../pvz/images/Sun.png \
-		../pvz/images/Walnut.png
+		../pvz/images/Walnut.png \
+		../pvz/pvz_levels.csv
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name pvzresources ../pvz/pvzresources.qrc -o qrc_pvzresources.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_walnut.cpp
@@ -470,7 +475,8 @@ mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
 		../pvz/pea.h \
 		../pvz/walnut.h \
 		../pvz/score.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../pvz/level.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../pvz/mainwindow.cpp
 
 zombie.o: ../pvz/zombie.cpp ../pvz/zombie.h \
@@ -544,6 +550,9 @@ drag.o: ../pvz/drag.cpp ../pvz/drag.h
 walnut.o: ../pvz/walnut.cpp ../pvz/walnut.h \
 		../pvz/plant.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o walnut.o ../pvz/walnut.cpp
+
+level.o: ../pvz/level.cpp ../pvz/level.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o level.o ../pvz/level.cpp
 
 qrc_pvzresources.o: qrc_pvzresources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_pvzresources.o qrc_pvzresources.cpp
