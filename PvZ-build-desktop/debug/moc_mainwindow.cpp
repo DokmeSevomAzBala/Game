@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu Jun 9 16:33:58 2016
+** Created: Wed Jun 22 13:08:27 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,8 +36,9 @@ static const uint qt_meta_data_MainWindow[] = {
       40,   11,   11,   11, 0x0a,
       62,   11,   11,   11, 0x0a,
       76,   11,   11,   11, 0x08,
-      98,   11,   11,   11, 0x08,
-     106,   11,   11,   11, 0x08,
+      94,   11,   11,   11, 0x08,
+     116,   11,   11,   11, 0x08,
+     124,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -45,8 +46,8 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0make_pea()\0MakeSunOnScene()\0"
     "MakeSunForSunFlower()\0MoveAllSuns()\0"
-    "planting_peashooter()\0check()\0"
-    "on_SunflowerButton_clicked()\0"
+    "planting_walnut()\0planting_peashooter()\0"
+    "check()\0on_SunflowerButton_clicked()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -82,12 +83,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 1: MakeSunOnScene(); break;
         case 2: MakeSunForSunFlower(); break;
         case 3: MoveAllSuns(); break;
-        case 4: planting_peashooter(); break;
-        case 5: check(); break;
-        case 6: on_SunflowerButton_clicked(); break;
+        case 4: planting_walnut(); break;
+        case 5: planting_peashooter(); break;
+        case 6: check(); break;
+        case 7: on_SunflowerButton_clicked(); break;
         default: ;
         }
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

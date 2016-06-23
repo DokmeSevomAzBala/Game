@@ -10,6 +10,7 @@ INPUT(
 ./release\pea.o
 ./release\peashooter.o
 ./release\drag.o
+./release\walnut.o
 ./release\moc_mainwindow.o
 ./release\moc_zombie.o
 ./release\moc_sunflower.o
@@ -18,5 +19,6 @@ INPUT(
 ./release\moc_pea.o
 ./release\moc_peashooter.o
 ./release\moc_gamescreen.o
+./release\moc_walnut.o
 ./release\qrc_pvzresources.o
 );

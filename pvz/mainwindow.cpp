@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "sun.h"
 #include <QImage>
 #include <QDebug>
@@ -8,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
     ui->setupUi(this);
     ui->view->setStyleSheet("background-image: url(:/new/images/images/Background1);");
     this->setFixedSize(1030,700);
@@ -52,6 +56,14 @@ void MainWindow::planting_peashooter()
  pshr = new peashooter();
  scene->addItem(pshr);
  pshr->setPos(x_mouse,y_mouse);
+ qDebug()<<x_mouse;
+ qDebug()<<y_mouse;
+}
+void MainWindow::planting_walnut()
+{
+ wl = new walnut();
+ scene->addItem(wl);
+ wl->setPos(x_mouse,y_mouse);
  qDebug()<<x_mouse;
  qDebug()<<y_mouse;
 }

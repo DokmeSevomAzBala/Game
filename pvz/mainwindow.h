@@ -4,6 +4,7 @@
 #include "sunflower.h"
 #include "zombie.h"
 #include "pea.h"
+#include "walnut.h"
 #include "peashooter.h"
 #include "score.h"
 #include <QPushButton>
@@ -35,7 +36,7 @@ class MainWindow : public QMainWindow
     QTimer *t2;
     QVector <sun*> SunVec;
     zombie *zom1;
-
+    walnut* wl;
     peashooter* pshr;
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -50,8 +51,8 @@ public slots:
     void MoveAllSuns();
 private slots:
  //void planting_sunflower();
-//   void planting_walnut();
-  void planting_peashooter();
+    void planting_walnut();
+    void planting_peashooter();
     void check();
     void on_SunflowerButton_clicked();
 

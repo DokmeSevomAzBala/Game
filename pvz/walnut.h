@@ -1,26 +1,30 @@
-#ifndef WALNUT_H
-#define WALNUT_H
+#ifndef WALLNUT_H
+#define WALLNUT_H
 
-#include <QGraphicsRectItem>
+#include "plant.h"
 #include <QGraphicsPixmapItem>
-
-
-#include <QTimer>
+#include <QPixmap>
+#include <QPainter>
 #include <QObject>
-#include "plant"
+#include <QGraphicsItem>
+
 
 class walnut :public plant
 {
+    Q_OBJECT
+//    int Xpos;
+//    int Ypos;
     int cost;
     int life_time;
-    Q_OBJECT
-    QTimer *MakewalnutTimer;
+    int seeding_time;
 
 public:
     walnut();
-
-
-
+  //  ~walnut();
+    //void paint(QPainter *painter,const QStyleOptionGraphicsItem *, QWidget *);
+   // void setLife(int);
+public slots:
+    //void onPlant();
 };
 
-#endif // WALNUT_H
+#endif // WALLNUT_H

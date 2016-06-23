@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     gamescreen.cpp \
     pea.cpp \
     peashooter.cpp \
-    drag.cpp
+    drag.cpp \
+    walnut.cpp
 
 
 
@@ -39,7 +40,8 @@ HEADERS  += mainwindow.h \
     pea.h \
     peashooter.h \
     gamescreen.h \
-    drag.h
+    drag.h \
+    walnut.h
 
 
 FORMS    += mainwindow.ui
