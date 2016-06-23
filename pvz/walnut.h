@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QPainter>
+#include <QDebug>
 #include <QObject>
 #include <QGraphicsItem>
 
