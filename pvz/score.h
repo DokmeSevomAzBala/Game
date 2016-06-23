@@ -1,14 +1,14 @@
 #ifndef SCORE_H
 #define SCORE_H
+#include <QGraphicsTextItem>
 
-
-class score
+class score :public QGraphicsTextItem
 {   int scoreCount;
 public:
     int ret_score();
-    score();
+    score(QGraphicsItem *parent = 0);
     void add();
-    void subtract();
+    void subtract(int);
 };
 
 #endif // SCORE_H

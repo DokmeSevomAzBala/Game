@@ -10,11 +10,12 @@ class sunflower : public plant
 {
     Q_OBJECT
     QTimer *MakeSunTimer;
+    QTimer *DeleteSunTimer;
+
 public:
-    sun *s1;
     sunflower();
 public slots:
-    void makeSun();
+    void MakeSunForSunFlower();
 };
 
 #endif // SUNFLOWER_H

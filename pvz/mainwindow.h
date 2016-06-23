@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "drag.h"
+#include "gamescreen.h"
 #include "sunflower.h"
 #include "zombie.h"
 #include "pea.h"
@@ -26,7 +26,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Ui::MainWindow *ui;
-    score player1;
     qreal x_mouse;
     qreal y_mouse;
     QGraphicsView *View;
@@ -36,26 +35,39 @@ class MainWindow : public QMainWindow
     QTimer *t2;
     QVector <sun*> SunVec;
     zombie *zom1;
+<<<<<<< HEAD
     walnut* wl;
+=======
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
     peashooter* pshr;
+    GameScreen *gs;
 public:
+    score *MyScore;
+    void screen(qreal,qreal);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void mousePressEvent(QMouseEvent* ) ;
     QGraphicsScene *scene;
 
 public slots:
+    void mousePressEvent(QMouseEvent* ) ;
     void make_pea();
     void MakeSunOnScene();
-    void MakeSunForSunFlower();
+    //void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
+<<<<<<< HEAD
  //void planting_sunflower();
     void planting_walnut();
     void planting_peashooter();
+=======
+ void planting_sunflower();
+//   void planting_walnut();
+  void planting_peashooter();
+>>>>>>> cc00cdb37a862371372b18f764fae67d66db6046
     void check();
-    void on_SunflowerButton_clicked();
+//    void on_SunflowerButton_clicked();
 
+    //void on_peashooterB_clicked();
 };
 
 #endif // MAINWINDOW_H

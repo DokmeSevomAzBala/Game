@@ -21,6 +21,8 @@ public:
     ~sun();
 public slots:
     void move_sun();
+    void DeleteSun();
+
 };
 
 

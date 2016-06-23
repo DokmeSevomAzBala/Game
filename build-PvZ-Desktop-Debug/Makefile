@@ -364,21 +364,25 @@ compiler_rcc_make_all: qrc_pvzresources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_pvzresources.cpp
 qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
-		../pvz/images/PeaShooter.png \
-		../pvz/images/Zombies_3.gif \
 		../pvz/images/Sunflower.png \
-		../pvz/images/zombienewspaper.png \
-		../pvz/images/RegularZombie.png \
-		../pvz/images/SunFlower.gif \
+		../pvz/images/PeaShooter.png \
+		../pvz/images/Zombies_1.gif \
 		../pvz/images/Zombies_2.gif \
 		../pvz/images/zombie.png \
+		../pvz/images/Zombies_3.gif \
+		../pvz/images/peashooter_card3.png \
+		../pvz/images/Zombies_4.gif \
+		../pvz/images/score_background_note.png \
+		../pvz/images/sunflower_card3.png \
+		../pvz/images/zombienewspaper.png \
+		../pvz/images/RegularZombie.png \
 		../pvz/images/ConeHead.png \
 		../pvz/images/plants_vs_zombies.png \
-		../pvz/images/Zombies_1.gif \
-		../pvz/images/Zombies_4.gif \
-		../pvz/images/Background1.jpg \
+		../pvz/images/SunFlower.gif \
 		../pvz/images/Sun.png \
-		../pvz/images/Giant_Pea.png
+		../pvz/images/Giant_Pea.png \
+		../pvz/images/Background1.jpg \
+		../pvz/images/walnut_card3.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name pvzresources ../pvz/pvzresources.qrc -o qrc_pvzresources.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp
@@ -389,14 +393,17 @@ moc_mainwindow.cpp: ../pvz/drag.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
 		../pvz/zombie.h \
-		../pvz/pea.h \
 		../pvz/peashooter.h \
+		../pvz/pea.h \
 		../pvz/score.h \
 		../pvz/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/mainwindow.h -o moc_mainwindow.cpp
 
 moc_zombie.cpp: ../pvz/sun.h \
 		../pvz/plant.h \
+		../pvz/peashooter.h \
+		../pvz/pea.h \
+		../pvz/sunflower.h \
 		../pvz/zombie.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/zombie.h -o moc_zombie.cpp
 
@@ -449,8 +456,8 @@ main.o: ../pvz/main.cpp ../pvz/mainwindow.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
 		../pvz/zombie.h \
-		../pvz/pea.h \
 		../pvz/peashooter.h \
+		../pvz/pea.h \
 		../pvz/score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../pvz/main.cpp
 
@@ -460,23 +467,40 @@ mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
 		../pvz/plant.h \
 		../pvz/sun.h \
 		../pvz/zombie.h \
-		../pvz/pea.h \
 		../pvz/peashooter.h \
+		../pvz/pea.h \
 		../pvz/score.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../pvz/mainwindow.cpp
 
 zombie.o: ../pvz/zombie.cpp ../pvz/zombie.h \
 		../pvz/sun.h \
-		../pvz/plant.h
+		../pvz/plant.h \
+		../pvz/peashooter.h \
+		../pvz/pea.h \
+		../pvz/sunflower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o zombie.o ../pvz/zombie.cpp
 
 sunflower.o: ../pvz/sunflower.cpp ../pvz/sunflower.h \
 		../pvz/plant.h \
-		../pvz/sun.h
+		../pvz/sun.h \
+		../pvz/mainwindow.h \
+		../pvz/drag.h \
+		../pvz/zombie.h \
+		../pvz/peashooter.h \
+		../pvz/pea.h \
+		../pvz/score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sunflower.o ../pvz/sunflower.cpp
 
-sun.o: ../pvz/sun.cpp ../pvz/sun.h
+sun.o: ../pvz/sun.cpp ../pvz/sun.h \
+		../pvz/mainwindow.h \
+		../pvz/drag.h \
+		../pvz/sunflower.h \
+		../pvz/plant.h \
+		../pvz/zombie.h \
+		../pvz/peashooter.h \
+		../pvz/pea.h \
+		../pvz/score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sun.o ../pvz/sun.cpp
 
 plant.o: ../pvz/plant.cpp ../pvz/plant.h

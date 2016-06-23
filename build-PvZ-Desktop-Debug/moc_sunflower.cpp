@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_sunflower_t {
     QByteArrayData data[3];
-    char stringdata[19];
+    char stringdata[31];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,11 +30,11 @@ struct qt_meta_stringdata_sunflower_t {
 static const qt_meta_stringdata_sunflower_t qt_meta_stringdata_sunflower = {
     {
 QT_MOC_LITERAL(0, 0, 9), // "sunflower"
-QT_MOC_LITERAL(1, 10, 7), // "makeSun"
-QT_MOC_LITERAL(2, 18, 0) // ""
+QT_MOC_LITERAL(1, 10, 19), // "MakeSunForSunFlower"
+QT_MOC_LITERAL(2, 30, 0) // ""
 
     },
-    "sunflower\0makeSun\0"
+    "sunflower\0MakeSunForSunFlower\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,7 +65,7 @@ void sunflower::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     if (_c == QMetaObject::InvokeMetaMethod) {
         sunflower *_t = static_cast<sunflower *>(_o);
         switch (_id) {
-        case 0: _t->makeSun(); break;
+        case 0: _t->MakeSunForSunFlower(); break;
         default: ;
         }
     }
