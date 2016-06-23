@@ -7,7 +7,6 @@ int sun::SunScore;
 sun::sun(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/new/images/images/Sun.png"));
-    Falling = 1;
 }
 
 void sun::move_sun()

@@ -156,7 +156,7 @@ void MainWindow::check()
 void MainWindow::MakeSunOnScene(){
     sun *Sun;
     Sun = new sun();
-    qreal sunX = rand() % 1000;
+    qreal sunX = rand() % 1000 + 200;
     Sun->setPos(sunX,0);
     SunVec.push_back(Sun);
     scene->addItem(Sun);
