@@ -3,6 +3,7 @@
 #include "gamescreen.h"
 #include "sunflower.h"
 #include "zombie.h"
+#include "lawn_mower.h"
 #include "pea.h"
 #include "lawn_mower.h"
 #include "walnut.h"
@@ -39,6 +40,7 @@ class MainWindow : public QMainWindow
     QVector <zombie *> zomvec;
     zombie *zom1;
     walnut* wl;
+    lawn_mower* lawn;
     peashooter* pshr;
     GameScreen *gs;
     lawn_mower* LMs[5];
@@ -58,6 +60,7 @@ public slots:
 private slots:
     void planting_sunflower();
     void planting_walnut();
+     void planting_lawn_mower();
     void planting_peashooter();
  //void planting_sunflower();
    // void planting_walnut();

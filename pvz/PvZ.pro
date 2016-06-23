@@ -52,4 +52,3 @@ FORMS  += mainwindow.ui
 RESOURCES += \
     pvzresources.qrc
 
-OTHER_FILES +=
