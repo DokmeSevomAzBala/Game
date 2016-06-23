@@ -51,9 +51,10 @@ MainWindow::MainWindow(QWidget *parent) :
     zombie *zom2 = new zombie();
     zom2->setPos(700,400);
     scene->addItem(zom2);*/
-    zomcrt = new QTimer();
-    zomcrt->start(5000);
-    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+//    zomcrt = new QTimer();
+//    zomcrt->start(5000);
+//    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+    creatzom();
     wl = new walnut();
     scene->addItem(wl);
     wl->setPos(10,10);
@@ -149,9 +150,10 @@ void MainWindow::MoveAllSuns()
 
 void MainWindow::creatzom()
 {
-    zombie* zom1=new zombie();
-    scene->addItem(zom1);
-    zomvec.push_back(zom1);
+    for(int i=0;i<10;i++){
+        zoms[i]=new zombie();
+        scene->addItem(zoms[i]);
+    }
 
 }
 
