@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     peashooter.cpp \
     drag.cpp \
     walnut.cpp \
-    level.cpp
+    level.cpp \
+    lawn_mower.cpp
 
 
 
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     drag.h \
     gamescreen.h \
     walnut.h\
-    level.h
+    level.h \
+    lawn_mower.h
 
 FORMS  += mainwindow.ui
 
