@@ -41,24 +41,26 @@ MainWindow::MainWindow(QWidget *parent) :
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
-    wl = new walnut();
-    scene->addItem(wl);
-    wl->setPos(10,10);
-//    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
-/*    zom1 = new zombie();
-    zom1->setPos(500,100);
-    scene->addItem(zom1);
-    zombie *zom2 = new zombie();
-    zom2->setPos(700,400);
-    scene->addItem(zom2);*/
+    //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
 //    zomcrt = new QTimer();
 //    zomcrt->start(5000);
 //    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
     creatzom();
-    wl = new walnut();
-    scene->addItem(wl);
-    wl->setPos(10,10);
+//<<<<<<< HEAD
+//    wl = new walnut();
+//    scene->addItem(wl);
+//    wl->setPos(500,500);
+    qDebug()<<"DSSDGDHFFGH";
+    lawn = new lawn_mower();
+    scene->addItem(lawn);
+    lawn->setPos(500,500);
 
+
+//=======
+//    wl = new walnut();
+//    scene->addItem(wl);
+//    wl->setPos(500,500);
+//>>>>>>> d6da92d6a615aa332ed3d507eaec96fceb0ab16d
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -76,10 +78,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ck,SIGNAL(timeout()),SLOT(check()));
     ck->start(20);
     connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
+    //connect(gs,SIGNAL(click()),this,SLOT(addImage()));
     //connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(mousePressEvent(QMouseEvent*)));
-    //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
+    connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
 
+    for (int i = 0 ; i < 5 ; i++){
+        LMs[i]= new lawn_mower();
+        scene->addItem(LMs[i]);
+        LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
+    }
 }
 void MainWindow::planting_peashooter()
 {
@@ -113,6 +121,16 @@ void MainWindow::planting_sunflower()
 
 
 }
+
+void MainWindow::planting_lawn_mower()
+{
+    lawn = new lawn_mower();
+    scene->addItem(lawn);
+    lawn->setPos(x_mouse,y_mouse);
+    this->MyScore->subtract(50);
+
+}
+
 void MainWindow::check()
 {
     if(this->MyScore->ret_score()>=50)

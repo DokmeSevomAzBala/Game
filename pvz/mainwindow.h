@@ -3,7 +3,9 @@
 #include "gamescreen.h"
 #include "sunflower.h"
 #include "zombie.h"
+#include "lawn_mower.h"
 #include "pea.h"
+#include "lawn_mower.h"
 #include "walnut.h"
 #include "peashooter.h"
 #include "score.h"
@@ -37,10 +39,11 @@ class MainWindow : public QMainWindow
     zombie * zoms[10];
     zombie *zom1;
     walnut* wl;
+    lawn_mower* lawn;
     peashooter* pshr;
     GameScreen *gs;
     void creatzom();
-
+    lawn_mower* LMs[5];
 public:
     score *MyScore;
     void screen(qreal,qreal);
@@ -56,6 +59,7 @@ public slots:
 private slots:
     void planting_sunflower();
     void planting_walnut();
+     void planting_lawn_mower();
     void planting_peashooter();
  //void planting_sunflower();
    // void planting_walnut();
