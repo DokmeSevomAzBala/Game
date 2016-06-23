@@ -57,7 +57,6 @@ MainWindow::MainWindow(QWidget *parent) :
     wl = new walnut();
     scene->addItem(wl);
     wl->setPos(500,500);
-
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -75,8 +74,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ck,SIGNAL(timeout()),SLOT(check()));
     ck->start(20);
     connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
+    //connect(gs,SIGNAL(click()),this,SLOT(addImage()));
     //connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(mousePressEvent(QMouseEvent*)));
-    //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
+    connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
 
 }
