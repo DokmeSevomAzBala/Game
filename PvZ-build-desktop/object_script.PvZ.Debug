@@ -20,6 +20,7 @@ INPUT(
 ./debug\moc_plant.o
 ./debug\moc_pea.o
 ./debug\moc_peashooter.o
+./debug\moc_gamescreen.o
 ./debug\moc_walnut.o
 ./debug\moc_lawn_mower.o
 ./debug\qrc_pvzresources.o
