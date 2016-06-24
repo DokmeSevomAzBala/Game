@@ -8,6 +8,8 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    move->start(25
                );
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
+   //int i=qrand()%5;
+   //setPos(700,i*100+50);
    setPos(i,j);
 
 

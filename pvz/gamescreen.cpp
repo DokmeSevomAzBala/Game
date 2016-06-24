@@ -4,7 +4,7 @@
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
-    int x[] = {250,335,405,495,580,660,750,820,890};
+    int x[] = {250,335,405,495,570,660,750,820,890};
     int y[] = {65,190,310,430,540};
     for (int i = 0; i < 9; i++)
     {
