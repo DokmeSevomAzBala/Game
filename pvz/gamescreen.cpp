@@ -21,6 +21,7 @@ GameScreen::GameScreen(QWidget *parent) :
             IfZombieIsIn[j] = 0;
         }
     }
+    create();
 }
 void GameScreen::GridPoint(QMouseEvent *e)
 {
@@ -67,6 +68,8 @@ void GameScreen::mousePressEvent(QMouseEvent *e)
     GridPoint(e);
     click();
 }
+
+
 int GameScreen::retI(){
     if (X == 250) return 0;
     else if (X == 335) return 1;

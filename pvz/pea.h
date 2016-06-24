@@ -32,7 +32,7 @@ void delay( int);
     ~pea();
  //void move_p(int,int);
 public slots:
-   void move_p(int,int);
+   void move_p();
 };
 
 #endif // PEA_H

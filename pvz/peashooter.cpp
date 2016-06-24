@@ -1,6 +1,7 @@
 #include "peashooter.h"
 #include "zombie.h"
 #include "mainwindow.h"
+#include <QGraphicsScene>
 extern MainWindow *w;
 
 peashooter::peashooter()
@@ -20,9 +21,11 @@ void peashooter::make_pea()
  pea* p1;
  p1=new pea();
  w->scene->addItem(p1);
- p1->setPos(this->Xpos+70,this->Ypos);
- p1->move_p(Xpos+70,Ypos);
-
+ p1->setPos(this->x()+70,this->y());
+ //p1->move_p();
+ QTimer * ti = new QTimer();
+ ti->start(10);
+connect (ti, SIGNAL(timeout()),p1,SLOT(move_p()));
 }
 
 //void peashooter::IfZombieAndPeashooterAreInSameRaw()

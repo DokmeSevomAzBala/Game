@@ -11,7 +11,7 @@
 #include <typeinfo>
 #include "sun.h"
 #include "plant.h"
-#include "gamescreen.h"
+//#include "gamescreen.h"
 #include "peashooter.h"
 #include "sunflower.h"
 #include "lawn_mower.h"
@@ -34,7 +34,7 @@ public:
     qreal get_x(){return Xpos;}
     qreal get_y(){return Ypos;}
     void setY(qreal h);
-    static GameScreen* gsp;
+    //static GameScreen* gsp;
 
 public slots:
     void walk();
