@@ -16,6 +16,8 @@ public:
     //GameScreen();
     QPoint grid[9][5];
     bool IfGridIsFull[9][5];
+    bool IfPeashooterISIn[9][5];
+    bool IfZombieIsIn[9][5];
     void GridPoint(QMouseEvent*);
     qreal retX(){return X;}
     int retI();

@@ -16,7 +16,7 @@ void sun::move_sun()
     else if (y()>=500){
         this->setPos(this->x(),this->y());
         if (pressed == 0){
-            QTimer::singleShot(30000, this, SLOT(DeleteSun()));
+            QTimer::singleShot(20000, this, SLOT(DeleteSun()));
         }
     }
 }

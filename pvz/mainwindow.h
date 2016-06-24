@@ -52,15 +52,10 @@ public:
     QGraphicsScene *scene;
 
 public slots:
-    //void mousePressEvent(QMouseEvent*) ;
     void MakeSunOnScene();
-    //void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
-//    void planting_sunflower();
-//    void planting_walnut();
-    void planting_lawn_mower();
-//    void planting_peashooter();
+  //  void planting_lawn_mower();
     void check();
     void planting();
     void on_walnutB_clicked();
