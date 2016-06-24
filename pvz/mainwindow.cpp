@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sun.h"
+#include "level.h"
 #include <QPixmap>
 #include <QBrush>
 #include <QPalette>
 #include <QDebug>
 #include <QGraphicsPixmapItem>
+#include <QMessageBox>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,6 +20,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
+    Level::loadLevels();
+
+    // Validate level file (if it exists or readable).
+    if (!Level::validLevelFile())
+    {
+        QMessageBox::question(this, "Invalid file", "Invalid level file. Cannot run game.", QMessageBox::Ok);
+        close();
+    }
+
     scene = new QGraphicsScene(this);
     ui->view->setScene(scene);
     scene->setSceneRect(0,0,1000,700);
@@ -33,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
+
 //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
 /*    zom1 = new zombie();
     zom1->setPos(500,100);
@@ -40,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     zombie *zom2 = new zombie();
     zom2->setPos(700,400);
     scene->addItem(zom2);*/
+    zomcrt = new QTimer();
     zomcrt->start(5000);
     connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
 
@@ -63,6 +77,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(mousePressEvent(QMouseEvent*)));
     //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
+
 }
 void MainWindow::planting_peashooter()
 {

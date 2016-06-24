@@ -15,4 +15,7 @@
         <file>images/zombie.png</file>
         <file>images/Walnut.png</file>
     </qresource>
+    <qresource prefix="/CSVs">
+        <file>pvz_levels.csv</file>
+    </qresource>
 </RCC>
