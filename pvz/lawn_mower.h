@@ -1,11 +1,21 @@
 #ifndef LAWN_MOWER_H
 #define LAWN_MOWER_H
 
-class lawn_mower
+#include "plant.h"
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include <QPainter>
+#include <QDebug>
+#include <QObject>
+#include <QGraphicsItem>
+
+
+class lawn_mower:public plant
 {
-    int cost;
-    int life_time;
-    int seeding_time;
+    Q_OBJECT
+//    int cost;
+//    int life_time;
+//    int seeding_time;
 public:
     lawn_mower();
 };

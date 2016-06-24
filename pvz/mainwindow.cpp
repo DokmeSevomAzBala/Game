@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
     wl = new walnut();
     scene->addItem(wl);
-    wl->setPos(10,10);
+    wl->setPos(500,500);
 
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
