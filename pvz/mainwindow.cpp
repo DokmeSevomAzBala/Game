@@ -85,6 +85,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
+    creatzom(1);
+//    zoms[1]->setPos(700, 35);
+//    zoms[2]->setPos(700, 160);
+//    zoms[3]->setPos(900, 160);
+//    zoms[4]->setPos(700, 400);
+//    zoms[5]->setPos(700, 530);
+//    zoms[6]->setPos(800, 35);
+//    zoms[7]->setPos(800, 160);
+//    zoms[8]->setPos(800, 400);
+//    zoms[9]->setPos(900, 400);
+//    zoms[0]->setPos(900, 530);
     for (int i = 0 ; i < 5 ; i++){
         LMs[i]= new lawn_mower();
         scene->addItem(LMs[i]);
@@ -93,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::check()
+
 {
     if(this->MyScore->ret_score()>=50)
    {

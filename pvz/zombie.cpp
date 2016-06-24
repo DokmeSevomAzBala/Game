@@ -5,8 +5,11 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    setPixmap(QPixmap(":/new/images/images/zombie"));
    power=10;
    move=new QTimer;
-   move->start(2);
+   move->start(25
+               );
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
+   //int i=qrand()%5;
+   //setPos(700,i*100+50);
    setPos(i,j);
 
 
