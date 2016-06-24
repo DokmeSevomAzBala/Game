@@ -1,14 +1,13 @@
 #include "zombie.h"
 
-zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
+zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
    power=10;
    move=new QTimer;
-   move->start(3);
+   move->start(2);
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
-   int i=qrand()%5;
-   setPos(700,i*100+50);
+   setPos(i,j);
 
 
 }
@@ -18,11 +17,28 @@ zombie::~zombie()
 
 }
 
+QVector<zombie*> zombie::lvlStart(QStringList lev)
+{
+    zombie* zz;
+    QVector <zombie*> zomz;
+    qreal i,j;
+    int n;
+    for(n=1;n<lev.size();n++){
+        i=lev.at(n).split(",").at(0).toInt();
+  //      qDebug()<<lev.at(n).split(",").size();
+        j=lev.at(n).split(",").at(1).toInt();
+        zz=new zombie(i,j);
+        zomz.push_back(zz);
+    }
+    return zomz;
+
+
+}
+
 void zombie::walk()
 {
 
     QList<QGraphicsItem *> colliding_items = collidingItems();
-//    QList<plant *>collidplant;
     bool k=false;
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if(typeid(*(colliding_items[i])) == typeid(peashooter) ||typeid(*(colliding_items[i])) == typeid(sunflower) ||typeid(*(colliding_items[i])) == typeid(walnut) ){
@@ -43,7 +59,6 @@ void zombie::walk()
         }
     }
     if(k==false){
-        qDebug()<<"moved";
         setPos(x()-1 ,y());
      }
 }

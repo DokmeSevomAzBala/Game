@@ -9,6 +9,7 @@
 #include "walnut.h"
 #include "peashooter.h"
 #include "score.h"
+#include "level.h"
 #include <QPushButton>
 #include <QMainWindow>
 #include <QIcon>
@@ -36,13 +37,11 @@ class MainWindow : public QMainWindow
     QTimer *t1;
     QTimer *t2;
     QVector <sun*> SunVec;
-    zombie * zoms[10];
-    zombie *zom1;
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
     GameScreen *gs;
-    void creatzom();
+    void creatzom(int);
     lawn_mower* LMs[5];
 public:
     score *MyScore;

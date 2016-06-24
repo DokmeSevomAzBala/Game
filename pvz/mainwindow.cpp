@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sun.h"
-#include "level.h"
 #include <QPixmap>
 #include <QBrush>
 #include <QPalette>
@@ -45,7 +44,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //    zomcrt = new QTimer();
 //    zomcrt->start(5000);
 //    connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
-    creatzom();
+    Level::loadLevels();
+    if (!Level::validLevelFile())
+    {
+        QMessageBox::question(this, "Invalid file", "Invalid level file. Cannot run game.", QMessageBox::Ok);
+        close();
+    }
+    creatzom(Level::level);
 //<<<<<<< HEAD
 //    wl = new walnut();
 //    scene->addItem(wl);
@@ -166,11 +171,12 @@ void MainWindow::MoveAllSuns()
 
 }
 
-void MainWindow::creatzom()
+void MainWindow::creatzom(int l)
 {
-    for(int i=0;i<10;i++){
-        zoms[i]=new zombie();
-        scene->addItem(zoms[i]);
+    QStringList poses=Level::poses(l);
+    QVector <zombie*> zomz=zombie::lvlStart(poses);
+    for(QVector<zombie*>::iterator it=zomz.begin();it!=zomz.end();it++){
+        scene->addItem(*it);
     }
 
 }
