@@ -13,9 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    wl = new walnut();
-    scene->addItem(wl);
-    wl->setPos(10,10);
+
 
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
@@ -56,6 +54,9 @@ MainWindow::MainWindow(QWidget *parent) :
     zomcrt = new QTimer();
     zomcrt->start(5000);
     connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
 
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
