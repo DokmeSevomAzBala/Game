@@ -25,4 +25,24 @@ void peashooter::make_pea()
 
 }
 
+//void peashooter::IfZombieAndPeashooterAreInSameRaw()
+//{
+
+//    for (int i = 0 ; i < 9 ; i++){
+//        for (int j = 0; j < 5 ; j++){
+//            if (gsp->IfPeashooterISIn[i][j] == 1 ){
+//                qDebug()<<gsp->retJ();
+//                    qDebug()<<gsp->IfZombieIsIn[0][gsp->retJ()];
+//            }
+//            for (int k = 0 ; k < 5 ; k++){
+//                if(gsp->IfZombieIsIn[0][k] == 1){
+//                    qDebug() <<"fdsafdsfdagffssdfg";
+//                    this->make_pea();
+//                }
+
+//            }
+//        }
+//    }
+//}
+
 ////////////////////////////

@@ -11,7 +11,7 @@ class peashooter: public plant
  friend class pea;
 public:
  void make_pea();
- bool IfZombieAndPeashooterAreInSameRaw();
+ //void IfZombieAndPeashooterAreInSameRaw();
 
 peashooter();
 public slots:

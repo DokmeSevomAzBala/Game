@@ -37,7 +37,5 @@ void plant::die(){
     life_time-=0.03;
     if (life_time<=10)
         this->~plant();
-    gsp->IfGridIsFull[retIgsp()][retJgsp()] = 0;
-
-
+        gsp->IfGridIsFull[retIgsp()][retJgsp()] = 0;
 }

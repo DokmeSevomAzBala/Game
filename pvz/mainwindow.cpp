@@ -8,7 +8,7 @@
 #include <QGraphicsPixmapItem>
 #include <QMessageBox>
 //bool  GameScreen::IfGridIsFull[9][5];
-
+GameScreen* MainWindow::gs;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -44,14 +44,12 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
     scene->setSceneRect(0,0,1031,726);
-
     t1 = new QTimer();
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
     t1->start(3000);
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
-    //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
     creatzom(Level::level);
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
@@ -70,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ck,SIGNAL(timeout()),SLOT(check()));
     ck->start(20);
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
-    //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
     creatzom(1);
     for (int i = 0 ; i < 5 ; i++){
         LMs[i]= new lawn_mower();
@@ -107,6 +104,7 @@ void MainWindow::planting()
             pshr->setPos(gs->retX(),gs->retY());
             gs->IfPeashooterISIn[gs->retI()][gs->retJ()] = 1;
             this->MyScore->subtract(100);
+           IfZombieAndPeashooterAreInSameRaw();
              //pshr->make_pea();////////in nbayad inja bashe
         }
         else if (ThePlantingPlant == "sunflowerB"){
@@ -145,6 +143,25 @@ void MainWindow::MoveAllSuns()
         }
 
 }
+void MainWindow::IfZombieAndPeashooterAreInSameRaw()
+{
+
+    for (int i = 0 ; i < 9 ; i++){
+        for (int j = 0; j < 5 ; j++){
+            if (gs->IfPeashooterISIn[i][j] == 1 ){
+                qDebug()<<gs->retJ();
+                qDebug()<<gs->IfZombieIsIn[j];
+            }
+            for (int k = 0 ; k < 5 ; k++){
+                if(gs->IfZombieIsIn[k] == 1){
+                    qDebug() <<"fdsafdsfdagffssdfg";
+                    //->make_pea();
+                }
+
+            }
+        }
+    }
+}
 
 void MainWindow::creatzom(int l)
 {
@@ -152,6 +169,14 @@ void MainWindow::creatzom(int l)
     QVector <zombie*> zomz=zombie::lvlStart(poses);
     for(QVector<zombie*>::iterator it=zomz.begin();it!=zomz.end();it++){
         scene->addItem(*it);
+        //gs->setX(250);
+        //gs->setY(310);
+        for (int i1 = 0 ; i1 < 5 ; i1++){
+            //qDebug()<<zomz.at(i1)->retJz();
+            gs->IfZombieIsIn[zomz.at(i1)->retJz()] = 1;
+        }
+        //qDebug() << gs->retJ();
+
     }
 
 }

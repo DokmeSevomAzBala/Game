@@ -4,6 +4,8 @@
 qreal GameScreen::X;
 qreal GameScreen::Y;
 bool  GameScreen::IfGridIsFull[9][5];
+bool  GameScreen::IfPeashooterISIn[9][5];
+bool  GameScreen::IfZombieIsIn[5];
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
@@ -16,7 +18,7 @@ GameScreen::GameScreen(QWidget *parent) :
             grid[i][j] = QPoint(x[i],y[j]);
             IfGridIsFull[i][j] = 0;
             IfPeashooterISIn[i][j] = 0;
-            IfZombieIsIn[i][j] = 0;
+            IfZombieIsIn[j] = 0;
         }
     }
 }

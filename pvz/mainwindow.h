@@ -40,7 +40,8 @@ class MainWindow : public QMainWindow
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
-    GameScreen *gs;
+    static GameScreen *gs;
+    static void IfZombieAndPeashooterAreInSameRaw();
     void creatzom(int);
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
