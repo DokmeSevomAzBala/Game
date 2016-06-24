@@ -1,6 +1,9 @@
 #include "gamescreen.h"
 #include <QGraphicsLineItem>
 #include <QDebug>
+qreal GameScreen::X;
+qreal GameScreen::Y;
+bool  GameScreen::IfGridIsFull[9][5];
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
@@ -63,22 +66,22 @@ void GameScreen::mousePressEvent(QMouseEvent *e)
     click();
 }
 int GameScreen::retI(){
-    if (X == 250) return 1;
-    else if (X == 335) return 2;
-    else if (X == 405) return 3;
-    else if (X == 495) return 4;
-    else if (X == 580) return 5;
-    else if (X == 660) return 6;
-    else if (X == 750) return 7;
-    else if (X == 820) return 8;
-    else if (X == 900) return 9;
+    if (X == 250) return 0;
+    else if (X == 335) return 1;
+    else if (X == 405) return 2;
+    else if (X == 495) return 3;
+    else if (X == 580) return 4;
+    else if (X == 660) return 5;
+    else if (X == 750) return 6;
+    else if (X == 820) return 7;
+    else if (X == 900) return 8;
 }
 
 int GameScreen::retJ(){
-    if (Y == 65) return 1;
-    else if (Y == 190) return 2;
-    else if (Y == 310) return 3;
-    else if (Y == 430) return 4;
-    else if (Y == 540) return 5;
+    if (Y == 65) return 0;
+    else if (Y == 190) return 1;
+    else if (Y == 310) return 2;
+    else if (Y == 430) return 3;
+    else if (Y == 540) return 4;
 
 }

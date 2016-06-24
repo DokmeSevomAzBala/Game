@@ -1,5 +1,5 @@
 #include "peashooter.h"
-
+#include "zombie.h"
 #include "mainwindow.h"
 extern MainWindow *w;
 

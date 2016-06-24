@@ -50,8 +50,5 @@ void sun::advance(int)
 }
 
 sun::~sun(){
-    qDebug() <<"j";
-
-
 }
 
