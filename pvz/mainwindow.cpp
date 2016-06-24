@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sun.h"
-#include "level.h"
 #include <QPixmap>
 #include <QBrush>
 #include <QPalette>
@@ -51,7 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
-
+    //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
+    creatzom(Level::level);
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -70,17 +70,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ck->start(20);
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
-    creatzom();
-    zoms[1]->setPos(700, 35);
-    zoms[2]->setPos(700, 160);
-    zoms[3]->setPos(900, 160);
-    zoms[4]->setPos(700, 400);
-    zoms[5]->setPos(700, 530);
-    zoms[6]->setPos(800, 35);
-    zoms[7]->setPos(800, 160);
-    zoms[8]->setPos(800, 400);
-    zoms[9]->setPos(900, 400);
-    zoms[0]->setPos(900, 530);
+    creatzom(1);
+//    zoms[1]->setPos(700, 35);
+//    zoms[2]->setPos(700, 160);
+//    zoms[3]->setPos(900, 160);
+//    zoms[4]->setPos(700, 400);
+//    zoms[5]->setPos(700, 530);
+//    zoms[6]->setPos(800, 35);
+//    zoms[7]->setPos(800, 160);
+//    zoms[8]->setPos(800, 400);
+//    zoms[9]->setPos(900, 400);
+//    zoms[0]->setPos(900, 530);
     for (int i = 0 ; i < 5 ; i++){
         LMs[i]= new lawn_mower();
         scene->addItem(LMs[i]);
@@ -152,11 +152,12 @@ void MainWindow::MoveAllSuns()
 
 }
 
-void MainWindow::creatzom()
+void MainWindow::creatzom(int l)
 {
-    for(int i=0;i<10;i++){
-        zoms[i]=new zombie();
-        scene->addItem(zoms[i]);
+    QStringList poses=Level::poses(l);
+    QVector <zombie*> zomz=zombie::lvlStart(poses);
+    for(QVector<zombie*>::iterator it=zomz.begin();it!=zomz.end();it++){
+        scene->addItem(*it);
     }
 
 }

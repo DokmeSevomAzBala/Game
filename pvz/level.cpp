@@ -2,7 +2,7 @@
 #include <QDebug>
 
 std::vector<QStringList> levelList;
-int Level::level = 0;
+int Level::level = 1;
 int Level::zombieType = 0;
 int Level::sequencePosition = 0;
 
@@ -16,6 +16,7 @@ void Level::loadLevels()
     if (save_file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QTextStream text(&save_file);
+        level=text.readLine().split(":").at(1).toInt();
         while(!text.atEnd())
         {
             levelList.push_back(text.readLine().split(":")); // Fill levelList with info from pvz_levels.csv.
@@ -35,8 +36,14 @@ bool Level::validLevelFile()
     return 1;
 }
 
+QStringList Level::poses(int l)
+{
+    return levelList.at(l-1);
+}
+/*
 QStringList Level::sequence(int level)
 {
+
     return levelList.at(level-1)[1].split(",");
 }
 
@@ -77,3 +84,4 @@ int Level::sequenceSize(int level)
     QStringList temp = levelList.at(level-1)[1].split(",");
     return temp.size();
 }
+*/

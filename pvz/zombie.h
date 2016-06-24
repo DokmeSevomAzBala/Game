@@ -19,14 +19,16 @@
 class zombie:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
+    QTimer* move;
     int Xpos;
     int Ypos;
     int power;  //how many bullet will kill zombie
     //QPixmap ZomPic;
-    QTimer *move;
+
 public:
-    zombie(QGraphicsItem *parent = 0);
+    zombie(qreal i=0, qreal j=0, QGraphicsItem *parent = 0);
     ~zombie();
+    static QVector<zombie *> lvlStart(QStringList lev);
 
 public slots:
     void walk();

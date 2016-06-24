@@ -17,12 +17,13 @@ public:
     static int level;                           // Holds user's level.
     static int zombieType;                      // Holds zombie type (changes depending on position in sequence).
     static int sequencePosition;                // Holds sequence position.
-    static QStringList sequence(int level);     // Returns zombie sequence, given level.
+    static QStringList poses(int l);
+    /* static QStringList sequence(int level);     // Returns zombie sequence, given level.
     static int rows(int level);                 // Returns rows, given level.
     static QString start(int level);            // Returns start, given level.
     static QString interval(int level);         // Returns start, given level.
     static QString decrement(int level);        // Returns amount of levels in text file.
     static int sequenceSize(int level);         // Returns amount of levels in text file.
-};
+*/};
 
 #endif // LEVEL_H
