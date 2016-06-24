@@ -3,6 +3,9 @@
 
 class lawn_mower
 {
+    int cost;
+    int life_time;
+    int seeding_time;
 public:
     lawn_mower();
 };
