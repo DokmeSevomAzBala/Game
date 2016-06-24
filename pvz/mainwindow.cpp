@@ -77,14 +77,6 @@ MainWindow::MainWindow(QWidget *parent) :
         LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
     }
 }
-void MainWindow::planting_lawn_mower()
-{
-    lawn = new lawn_mower();
-    scene->addItem(lawn);
-    lawn->setPos(x_mouse,y_mouse);
-    this->MyScore->subtract(50);
-
-}
 
 void MainWindow::check()
 {
@@ -111,6 +103,7 @@ void MainWindow::planting()
             pshr = new peashooter();
             scene->addItem(pshr);
             pshr->setPos(gs->retX(),gs->retY());
+            gs->IfPeashooterISIn[gs->retI()][gs->retJ()] = 1;
             this->MyScore->subtract(100);
              //pshr->make_pea();////////in nbayad inja bashe
         }
@@ -133,7 +126,7 @@ void MainWindow::planting()
 void MainWindow::MakeSunOnScene(){
     sun *Sun;
     Sun = new sun();
-    qreal sunX = rand() % 1000 + 200;
+    qreal sunX = rand() % 900 + 200;
     Sun->setPos(sunX,0);
     SunVec.push_back(Sun);
     scene->addItem(Sun);

@@ -30,9 +30,9 @@ public:
 void delay( int);
     pea();
     ~pea();
- void move_p(int,int);
+ //void move_p(int,int);
 public slots:
-  // void move_p(int,int);
+   void move_p(int,int);
 };
 
 #endif // PEA_H
