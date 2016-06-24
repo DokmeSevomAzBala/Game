@@ -13,8 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
-
     ui->setupUi(this);
     ui->view->setStyleSheet("background:transparent");
     this->setFixedSize(1030,700);
@@ -43,7 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
-
+    wl = new walnut();
+    scene->addItem(wl);
+    wl->setPos(10,10);
 //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
 /*    zom1 = new zombie();
     zom1->setPos(500,100);
@@ -150,6 +150,7 @@ void MainWindow::MoveAllSuns()
 void MainWindow::creatzom()
 {
     zombie* zom1=new zombie();
+    scene->addItem(zom1);
     zomvec.push_back(zom1);
 
 }

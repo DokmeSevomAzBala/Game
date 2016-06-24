@@ -10,6 +10,7 @@ zombie::zombie(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
    int i=qrand()%5;
    setPos(700,i*100+50);
 
+
 }
 
 zombie::~zombie()
