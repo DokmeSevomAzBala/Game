@@ -2,7 +2,7 @@
 #include "zombie.h"
 #include "mainwindow.h"
 #include <QGraphicsScene>
-extern MainWindow *w;
+//extern MainWindow *w;
 
 peashooter::peashooter()
 {
@@ -20,7 +20,7 @@ void peashooter::make_pea()
 {
  pea* p1;
  p1=new pea();
- w->scene->addItem(p1);
+ scene()->addItem(p1);
  p1->setPos(this->x()+70,this->y());
  //p1->move_p();
  QTimer * ti = new QTimer();

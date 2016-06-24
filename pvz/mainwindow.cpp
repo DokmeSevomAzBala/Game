@@ -177,8 +177,6 @@ void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
                     QTimer *t = new QTimer();
                     t->start(1000);
                     connect (t, SIGNAL(timeout()),shooter,SLOT(make_pea()));
-                    //shooter->make_pea();
-
             }
         }
     }

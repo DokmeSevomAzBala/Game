@@ -8,6 +8,8 @@
 #include <QObject>
 #include <QWidget>
 #include <QTimer>
+#include <QGraphicsScene>
+
 class sun : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT

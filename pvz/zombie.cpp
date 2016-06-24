@@ -1,5 +1,4 @@
 #include "zombie.h"
-//GameScreen* zombie::gsp;
 zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
