@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[12];
-    char stringdata[155];
+    QByteArrayData data[11];
+    char stringdata[144];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,22 +32,20 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 5), // "click"
 QT_MOC_LITERAL(2, 17, 0), // ""
-QT_MOC_LITERAL(3, 18, 15), // "mousePressEvent"
-QT_MOC_LITERAL(4, 34, 12), // "QMouseEvent*"
-QT_MOC_LITERAL(5, 47, 14), // "MakeSunOnScene"
-QT_MOC_LITERAL(6, 62, 11), // "MoveAllSuns"
-QT_MOC_LITERAL(7, 74, 18), // "planting_sunflower"
-QT_MOC_LITERAL(8, 93, 15), // "planting_walnut"
-QT_MOC_LITERAL(9, 109, 19), // "planting_lawn_mower"
-QT_MOC_LITERAL(10, 129, 19), // "planting_peashooter"
-QT_MOC_LITERAL(11, 149, 5) // "check"
+QT_MOC_LITERAL(3, 18, 14), // "MakeSunOnScene"
+QT_MOC_LITERAL(4, 33, 11), // "MoveAllSuns"
+QT_MOC_LITERAL(5, 45, 19), // "planting_lawn_mower"
+QT_MOC_LITERAL(6, 65, 5), // "check"
+QT_MOC_LITERAL(7, 71, 8), // "planting"
+QT_MOC_LITERAL(8, 80, 18), // "on_walnutB_clicked"
+QT_MOC_LITERAL(9, 99, 22), // "on_peashooterB_clicked"
+QT_MOC_LITERAL(10, 122, 21) // "on_sunflowerB_clicked"
 
     },
-    "MainWindow\0click\0\0mousePressEvent\0"
-    "QMouseEvent*\0MakeSunOnScene\0MoveAllSuns\0"
-    "planting_sunflower\0planting_walnut\0"
-    "planting_lawn_mower\0planting_peashooter\0"
-    "check"
+    "MainWindow\0click\0\0MakeSunOnScene\0"
+    "MoveAllSuns\0planting_lawn_mower\0check\0"
+    "planting\0on_walnutB_clicked\0"
+    "on_peashooterB_clicked\0on_sunflowerB_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,20 +66,20 @@ static const uint qt_meta_data_MainWindow[] = {
        1,    0,   59,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   60,    2, 0x0a /* Public */,
-       5,    0,   63,    2, 0x0a /* Public */,
-       6,    0,   64,    2, 0x0a /* Public */,
-       7,    0,   65,    2, 0x08 /* Private */,
-       8,    0,   66,    2, 0x08 /* Private */,
-       9,    0,   67,    2, 0x08 /* Private */,
-      10,    0,   68,    2, 0x08 /* Private */,
-      11,    0,   69,    2, 0x08 /* Private */,
+       3,    0,   60,    2, 0x0a /* Public */,
+       4,    0,   61,    2, 0x0a /* Public */,
+       5,    0,   62,    2, 0x08 /* Private */,
+       6,    0,   63,    2, 0x08 /* Private */,
+       7,    0,   64,    2, 0x08 /* Private */,
+       8,    0,   65,    2, 0x08 /* Private */,
+       9,    0,   66,    2, 0x08 /* Private */,
+      10,    0,   67,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -99,14 +97,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
         case 0: _t->click(); break;
-        case 1: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
-        case 2: _t->MakeSunOnScene(); break;
-        case 3: _t->MoveAllSuns(); break;
-        case 4: _t->planting_sunflower(); break;
-        case 5: _t->planting_walnut(); break;
-        case 6: _t->planting_lawn_mower(); break;
-        case 7: _t->planting_peashooter(); break;
-        case 8: _t->check(); break;
+        case 1: _t->MakeSunOnScene(); break;
+        case 2: _t->MoveAllSuns(); break;
+        case 3: _t->planting_lawn_mower(); break;
+        case 4: _t->check(); break;
+        case 5: _t->planting(); break;
+        case 6: _t->on_walnutB_clicked(); break;
+        case 7: _t->on_peashooterB_clicked(); break;
+        case 8: _t->on_sunflowerB_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -119,6 +117,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             }
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject MainWindow::staticMetaObject = {

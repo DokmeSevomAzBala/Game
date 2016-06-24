@@ -18,14 +18,14 @@ public:
     QGraphicsView *view;
 
     void display_menu();
-    void mouseMoveEvent(QMouseEvent *event);
+    //void mouseMoveEvent(QMouseEvent *event);
 
 signals:
     void start();
 
 private slots:
     void read_message();
-    void disconnect_by_server();
+    void disconnect();
 
 private:
       QTcpSocket *mysocket;

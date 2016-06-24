@@ -18,3 +18,6 @@ HEADERS  += mainwindow.h \
     client.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    image.qrc
