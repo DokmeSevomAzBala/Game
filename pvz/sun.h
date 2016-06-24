@@ -7,11 +7,13 @@
 #include <QPainter>
 #include <QObject>
 #include <QWidget>
+#include <QTimer>
 class sun : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    bool Falling;
+    bool pressed;
+    QTimer * DeletSunTimer;
     static int SunScore;
     sun(QGraphicsItem *parent = 0);
     void mousePressEvent ( QGraphicsSceneMouseEvent * event);

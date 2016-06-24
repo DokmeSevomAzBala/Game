@@ -43,7 +43,7 @@ void zombie::walk()
         }
     }
     if(k==false){
-        qDebug()<<"moved";
+        //qDebug()<<"moved";
         setPos(x()-1 ,y());
      }
 }

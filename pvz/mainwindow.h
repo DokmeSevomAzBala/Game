@@ -19,7 +19,7 @@
 #include <QGraphicsView>
 #include <QWidget>
 #include <QMouseEvent>
-
+#include <QString>
 namespace Ui {
 class MainWindow;
 }
@@ -44,6 +44,7 @@ class MainWindow : public QMainWindow
     GameScreen *gs;
     void creatzom();
     lawn_mower* LMs[5];
+    QString ThePlantingPlant;
 public:
     score *MyScore;
     void screen(qreal,qreal);
@@ -52,24 +53,23 @@ public:
     QGraphicsScene *scene;
 
 public slots:
-    void mousePressEvent(QMouseEvent* ) ;
+    //void mousePressEvent(QMouseEvent*) ;
     void MakeSunOnScene();
     //void MakeSunForSunFlower();
     void MoveAllSuns();
 private slots:
-    void planting_sunflower();
-    void planting_walnut();
-     void planting_lawn_mower();
-    void planting_peashooter();
- //void planting_sunflower();
-   // void planting_walnut();
-  //  void planting_peashooter();
-// void planting_sunflower();
-//   void planting_walnut();
-//  void planting_peashooter();
+//    void planting_sunflower();
+//    void planting_walnut();
+    void planting_lawn_mower();
+//    void planting_peashooter();
     void check();
-//    void on_SunflowerButton_clicked();
-    //void on_peashooterB_clicked();
+    void planting();
+    void on_walnutB_clicked();
+
+    void on_peashooterB_clicked();
+
+    void on_sunflowerB_clicked();
+
 signals:
     void click();
 };
