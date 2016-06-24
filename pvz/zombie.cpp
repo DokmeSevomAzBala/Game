@@ -12,7 +12,7 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    //setPos(700,i*100+50);
    setPos(i,j);
    gsp->setX(250);
-   gsp->setY(j+30);
+   setY(j);
 }
 
 zombie::~zombie()
@@ -22,11 +22,12 @@ zombie::~zombie()
 
 int zombie::retJz()
 {
-    if (gsp->retY() == 65) return 0;
-    else if (gsp->retY() == 190) return 1;
-    else if (gsp->retY() == 310) return 2;
-    else if (gsp->retY() == 430) return 3;
-    else if (gsp->retY() == 540) return 4;
+    qDebug() << get_y();
+    if (get_y() == 65) return 0;
+    else if (get_y() == 190) return 1;
+    else if (get_y() == 310) return 2;
+    else if (get_y() == 430) return 3;
+    else if (get_y() == 540) return 4;
 }
 
 QVector<zombie*> zombie::lvlStart(QStringList lev)
@@ -46,6 +47,11 @@ QVector<zombie*> zombie::lvlStart(QStringList lev)
     return zomz;
 
 
+}
+
+void zombie::setY(qreal h)
+{
+    Ypos = h+30;
 }
 
 void zombie::walk()

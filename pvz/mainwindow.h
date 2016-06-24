@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <QString>
+#include <QThread>
 namespace Ui {
 class MainWindow;
 }

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sat Jun 25 08:30:01 2016
+** Created: Fri Jun 24 19:51:05 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,23 +35,21 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       20,   11,   11,   11, 0x0a,
-      50,   11,   11,   11, 0x0a,
-      67,   11,   11,   11, 0x0a,
-      81,   11,   11,   11, 0x08,
-     102,   11,   11,   11, 0x08,
-     120,   11,   11,   11, 0x08,
-     142,   11,   11,   11, 0x08,
-     164,   11,   11,   11, 0x08,
+      37,   11,   11,   11, 0x0a,
+      51,   11,   11,   11, 0x08,
+      59,   11,   11,   11, 0x08,
+      70,   11,   11,   11, 0x08,
+      91,   11,   11,   11, 0x08,
+     116,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0click()\0mousePressEvent(QMouseEvent*)\0"
-    "MakeSunOnScene()\0MoveAllSuns()\0"
-    "planting_sunflower()\0planting_walnut()\0"
-    "planting_lawn_mower()\0planting_peashooter()\0"
-    "check()\0"
+    "MainWindow\0\0click()\0MakeSunOnScene()\0"
+    "MoveAllSuns()\0check()\0planting()\0"
+    "on_walnutB_clicked()\0on_peashooterB_clicked()\0"
+    "on_sunflowerB_clicked()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -84,17 +82,16 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: click(); break;
-        case 1: mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
-        case 2: MakeSunOnScene(); break;
-        case 3: MoveAllSuns(); break;
-        case 4: planting_sunflower(); break;
-        case 5: planting_walnut(); break;
-        case 6: planting_lawn_mower(); break;
-        case 7: planting_peashooter(); break;
-        case 8: check(); break;
+        case 1: MakeSunOnScene(); break;
+        case 2: MoveAllSuns(); break;
+        case 3: check(); break;
+        case 4: planting(); break;
+        case 5: on_walnutB_clicked(); break;
+        case 6: on_peashooterB_clicked(); break;
+        case 7: on_sunflowerB_clicked(); break;
         default: ;
         }
-        _id -= 9;
+        _id -= 8;
     }
     return _id;
 }

@@ -33,7 +33,9 @@ public:
     static QVector<zombie *> lvlStart(QStringList lev);
     qreal get_x(){return Xpos;}
     qreal get_y(){return Ypos;}
+    void setY(qreal h);
     static GameScreen* gsp;
+
 public slots:
     void walk();
 };
