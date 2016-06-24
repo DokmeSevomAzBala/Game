@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'lawn_mower.h'
 **
-** Created: Fri Jun 24 20:08:03 2016
+** Created: Sat Jun 25 08:30:08 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -37,7 +37,7 @@ static const uint qt_meta_data_lawn_mower[] = {
 };
 
 static const char qt_meta_stringdata_lawn_mower[] = {
-    "lawn_mower\0\0move_lawn()\0"
+    "lawn_mower\0\0movinglawn()\0"
 };
 
 const QMetaObject lawn_mower::staticMetaObject = {
@@ -69,7 +69,7 @@ int lawn_mower::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: move_lawn(); break;
+        case 0: movinglawn(); break;
         default: ;
         }
         _id -= 1;

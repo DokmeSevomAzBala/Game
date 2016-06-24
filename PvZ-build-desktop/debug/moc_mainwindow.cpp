@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Jun 24 20:07:39 2016
+** Created: Sat Jun 25 08:30:01 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,12 +37,11 @@ static const uint qt_meta_data_MainWindow[] = {
       20,   11,   11,   11, 0x0a,
       50,   11,   11,   11, 0x0a,
       67,   11,   11,   11, 0x0a,
-      81,   11,   11,   11, 0x0a,
-      92,   11,   11,   11, 0x08,
-     113,   11,   11,   11, 0x08,
-     131,   11,   11,   11, 0x08,
-     153,   11,   11,   11, 0x08,
-     175,   11,   11,   11, 0x08,
+      81,   11,   11,   11, 0x08,
+     102,   11,   11,   11, 0x08,
+     120,   11,   11,   11, 0x08,
+     142,   11,   11,   11, 0x08,
+     164,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -50,9 +49,9 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0click()\0mousePressEvent(QMouseEvent*)\0"
     "MakeSunOnScene()\0MoveAllSuns()\0"
-    "creatzom()\0planting_sunflower()\0"
-    "planting_walnut()\0planting_lawn_mower()\0"
-    "planting_peashooter()\0check()\0"
+    "planting_sunflower()\0planting_walnut()\0"
+    "planting_lawn_mower()\0planting_peashooter()\0"
+    "check()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -88,15 +87,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 1: mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         case 2: MakeSunOnScene(); break;
         case 3: MoveAllSuns(); break;
-        case 4: creatzom(); break;
-        case 5: planting_sunflower(); break;
-        case 6: planting_walnut(); break;
-        case 7: planting_lawn_mower(); break;
-        case 8: planting_peashooter(); break;
-        case 9: check(); break;
+        case 4: planting_sunflower(); break;
+        case 5: planting_walnut(); break;
+        case 6: planting_lawn_mower(); break;
+        case 7: planting_peashooter(); break;
+        case 8: check(); break;
         default: ;
         }
-        _id -= 10;
+        _id -= 9;
     }
     return _id;
 }
