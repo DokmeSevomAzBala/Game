@@ -60,7 +60,8 @@ SOURCES       = ../pvz/main.cpp \
 		../pvz/peashooter.cpp \
 		../pvz/walnut.cpp \
 		../pvz/level.cpp \
-		../pvz/lawn_mower.cpp qrc_pvzresources.cpp \
+		../pvz/lawn_mower.cpp \
+		../pvz/timerthread.cpp qrc_pvzresources.cpp \
 		moc_mainwindow.cpp \
 		moc_zombie.cpp \
 		moc_sunflower.cpp \
@@ -70,7 +71,8 @@ SOURCES       = ../pvz/main.cpp \
 		moc_peashooter.cpp \
 		moc_gamescreen.cpp \
 		moc_walnut.cpp \
-		moc_lawn_mower.cpp
+		moc_lawn_mower.cpp \
+		moc_timerthread.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		zombie.o \
@@ -84,6 +86,7 @@ OBJECTS       = main.o \
 		walnut.o \
 		level.o \
 		lawn_mower.o \
+		timerthread.o \
 		qrc_pvzresources.o \
 		moc_mainwindow.o \
 		moc_zombie.o \
@@ -94,7 +97,8 @@ OBJECTS       = main.o \
 		moc_peashooter.o \
 		moc_gamescreen.o \
 		moc_walnut.o \
-		moc_lawn_mower.o
+		moc_lawn_mower.o \
+		moc_timerthread.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -164,7 +168,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/gamescreen.h \
 		../pvz/walnut.h \
 		../pvz/level.h \
-		../pvz/lawn_mower.h ../pvz/main.cpp \
+		../pvz/lawn_mower.h \
+		../pvz/timerthread.h ../pvz/main.cpp \
 		../pvz/mainwindow.cpp \
 		../pvz/zombie.cpp \
 		../pvz/sunflower.cpp \
@@ -176,7 +181,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/peashooter.cpp \
 		../pvz/walnut.cpp \
 		../pvz/level.cpp \
-		../pvz/lawn_mower.cpp
+		../pvz/lawn_mower.cpp \
+		../pvz/timerthread.cpp
 QMAKE_TARGET  = PvZ
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = PvZ
@@ -349,8 +355,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/pvzresources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/gamescreen.h ../pvz/walnut.h ../pvz/level.h ../pvz/lawn_mower.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/walnut.cpp ../pvz/level.cpp ../pvz/lawn_mower.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/gamescreen.h ../pvz/walnut.h ../pvz/level.h ../pvz/lawn_mower.h ../pvz/timerthread.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/walnut.cpp ../pvz/level.cpp ../pvz/lawn_mower.cpp ../pvz/timerthread.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/mainwindow.ui $(DISTDIR)/
 
 
@@ -394,9 +400,9 @@ qrc_pvzresources.cpp: ../pvz/pvzresources.qrc \
 		../pvz/pvz_levels.csv
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name pvzresources ../pvz/pvzresources.qrc -o qrc_pvzresources.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp moc_walnut.cpp moc_lawn_mower.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp moc_walnut.cpp moc_lawn_mower.cpp moc_timerthread.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp moc_walnut.cpp moc_lawn_mower.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_zombie.cpp moc_sunflower.cpp moc_sun.cpp moc_plant.cpp moc_pea.cpp moc_peashooter.cpp moc_gamescreen.cpp moc_walnut.cpp moc_lawn_mower.cpp moc_timerthread.cpp
 moc_mainwindow.cpp: ../pvz/gamescreen.h \
 		../pvz/sunflower.h \
 		../pvz/plant.h \
@@ -456,6 +462,9 @@ moc_lawn_mower.cpp: ../pvz/plant.h \
 		../pvz/gamescreen.h \
 		../pvz/lawn_mower.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/lawn_mower.h -o moc_lawn_mower.cpp
+
+moc_timerthread.cpp: ../pvz/timerthread.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/timerthread.h -o moc_timerthread.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -594,6 +603,9 @@ lawn_mower.o: ../pvz/lawn_mower.cpp ../pvz/lawn_mower.h \
 		../pvz/gamescreen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lawn_mower.o ../pvz/lawn_mower.cpp
 
+timerthread.o: ../pvz/timerthread.cpp ../pvz/timerthread.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o timerthread.o ../pvz/timerthread.cpp
+
 qrc_pvzresources.o: qrc_pvzresources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_pvzresources.o qrc_pvzresources.cpp
 
@@ -626,6 +638,9 @@ moc_walnut.o: moc_walnut.cpp
 
 moc_lawn_mower.o: moc_lawn_mower.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_lawn_mower.o moc_lawn_mower.cpp
+
+moc_timerthread.o: moc_timerthread.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_timerthread.o moc_timerthread.cpp
 
 ####### Install
 

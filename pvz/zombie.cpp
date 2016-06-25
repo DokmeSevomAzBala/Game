@@ -35,10 +35,10 @@ int zombie::retJz()
     else if (get_y() == 540) return 4;
 }
 
-QVector<zombie*> zombie::lvlStart(QStringList lev)
+QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
     //zombie* zz;
-    QVector <zombie*> zomz;
+    QSet <zombie*> zomz;
     qreal i,j;
     int n;
     for(n=1;n<lev.size();n++){
@@ -47,7 +47,7 @@ QVector<zombie*> zombie::lvlStart(QStringList lev)
         j=lev.at(n).split(",").at(1).toInt();
         zombie* zz=new zombie(i,j);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
-        zomz.push_back(zz);
+        zomz.insert(zz);
     }
     return zomz;
 
