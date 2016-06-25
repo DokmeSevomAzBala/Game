@@ -32,7 +32,7 @@ public:
     zombie(qreal i=0, qreal j=0, QGraphicsItem *parent = 0);
     ~zombie();
     int retJz();
-    static QVector<zombie *> lvlStart(QStringList lev);
+    static QSet<zombie *> lvlStart(QStringList lev);
     qreal get_x(){return Xpos;}
     qreal get_y(){return Ypos;}
     void setY(qreal h);

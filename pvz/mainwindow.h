@@ -46,6 +46,7 @@ class MainWindow : public QMainWindow
     void IfZombieAndPeashooterAreInSameRaw(peashooter*);
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
+    QSet<zombie*> zombieset;
 public:
     static bool IfZombieIsInW[5];
     score *MyScore;
