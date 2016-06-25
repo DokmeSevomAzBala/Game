@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include "mainwindow.h"
 #include <QThread>
-extern MainWindow *w;
+//extern MainWindow *w;
 
 pea::pea()
 {
@@ -16,9 +16,9 @@ pea::pea()
 
 }
 
-void pea::move_p(int a,int b)
+void pea::move_p()
 {
-    this->setPos(this->x()+1,this->y());
+    this->setPos(this->x()+5,this->y());
 //    p_x=a;
 //    p_y=b;
 //    while(p_x<1000){

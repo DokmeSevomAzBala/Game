@@ -52,10 +52,10 @@ static const uint qt_meta_data_pea[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,   19,    2, 0x0a /* Public */,
+       1,    0,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -65,10 +65,11 @@ void pea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
     if (_c == QMetaObject::InvokeMetaMethod) {
         pea *_t = static_cast<pea *>(_o);
         switch (_id) {
-        case 0: _t->move_p((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 0: _t->move_p(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject pea::staticMetaObject = {

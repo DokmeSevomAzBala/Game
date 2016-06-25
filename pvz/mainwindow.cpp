@@ -7,14 +7,14 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QMessageBox>
-
+//bool  GameScreen::IfGridIsFull[9][5];
+GameScreen* MainWindow::gs;
+bool MainWindow::IfZombieIsInW[5];
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
-
     gs = new GameScreen(ui->view);
     gs->setFixedSize(ui->view->size());
 
@@ -44,22 +44,29 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
     scene->setSceneRect(0,0,1031,726);
-
+    for (int i = 0 ; i < 5 ; i++){
+        LMs[i]= new lawn_mower();
+        scene->addItem(LMs[i]);
+        LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
+        IfZombieIsInW[i] = 0;
+    }
     t1 = new QTimer();
-     QThread* thread1 = new QThread();
-     t1->setInterval(3000);
-     t1->moveToThread(thread1);
-    connect(thread1, SIGNAL(started()), t1, SLOT(start()));
+    // QThread* thread1 = new QThread();
+    // t1->setInterval(3000);
+    // t1->moveToThread(thread1);
+   // connect(thread1, SIGNAL(started()), t1, SLOT(start()));
+    t1->start(3000);
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-    thread1->start();
+    //thread1->start();
 
     t2 = new QTimer();
-     QThread* thread2 = new QThread();
-     t2->setInterval(10);
-     t2->moveToThread(thread2);
-     connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+   //  QThread* thread2 = new QThread();
+    // t2->setInterval(10);
+    // t2->moveToThread(thread2);
+    // connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
-    thread2->start();
+    t2->start(10);
+    //thread2->start();
 
     //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
     creatzom(Level::level);
@@ -76,32 +83,22 @@ MainWindow::MainWindow(QWidget *parent) :
     MyScore->setPos(70,25);
     scene->addItem(MyScore);
     QTimer *ck;
+    //creatzom(1);
     ck=new QTimer();
-    QThread* thread3 = new QThread();
-    ck->setInterval(20);
-    ck->moveToThread(thread3);
-    connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+    ck->start(20);
+    //creatzom(1);
+   // QThread* thread3 = new QThread();
+  //  ck->setInterval(20);
+   // ck->moveToThread(thread3);
+   // connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(ck,SIGNAL(timeout()),SLOT(check()));
-    thread3->start();
-
+   // thread3->start();
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
-    //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
-    creatzom(1);
-//    zoms[1]->setPos(700, 35);
-//    zoms[2]->setPos(700, 160);
-//    zoms[3]->setPos(900, 160);
-//    zoms[4]->setPos(700, 400);
-//    zoms[5]->setPos(700, 530);
-//    zoms[6]->setPos(800, 35);
-//    zoms[7]->setPos(800, 160);
-//    zoms[8]->setPos(800, 400);
-//    zoms[9]->setPos(900, 400);
-//    zoms[0]->setPos(900, 530);
-    for (int i = 0 ; i < 5 ; i++){
-        LMs[i]= new lawn_mower();
-        scene->addItem(LMs[i]);
-        LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
-    }
+   // connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
+
+//    thread1->wait();
+//    thread2->wait();
+//    thread3->wait();
 }
 
 void MainWindow::check()
@@ -130,8 +127,10 @@ void MainWindow::planting()
             pshr = new peashooter();
             scene->addItem(pshr);
             pshr->setPos(gs->retX(),gs->retY());
+            pshr->make_pea();
             gs->IfPeashooterISIn[gs->retI()][gs->retJ()] = 1;
             this->MyScore->subtract(100);
+            IfZombieAndPeashooterAreInSameRaw(pshr);
              //pshr->make_pea();////////in nbayad inja bashe
         }
         else if (ThePlantingPlant == "sunflowerB"){
@@ -146,6 +145,9 @@ void MainWindow::planting()
             wl->setPos(gs->retX(),gs->retY());
             this->MyScore->subtract(50);
      }
+        ThePlantingPlant = "";
+    }
+    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
         ThePlantingPlant = "";
     }
 }
@@ -167,6 +169,19 @@ void MainWindow::MoveAllSuns()
         }
 
 }
+void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
+{
+    for (int i = 0 ; i < 9 ; i++){
+        for (int j = 0; j < 5 ; j++){
+            if (gs->IfPeashooterISIn[i][j] == 1 && IfZombieIsInW[j] == 1){
+                    qDebug() <<"fdsafdsfdagffssdfg";
+                    QTimer *t = new QTimer();
+                    t->start(1000);
+                    connect (t, SIGNAL(timeout()),shooter,SLOT(make_pea()));
+            }
+        }
+    }
+}
 
 void MainWindow::creatzom(int l)
 {
@@ -174,6 +189,14 @@ void MainWindow::creatzom(int l)
     QVector <zombie*> zomz=zombie::lvlStart(poses);
     for(QVector<zombie*>::iterator it=zomz.begin();it!=zomz.end();it++){
         scene->addItem(*it);
+        //gs->setX(250);
+        //gs->setY(310);
+        for (int i1 = 0 ; i1 < 5 ; i1++){
+            //qDebug()<<"FFF" << zomz.at(i1)->retJz() << zomz.at(i1)->get_y();
+            IfZombieIsInW[zomz.at(i1)->retJz()] = 1;
+        }
+        //qDebug() << gs->retJ();
+
     }
 
 }
