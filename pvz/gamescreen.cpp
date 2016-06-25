@@ -9,7 +9,7 @@ bool  GameScreen::IfZombieIsIn[5];
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
-    int x[] = {250,335,405,495,570,660,750,820,905};
+    int x[] = {250,335,405,495,570,660,750,820,950};
     int y[] = {65,190,310,430,540};
     for (int i = 0; i < 9; i++)
     {
@@ -81,7 +81,7 @@ int GameScreen::retI(){
     else if (X == 660) return 5;
     else if (X == 750) return 6;
     else if (X == 820) return 7;
-    else if (X == 905) return 8;
+    else if (X == 950) return 8;
 }
 
 int GameScreen::retJ(){

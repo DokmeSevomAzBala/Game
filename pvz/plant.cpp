@@ -33,11 +33,12 @@ plant::plant(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
     gsp = new GameScreen();
 }
 plant::~plant(){
-    qDebug()<<"die die die die die die3:))";
 }
 void plant::die(){
     life_time-=0.03;
-    if (life_time<=10)
-        this->~plant();
+    if (life_time<=0){
         gsp->IfGridIsFull[gsp->retI()][gsp->retJ()] = 0;
+        this->~plant();
+    }
+
 }

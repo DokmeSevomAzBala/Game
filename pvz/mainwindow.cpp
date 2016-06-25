@@ -121,9 +121,8 @@ void MainWindow::check()
 
 void MainWindow::planting()
 {
-    qDebug()<<gs->retI()<<"   "<<gs->retJ();
     if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 0){
-        gs->IfGridIsFull[gs->retI()][gs->retJ()] = 1;
+        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
         if (ThePlantingPlant == "peashooterB"){
             pshr = new peashooter();
             scene->addItem(pshr);
@@ -132,6 +131,7 @@ void MainWindow::planting()
             gs->IfPeashooterISIn[gs->retI()][gs->retJ()] = 1;
             this->MyScore->subtract(100);
             IfZombieAndPeashooterAreInSameRaw(pshr);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
              //pshr->make_pea();////////in nbayad inja bashe
         }
         else if (ThePlantingPlant == "sunflowerB"){
@@ -139,18 +139,26 @@ void MainWindow::planting()
             scene->addItem(sunfl);
             sunfl->setPos(gs->retX(),gs->retY());
             this->MyScore->subtract(50);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+
         }
         else if(ThePlantingPlant == "walnutB"){
             wl = new walnut();
             scene->addItem(wl);
             wl->setPos(gs->retX(),gs->retY());
             this->MyScore->subtract(50);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+
      }
-        ThePlantingPlant = "";
+        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
+
     }
-    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
+    qDebug()<<"KHIKGIKG"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
+
         ThePlantingPlant = "";
-    }
+//    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
+//        ThePlantingPlant = "";
+//    }
 }
 
 void MainWindow::MakeSunOnScene(){
@@ -175,7 +183,7 @@ void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
     for (int i = 0 ; i < 9 ; i++){
         for (int j = 0; j < 5 ; j++){
             if (gs->IfPeashooterISIn[i][j] == 1 && IfZombieIsInW[j] == 1){
-                    qDebug() <<"fdsafdsfdagffssdfg";
+                    //qDebug() <<"fdsafdsfdagffssdfg";
                     QTimer *t = new QTimer();
                     t->start(1000);
                     connect (t, SIGNAL(timeout()),shooter,SLOT(make_pea()));

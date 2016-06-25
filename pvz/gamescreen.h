@@ -13,7 +13,7 @@ class GameScreen : public QGraphicsView
     qreal zomX;
     qreal zomY;
 public:
-    explicit GameScreen(QWidget *parent = 0);
+    GameScreen(QWidget *parent = 0);
     void mousePressEvent(QMouseEvent*);
     //GameScreen();
     QPoint grid[9][5];
