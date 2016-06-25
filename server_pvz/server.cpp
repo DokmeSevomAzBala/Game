@@ -3,7 +3,7 @@
 server::server(QWidget *parent):QWidget (parent)
 {
     myserver = new QTcpServer(this);
-    if (!myserver->listen(QHostAddress::LocalHost, 5000)) {
+    if (!myserver->listen(QHostAddress::LocalHost, 12345)) {
     //ui->log->setPlainText("Failure while starting server: " + myserver->errorString());
     return;
     }

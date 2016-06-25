@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <QString>
+#include <QTcpSocket>
 #include <QThread>
 namespace Ui {
 class MainWindow;
@@ -46,6 +47,8 @@ class MainWindow : public QMainWindow
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
 public:
+    QString str;
+    QTcpSocket *socket;
     static bool IfZombieIsInW[5];
     score *MyScore;
     void screen(qreal,qreal);
@@ -54,6 +57,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
+    void read_connect();
     void creatzom(int);
     void MakeSunOnScene();
     void MoveAllSuns();

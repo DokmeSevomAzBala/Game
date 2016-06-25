@@ -3,8 +3,9 @@
 #include <QGraphicsTextItem>
 
 class score :public QGraphicsTextItem
-{   int scoreCount;
+{
 public:
+    int scoreCount;
     int ret_score();
     score(QGraphicsItem *parent = 0);
     void add();

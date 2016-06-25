@@ -1,6 +1,6 @@
 #include "peashooter.h"
 #include "zombie.h"
-#include "mainwindow.h"
+//#include "mainwindow.h"
 #include <QGraphicsScene>
 //extern MainWindow *w;
 

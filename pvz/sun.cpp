@@ -3,6 +3,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include "mainwindow.h"
 extern MainWindow *w;
+int sun::sunPoints = 100;
 sun::sun(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/new/images/images/Sun.png"));
@@ -23,13 +24,13 @@ void sun::move_sun()
 
 void sun::DeleteSun()
 {    
-    scene()->removeItem(this);
+    w->scene->removeItem(this);
 }
 
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
         QGraphicsPixmapItem::mousePressEvent(event);
         pressed = 1;
-        w->MyScore->add();
+        sunPoints += 25;
         DeleteSun();
 }
 

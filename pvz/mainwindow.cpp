@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     gs = new GameScreen(ui->view);
     gs->setFixedSize(ui->view->size());
 
+    socket = new QTcpSocket();
+    socket->connectToHost("0.0.0.0",12345);
+
     // Make scene and make dimensions same as graphicsView.
     scene = new QGraphicsScene(gs);
     ui->view->setStyleSheet("background:transparent");
@@ -100,6 +103,27 @@ MainWindow::MainWindow(QWidget *parent) :
 //    thread3->wait();
 }
 
+void MainWindow::read_connect()
+{
+    if(socket->state()!=QAbstractSocket::ConnectedState)
+    {
+        qDebug()<<"no connection exist Dg";
+        return;
+    }
+    //qDebug()<<"connected to: "<<socket->localAddress()<<"  port:  "<<12345;
+    str.append(socket->readAll());
+    if(!str.contains(QChar(23)))
+        return;
+    QStringList msge = str.split(QChar(23));
+    str = msge.takeLast();
+    foreach(const QString &ms,msge)
+    {
+
+    }
+
+
+}
+
 void MainWindow::check()
 
 {
@@ -158,6 +182,7 @@ void MainWindow::MakeSunOnScene(){
     Sun->setPos(sunX,0);
     SunVec.push_back(Sun);
     scene->addItem(Sun);
+    MyScore->scoreCount = Sun->sunPoints;
 }
 
 

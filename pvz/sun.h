@@ -14,9 +14,10 @@ class sun : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    static int sunPoints;
     bool pressed;
     QTimer * DeletSunTimer;
-    static int SunScore;
+    //static int SunScore;
     sun(QGraphicsItem *parent = 0);
     void mousePressEvent ( QGraphicsSceneMouseEvent * event);
     void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
