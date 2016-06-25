@@ -9,12 +9,11 @@ sunflower::sunflower(){
     seeding_time = 10;
     life_time = 15;
     setPixmap(QPixmap(":/new/images/images/SunFlower"));
-    QThread *tt=new QThread();
-    MakeSunTimer = new QTimer;
-    MakeSunTimer->setInterval(7000);
-    MakeSunTimer->moveToThread(tt);
-    connect(tt, SIGNAL(started()), MakeSunTimer, SLOT(start()));
-    connect (MakeSunTimer,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
+
+    MakeSunTimer = new timerThread();
+    MakeSunTimer->run(7000);
+    connect (MakeSunTimer,SIGNAL(mysignal()),this,SLOT(MakeSunForSunFlower()));
+    MakeSunTimer->start();
 
 
 }

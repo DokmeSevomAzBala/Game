@@ -111,9 +111,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     //connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
 
-//    thread1->wait();
-  //  thread2->wait();
-    //thread3->wait(
 
 }
 

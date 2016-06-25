@@ -2,6 +2,7 @@
 #include "pea.h"
 #include <QDebug>
 #include <QTimer>
+#include "timerThread.h"
 #ifndef PEASHOOTER_H
 #define PEASHOOTER_H
 
@@ -12,9 +13,9 @@ class peashooter: public plant
 public:
  //void IfZombieAndPeashooterAreInSameRaw();
 
-peashooter();
+ peashooter();
 public slots:
-void make_pea();
+ void make_pea();
 
 };
 

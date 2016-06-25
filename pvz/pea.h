@@ -23,9 +23,6 @@ class pea:public QObject , public QGraphicsPixmapItem
 private:
 
  QPixmap P;
- int p_x;
-int p_y;
-
 public:
 void delay( int);
     pea();

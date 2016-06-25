@@ -28,9 +28,10 @@ lawn_mower::~lawn_mower()
 }
 void lawn_mower::move_lawn()
 {
-    QTimer* time = new QTimer();
-    time->start(50);
+    timerThread* time = new timerThread();
+    time->run(50);
     connect(time,SIGNAL(timeout()),this,SLOT(movinglawn()));
+    time->start();
 
 }
 

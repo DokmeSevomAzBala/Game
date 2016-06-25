@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QObject>
 #include <QGraphicsItem>
+#include "timerThread.h"
 
 
 class lawn_mower: public plant
