@@ -9,10 +9,10 @@ INPUT(
 ./debug\gamescreen.o
 ./debug\pea.o
 ./debug\peashooter.o
-./debug\drag.o
 ./debug\walnut.o
 ./debug\level.o
 ./debug\lawn_mower.o
+./debug\timerthread.o
 ./debug\moc_mainwindow.o
 ./debug\moc_zombie.o
 ./debug\moc_sunflower.o
@@ -23,5 +23,6 @@ INPUT(
 ./debug\moc_gamescreen.o
 ./debug\moc_walnut.o
 ./debug\moc_lawn_mower.o
+./debug\moc_timerthread.o
 ./debug\qrc_pvzresources.o
 );

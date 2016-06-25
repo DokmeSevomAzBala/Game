@@ -23,7 +23,11 @@
 #include <QString>
 #include <QTcpSocket>
 #include <QThread>
+
+#include "timerThread.h"
+
 #include <QSet>
+
 namespace Ui {
 class MainWindow;
 }
@@ -59,7 +63,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
-    void read_connect();
+   // void read_connect();
     void creatzom(int);
     void MakeSunOnScene();
     void MoveAllSuns();

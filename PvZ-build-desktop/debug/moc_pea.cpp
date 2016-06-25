@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'pea.h'
 **
-** Created: Fri Jun 24 18:49:28 2016
+** Created: Sat Jun 25 11:08:39 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -31,13 +31,13 @@ static const uint qt_meta_data_pea[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       7,    5,    4,    4, 0x0a,
+       5,    4,    4,    4, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_pea[] = {
-    "pea\0\0,\0move_p(int,int)\0"
+    "pea\0\0move_p()\0"
 };
 
 const QMetaObject pea::staticMetaObject = {
@@ -71,7 +71,7 @@ int pea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: move_p((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 0: move_p(); break;
         default: ;
         }
         _id -= 1;

@@ -5,11 +5,6 @@
 lawn_mower::lawn_mower()
 {
 
-//    life_time = 25;
-//    cost = 30;
-//    seeding_time = 50;
-  //  QPixmap m(":/new/images/images/lawn_mower_2");
-   //
     QPixmap m(":/new/images/images/Lawn_Mower");
     setPixmap(m);
      PlantPic = m;

@@ -9,10 +9,10 @@ INPUT(
 ./release\gamescreen.o
 ./release\pea.o
 ./release\peashooter.o
-./release\drag.o
 ./release\walnut.o
 ./release\level.o
 ./release\lawn_mower.o
+./release\timerthread.o
 ./release\moc_mainwindow.o
 ./release\moc_zombie.o
 ./release\moc_sunflower.o
@@ -23,5 +23,6 @@ INPUT(
 ./release\moc_gamescreen.o
 ./release\moc_walnut.o
 ./release\moc_lawn_mower.o
+./release\moc_timerthread.o
 ./release\qrc_pvzresources.o
 );
