@@ -32,10 +32,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Ui::MainWindow *ui;
-    qreal x_mouse;
-    qreal y_mouse;
-    QGraphicsView *View;
-    QGraphicsView *graphicsView;
+    //qreal x_mouse;
+    //qreal y_mouse;
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
@@ -43,11 +41,14 @@ class MainWindow : public QMainWindow
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
-    static GameScreen* gs;
-    void IfZombieAndPeashooterAreInSameRaw(peashooter*);
+    static GameScreen* gs;          //gs is static object of gamescreen,
+                                   //it's the object that we click on it
+    void IfZombieAndPeashooterAreInSameRaw(peashooter*);        //if they are in same row,
+                                                                //peashooter should make pea
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
 public:
+    QString retPlantType();
     QString str;
     QTcpSocket *socket;
     static bool IfZombieIsInW[5];
@@ -63,7 +64,6 @@ public slots:
     void MakeSunOnScene();
     void MoveAllSuns();
 private slots:
-  //  void planting_lawn_mower();
     void check();
     void planting();
     void on_walnutB_clicked();
@@ -71,6 +71,20 @@ private slots:
     void on_peashooterB_clicked();
 
     void on_sunflowerB_clicked();
+
+signals:
+    //void start();
+
+private slots:
+    //void read_message();
+    void disconnect();
+    void f();
+private:
+    //  QTcpSocket *mysocket;
+      QString myuser;
+    //  QString myreceivedData;
+      void updateGui(QAbstractSocket::SocketState state);
+
 
 //signals:
 //    void click();

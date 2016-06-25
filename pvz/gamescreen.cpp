@@ -66,7 +66,6 @@ void GameScreen::GridPoint(QMouseEvent *e)
 void GameScreen::mousePressEvent(QMouseEvent *e)
 {
     QGraphicsView::mousePressEvent(e);
-    qDebug()<<e->pos();
     GridPoint(e);
     click();
 }

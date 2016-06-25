@@ -7,7 +7,8 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QMessageBox>
-//bool  GameScreen::IfGridIsFull[9][5];
+//bool  GameScreen::IfGridIsFull[9][5]
+qreal x1 = 65;
 GameScreen* MainWindow::gs;
 bool MainWindow::IfZombieIsInW[5];
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,19 +16,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    gs = new GameScreen(ui->view);
-    gs->setFixedSize(ui->view->size());
+    gs = new GameScreen(ui->view);          //gs is a static object of gamesecreen, gamescreen is
+                                            //the qgraphicsview that we click on it.
+    gs->setFixedSize(ui->view->size());     //fix the size, no need to maximize.
 
-    socket = new QTcpSocket();
-    socket->connectToHost("0.0.0.0",12345);
-
+    socket = new QTcpSocket();              //socket is for client and server.
+    //socket->connectToHost("0.0.0.0",12345);
+    ThePlantingPlant = "";
     // Make scene and make dimensions same as graphicsView.
     scene = new QGraphicsScene(gs);
     ui->view->setStyleSheet("background:transparent");
     gs->setStyleSheet("background:transparent");
     gs->setScene(scene);
     gs->show();
-    this->setFixedSize(1031,726);
+    gs->setFixedSize(1000,700);
     Level::loadLevels();
     zombie::moverstart();
 
@@ -98,10 +100,15 @@ MainWindow::MainWindow(QWidget *parent) :
     //thread3->start();
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
-
+   connect (socket,SIGNAL(readyRead()), this ,SLOT(planting()));
+   connect (socket,SIGNAL(connected()), this ,SLOT(read_connect()));
+   socket->connectToHost("0.0.0.0",12345);
 //    thread1->wait();
   //  thread2->wait();
     //thread3->wait();
+    //connect (socket,SIGNAL(connected()), this ,SLOT(read_connect()));
+   // connect (socket,SIGNAL(readyRead()), this ,SLOT(read_connect()));
+    //socket->connectToHost("0.0.0.0",12345);
 }
 
 void MainWindow::read_connect()
@@ -112,16 +119,65 @@ void MainWindow::read_connect()
         return;
     }
     //qDebug()<<"connected to: "<<socket->localAddress()<<"  port:  "<<12345;
+    qDebug()<<"connected";
+
     str.append(socket->readAll());
-    if(!str.contains(QChar(23)))
-        return;
-    QStringList msge = str.split(QChar(23));
-    str = msge.takeLast();
-    foreach(const QString &ms,msge)
-    {
+    //    if(!str.contains(QChar(23))){
+    //        qDebug()<<"connected!!!!";
 
+    //        return;}
+    //QStringList msge = str.split(QChar(23));
+    //str = msge.takeLast();
+    qDebug()<<"connected!!!!"<<str;
+    if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 0){
+        qDebug()<<"connectedaaaaaaaaaaa";
+
+        if (str == "peashooterB"){
+            qDebug() <<";;peashooter";
+            pshr = new peashooter();
+            scene->addItem(pshr);
+            pshr->setPos(gs->retX(),gs->retY());
+            pshr->make_pea();
+            gs->IfPeashooterISIn[gs->retI()][gs->retJ()] = 1;
+            this->MyScore->subtract(100);
+            IfZombieAndPeashooterAreInSameRaw(pshr);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+             //pshr->make_pea();////////in nbayad inja bashe
+        }
+        else if (str == "sunflowerB"){
+            qDebug() <<";;sunflower";
+            sunfl = new sunflower();
+            scene->addItem(sunfl);
+            sunfl->setPos(gs->retX(),gs->retY());
+            this->MyScore->subtract(50);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+
+        }
+        else if(str == "walnutB"){
+            qDebug()<<"HHHHHHHHHHHHHHHHHHHHHHHHH";
+            wl = new walnut();
+            scene->addItem(wl);
+            wl->setPos(gs->retX(),gs->retY());
+            this->MyScore->subtract(50);
+            gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+     }
+        else if (str == ""){
+           qDebug() << "JJJJJJJJ";
+           wl = new walnut();
+           scene->addItem(wl);
+           x1 += 100;
+           wl->setPos(x1,310);
+           //this->MyScore->subtract(50);
+           qDebug()<<"HHHHHHHHHHHHHHHHHHHHHHHHH";
+
+           //gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
+
+        }
     }
-
+        ThePlantingPlant = "sunflowerB";
+//    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
+//        ThePlantingPlant = "";
+//    }
 
 }
 
@@ -145,8 +201,8 @@ void MainWindow::check()
 
 void MainWindow::planting()
 {
+//    socket->write(ThePlantingPlant.toLocal8Bit());
     if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 0){
-        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
         if (ThePlantingPlant == "peashooterB"){
             pshr = new peashooter();
             scene->addItem(pshr);
@@ -156,7 +212,6 @@ void MainWindow::planting()
             this->MyScore->subtract(100);
             IfZombieAndPeashooterAreInSameRaw(pshr);
             gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
-             //pshr->make_pea();////////in nbayad inja bashe
         }
         else if (ThePlantingPlant == "sunflowerB"){
             sunfl = new sunflower();
@@ -172,17 +227,9 @@ void MainWindow::planting()
             wl->setPos(gs->retX(),gs->retY());
             this->MyScore->subtract(50);
             gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
-
-     }
-        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
-
+        }
     }
-    qDebug()<<"KHIKGIKG"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
-
         ThePlantingPlant = "";
-//    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
-//        ThePlantingPlant = "";
-//    }
 }
 
 void MainWindow::MakeSunOnScene(){
@@ -205,16 +252,24 @@ void MainWindow::MoveAllSuns()
 }
 void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
 {
+    //ba set zombie tu mainwindow kar kon
     for (int i = 0 ; i < 9 ; i++){
         for (int j = 0; j < 5 ; j++){
+            //for (int k = 0 ; k< set.size() ; k++){ //bebin in zombie to kodum khate
             if (gs->IfPeashooterISIn[i][j] == 1 && IfZombieIsInW[j] == 1){
-                    //qDebug() <<"fdsafdsfdagffssdfg";
                     QTimer *t = new QTimer();
                     t->start(1000);
                     connect (t, SIGNAL(timeout()),shooter,SLOT(make_pea()));
             }
         }
     }
+}
+
+QString MainWindow::retPlantType()
+{
+
+        socket->write(ThePlantingPlant.toLocal8Bit());
+
 }
 
 void MainWindow::creatzom(int l)
@@ -254,4 +309,17 @@ void MainWindow::on_peashooterB_clicked()
 void MainWindow::on_sunflowerB_clicked()
 {
     ThePlantingPlant = "sunflowerB";
+}
+
+void MainWindow::disconnect()
+{
+    socket->close();
+}
+
+void MainWindow::f(){
+    QPixmap pa(":/new/images/images/ConeHead");
+    scene->addPixmap(pa);
+    QGraphicsPixmapItem * pad = new QGraphicsPixmapItem();
+   scene->addItem(pad);
+   pad->setPos(600,600);
 }

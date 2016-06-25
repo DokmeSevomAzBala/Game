@@ -8,7 +8,8 @@
 #include<QGraphicsView>
 #include <QGraphicsScene>
 #include <QMouseEvent>
-class client:public QWidget
+class client:public QGraphicsView
+
 {
     Q_OBJECT
     //Q_FOREACH
