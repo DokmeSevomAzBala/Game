@@ -4,6 +4,7 @@
 #include "plant.h"
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
+#include <QGraphicsScene>
 #include <QPainter>
 #include <QDebug>
 #include <QObject>
@@ -16,6 +17,7 @@ class lawn_mower:public plant
 
 public:
     lawn_mower();
+    void move_lawn();
 };
 
 #endif // LAWN_MOWER_H

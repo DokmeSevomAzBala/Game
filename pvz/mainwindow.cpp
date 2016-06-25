@@ -51,14 +51,20 @@ MainWindow::MainWindow(QWidget *parent) :
     zomcrt = new QTimer();
     zomcrt->start(5000);
     connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
+//<<<<<<< HEAD
 //    wl = new walnut();
 //    scene->addItem(wl);
 //    wl->setPos(500,500);
     lawn = new lawn_mower();
     scene->addItem(lawn);
-    lawn->setPos(200,200);
+    lawn->setPos(500,500);
 
 
+//=======
+//    wl = new walnut();
+//    scene->addItem(wl);
+//    wl->setPos(500,500);
+//>>>>>>> d6da92d6a615aa332ed3d507eaec96fceb0ab16d
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -76,8 +82,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ck,SIGNAL(timeout()),SLOT(check()));
     ck->start(20);
     connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(planting_peashooter()));
+    //connect(gs,SIGNAL(click()),this,SLOT(addImage()));
     //connect(ui->peashooterB,SIGNAL(clicked()),this,SLOT(mousePressEvent(QMouseEvent*)));
-    //connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
+    connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
 
 }
