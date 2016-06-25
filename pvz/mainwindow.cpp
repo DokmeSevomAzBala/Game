@@ -55,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    wl = new walnut();
 //    scene->addItem(wl);
 //    wl->setPos(500,500);
+    qDebug()<<"DSSDGDHFFGH";
     lawn = new lawn_mower();
     scene->addItem(lawn);
     lawn->setPos(500,500);

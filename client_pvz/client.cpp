@@ -1,5 +1,6 @@
 #include "client.h"
 
-client::client()
+client::client(QWidget *parent): QWidget(parent)
 {
+
 }
