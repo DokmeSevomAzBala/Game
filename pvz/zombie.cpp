@@ -1,10 +1,16 @@
 #include "zombie.h"
+QTimer * zombie::move=new QTimer;
+void zombie::moverstart()
+{
+    move->start(20);
+
+}
+
+
 zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
    power=10;
-   move=new QTimer;
-   move->start(25);
    //gsp = new GameScreen();
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
    //int i=qrand()%5;
