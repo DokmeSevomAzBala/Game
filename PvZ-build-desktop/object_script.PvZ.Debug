@@ -9,7 +9,6 @@ INPUT(
 ./debug\gamescreen.o
 ./debug\pea.o
 ./debug\peashooter.o
-./debug\drag.o
 ./debug\walnut.o
 ./debug\level.o
 ./debug\lawn_mower.o

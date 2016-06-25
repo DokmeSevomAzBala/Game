@@ -9,7 +9,7 @@ bool  GameScreen::IfZombieIsIn[5];
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
-    int x[] = {250,335,405,495,570,660,750,820,890};
+    int x[] = {250,335,405,495,570,660,750,820,950};
     int y[] = {65,190,310,430,540};
     for (int i = 0; i < 9; i++)
     {
@@ -27,6 +27,7 @@ void GameScreen::GridPoint(QMouseEvent *e)
 {
     qreal x = e->x();
     qreal y = e->y();
+    if(x>250 && x<1010 && y>65 && y<676)
     for (int i = 0 ; i < 9 ; i++){
         for (int j = 0 ; j < 5 ; j++){
             if (i < 8 && j < 4 ){
@@ -65,6 +66,7 @@ void GameScreen::GridPoint(QMouseEvent *e)
 void GameScreen::mousePressEvent(QMouseEvent *e)
 {
     QGraphicsView::mousePressEvent(e);
+    qDebug()<<e->pos();
     GridPoint(e);
     click();
 }
@@ -75,11 +77,11 @@ int GameScreen::retI(){
     else if (X == 335) return 1;
     else if (X == 405) return 2;
     else if (X == 495) return 3;
-    else if (X == 580) return 4;
+    else if (X == 570) return 4;
     else if (X == 660) return 5;
     else if (X == 750) return 6;
     else if (X == 820) return 7;
-    else if (X == 900) return 8;
+    else if (X == 950) return 8;
 }
 
 int GameScreen::retJ(){

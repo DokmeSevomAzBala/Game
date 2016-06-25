@@ -10,6 +10,7 @@ int plant::retIgsp(){
     else if (gsp->retX() == 750) return 6;
     else if (gsp->retX() == 820) return 7;
     else if (gsp->retX() == 900) return 8;
+
 }
 
 int plant::retJgsp(){
@@ -18,6 +19,7 @@ int plant::retJgsp(){
     else if (gsp->retY() == 310) return 2;
     else if (gsp->retY() == 430) return 3;
     else if (gsp->retY() == 540) return 4;
+
 
 }
 
@@ -31,11 +33,12 @@ plant::plant(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
     gsp = new GameScreen();
 }
 plant::~plant(){
-    qDebug()<<"die die die die die die3:))";
 }
 void plant::die(){
     life_time-=0.03;
-    if (life_time<=10)
+    if (life_time<=0){
+        gsp->IfGridIsFull[gsp->retI()][gsp->retJ()] = 0;
         this->~plant();
-        gsp->IfGridIsFull[retIgsp()][retJgsp()] = 0;
+    }
+
 }

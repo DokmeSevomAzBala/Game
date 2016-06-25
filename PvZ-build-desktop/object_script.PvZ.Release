@@ -9,7 +9,6 @@ INPUT(
 ./release\gamescreen.o
 ./release\pea.o
 ./release\peashooter.o
-./release\drag.o
 ./release\walnut.o
 ./release\level.o
 ./release\lawn_mower.o
