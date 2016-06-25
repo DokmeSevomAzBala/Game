@@ -1,3 +1,4 @@
+
 #ifndef SUN_H
 #define SUN_H
 #include <QGraphicsPixmapItem>
@@ -8,6 +9,8 @@
 #include <QObject>
 #include <QWidget>
 #include <QTimer>
+#include <QGraphicsScene>
+
 class sun : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT

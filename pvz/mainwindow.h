@@ -22,6 +22,7 @@
 #include <QMouseEvent>
 #include <QString>
 #include <QThread>
+#include "timerThread.h"
 namespace Ui {
 class MainWindow;
 }
@@ -41,11 +42,12 @@ class MainWindow : public QMainWindow
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
-    GameScreen *gs;
-    void creatzom(int);
+    static GameScreen* gs;
+    void IfZombieAndPeashooterAreInSameRaw(peashooter*);
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
 public:
+    static bool IfZombieIsInW[5];
     score *MyScore;
     void screen(qreal,qreal);
     explicit MainWindow(QWidget *parent = 0);
@@ -53,6 +55,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
+    void creatzom(int);
     void MakeSunOnScene();
     void MoveAllSuns();
 private slots:
@@ -65,8 +68,8 @@ private slots:
 
     void on_sunflowerB_clicked();
 
-signals:
-    void click();
+//signals:
+//    void click();
 };
 
 #endif // MAINWINDOW_H

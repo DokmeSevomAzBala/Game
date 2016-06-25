@@ -23,7 +23,7 @@ void sun::move_sun()
 
 void sun::DeleteSun()
 {    
-    w->scene->removeItem(this);
+    scene()->removeItem(this);
 }
 
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
@@ -50,8 +50,5 @@ void sun::advance(int)
 }
 
 sun::~sun(){
-    qDebug() <<"j";
-
-
 }
 

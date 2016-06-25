@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Jun 24 19:51:05 2016
+** Created: Sat Jun 25 19:52:47 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -28,25 +28,23 @@ static const uint qt_meta_data_MainWindow[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
-
- // signals: signature, parameters, type, tag, flags
-      12,   11,   11,   11, 0x05,
+       0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      20,   11,   11,   11, 0x0a,
-      37,   11,   11,   11, 0x0a,
-      51,   11,   11,   11, 0x08,
-      59,   11,   11,   11, 0x08,
-      70,   11,   11,   11, 0x08,
-      91,   11,   11,   11, 0x08,
-     116,   11,   11,   11, 0x08,
+      12,   11,   11,   11, 0x0a,
+      26,   11,   11,   11, 0x0a,
+      43,   11,   11,   11, 0x0a,
+      57,   11,   11,   11, 0x08,
+      65,   11,   11,   11, 0x08,
+      76,   11,   11,   11, 0x08,
+      97,   11,   11,   11, 0x08,
+     122,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0click()\0MakeSunOnScene()\0"
+    "MainWindow\0\0creatzom(int)\0MakeSunOnScene()\0"
     "MoveAllSuns()\0check()\0planting()\0"
     "on_walnutB_clicked()\0on_peashooterB_clicked()\0"
     "on_sunflowerB_clicked()\0"
@@ -81,7 +79,7 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: click(); break;
+        case 0: creatzom((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: MakeSunOnScene(); break;
         case 2: MoveAllSuns(); break;
         case 3: check(); break;
@@ -94,11 +92,5 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 8;
     }
     return _id;
-}
-
-// SIGNAL 0
-void MainWindow::click()
-{
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

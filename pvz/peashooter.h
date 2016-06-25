@@ -8,12 +8,13 @@
 class peashooter: public plant
 {
     Q_OBJECT
- friend class pea;
+ //friend class pea;
 public:
- void make_pea();
+ //void IfZombieAndPeashooterAreInSameRaw();
 
 peashooter();
 public slots:
+void make_pea();
 
 };
 
