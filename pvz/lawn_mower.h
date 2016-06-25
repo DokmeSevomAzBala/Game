@@ -13,9 +13,7 @@
 class lawn_mower:public plant
 {
     Q_OBJECT
-//    int cost;
-//    int life_time;
-//    int seeding_time;
+
 public:
     lawn_mower();
 };

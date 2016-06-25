@@ -41,10 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     t2 = new QTimer();
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
-    wl = new walnut();
-    scene->addItem(wl);
-    wl->setPos(10,10);
-//    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
+    //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
 /*    zom1 = new zombie();
     zom1->setPos(500,100);
     scene->addItem(zom1);
@@ -54,9 +51,13 @@ MainWindow::MainWindow(QWidget *parent) :
     zomcrt = new QTimer();
     zomcrt->start(5000);
     connect(zomcrt,SIGNAL(timeout()),this,SLOT(creatzom()));
-    wl = new walnut();
-    scene->addItem(wl);
-    wl->setPos(500,500);
+//    wl = new walnut();
+//    scene->addItem(wl);
+//    wl->setPos(500,500);
+    lawn = new lawn_mower();
+    scene->addItem(lawn);
+    lawn->setPos(200,200);
+
 
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem;
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
@@ -112,6 +113,16 @@ void MainWindow::planting_sunflower()
 
 
 }
+
+void MainWindow::planting_lawn_mower()
+{
+    lawn = new lawn_mower();
+    scene->addItem(lawn);
+    lawn->setPos(x_mouse,y_mouse);
+    this->MyScore->subtract(50);
+
+}
+
 void MainWindow::check()
 {
     if(this->MyScore->ret_score()>=50)
