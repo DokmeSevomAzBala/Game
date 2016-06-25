@@ -22,7 +22,11 @@
 #include <QMouseEvent>
 #include <QString>
 #include <QThread>
+
+#include "timerthread.h"
+
 #include <QSet>
+
 namespace Ui {
 class MainWindow;
 }

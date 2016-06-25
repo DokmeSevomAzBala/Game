@@ -50,23 +50,19 @@ MainWindow::MainWindow(QWidget *parent) :
         LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
         IfZombieIsInW[i] = 0;
     }
-    t1 = new QTimer();
-    // QThread* thread1 = new QThread();
-    // t1->setInterval(3000);
-//     t1->moveToThread(thread1);
-  //  connect(thread1, SIGNAL(started()), t1, SLOT(start()));
-    t1->start(3000);
-    connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-  // thread1->start();
+    timerThread *t1 = new timerThread();
 
-    t2 = new QTimer();
-  //   QThread* thread2 = new QThread();
-  //  t2->setInterval(10);
-  //  t2->moveToThread(thread2);
-  //   connect(thread2, SIGNAL(started()), t2, SLOT(start()));
-    connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
-    t2->start(10);
-    //thread2->start();
+    t1->run(3000);
+    connect(t1,SIGNAL(mysignal()),this,SLOT(MakeSunOnScene()));
+    t1->start();
+
+
+    timerThread *t2 = new timerThread();
+    t2->run(10);
+    connect(t2,SIGNAL(mysignal()),this,SLOT(MoveAllSuns()));
+    t2->start();
+
+
 
     //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
     creatzom(Level::level);
@@ -82,23 +78,43 @@ MainWindow::MainWindow(QWidget *parent) :
     MyScore = new score();
     MyScore->setPos(70,25);
     scene->addItem(MyScore);
-    QTimer *ck;
-    //creatzom(1);
-    ck=new QTimer();
-    ck->start(20);
-    //creatzom(1);
- //   QThread* thread3 = new QThread();
-//    ck->setInterval(20);
-  //  ck->moveToThread(thread3);
-  //  connect(thread2, SIGNAL(started()), t2, SLOT(start()));
-    connect(ck,SIGNAL(timeout()),SLOT(check()));
-    //thread3->start();
+
+    timerThread *ck=new timerThread();
+    ck->run(20);
+    connect(ck,SIGNAL(mysignal()),SLOT(check()));
+    ck->start();
+
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
-    connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
+    //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
+    creatzom(1);
+//    zoms[1]->setPos(700, 35);
+//    zoms[2]->setPos(700, 160);
+//    zoms[3]->setPos(900, 160);
+//    zoms[4]->setPos(700, 400);
+//    zoms[5]->setPos(700, 530);
+//    zoms[6]->setPos(800, 35);
+//    zoms[7]->setPos(800, 160);
+//    zoms[8]->setPos(800, 400);
+//    zoms[9]->setPos(900, 400);
+//    zoms[0]->setPos(900, 530);
+    for (int i = 0 ; i < 5 ; i++){
+        LMs[i]= new lawn_mower();
+        scene->addItem(LMs[i]);
+        LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
+//       thread1->wait();
+//      thread2->wait();
+//       thread3->wait();
+    }
+
+
+
+    connect(gs,SIGNAL(click()),this,SLOT(planting()));
+    //connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
 
 //    thread1->wait();
   //  thread2->wait();
-    //thread3->wait();
+    //thread3->wait(
+
 }
 
 void MainWindow::check()

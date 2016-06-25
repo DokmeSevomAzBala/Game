@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     peashooter.cpp \
     walnut.cpp \
     level.cpp \
-    lawn_mower.cpp
+    lawn_mower.cpp \
+    timerthread.cpp
 
 
 
@@ -43,10 +44,10 @@ HEADERS  += mainwindow.h \
     gamescreen.h \
     walnut.h\
     level.h \
-    lawn_mower.h
+    lawn_mower.h \
+    timerthread.h
 
 FORMS  += mainwindow.ui
 
 RESOURCES += \
     pvzresources.qrc
-

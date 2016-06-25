@@ -18,6 +18,7 @@ pea::pea()
 
 void pea::move_p()
 {
+
     this->setPos(this->x()+5,this->y());
 //    p_x=a;
 //    p_y=b;
@@ -28,6 +29,7 @@ void pea::move_p()
 
 //   }
     //this->~pea();
+
 
 }
 void pea::delay( int millisecondsToWait )
