@@ -417,6 +417,7 @@ moc_mainwindow.cpp: ../pvz/gamescreen.h \
 
 moc_zombie.cpp: ../pvz/sun.h \
 		../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/peashooter.h \
 		../pvz/pea.h \
 		../pvz/sunflower.h \
@@ -426,6 +427,7 @@ moc_zombie.cpp: ../pvz/sun.h \
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/zombie.h -o moc_zombie.cpp
 
 moc_sunflower.cpp: ../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/sun.h \
 		../pvz/sunflower.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/sunflower.h -o moc_sunflower.cpp
@@ -433,13 +435,15 @@ moc_sunflower.cpp: ../pvz/plant.h \
 moc_sun.cpp: ../pvz/sun.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/sun.h -o moc_sun.cpp
 
-moc_plant.cpp: ../pvz/plant.h
+moc_plant.cpp: ../pvz/gamescreen.h \
+		../pvz/plant.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/plant.h -o moc_plant.cpp
 
 moc_pea.cpp: ../pvz/pea.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/pea.h -o moc_pea.cpp
 
 moc_peashooter.cpp: ../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/pea.h \
 		../pvz/peashooter.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/peashooter.h -o moc_peashooter.cpp
@@ -448,10 +452,12 @@ moc_gamescreen.cpp: ../pvz/gamescreen.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/gamescreen.h -o moc_gamescreen.cpp
 
 moc_walnut.cpp: ../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/walnut.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/walnut.h -o moc_walnut.cpp
 
 moc_lawn_mower.cpp: ../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/lawn_mower.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/mahrokh/Desktop/Game/pvz -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../pvz/lawn_mower.h -o moc_lawn_mower.cpp
 
@@ -505,6 +511,7 @@ mainwindow.o: ../pvz/mainwindow.cpp ../pvz/mainwindow.h \
 zombie.o: ../pvz/zombie.cpp ../pvz/zombie.h \
 		../pvz/sun.h \
 		../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/peashooter.h \
 		../pvz/pea.h \
 		../pvz/sunflower.h \
@@ -514,9 +521,9 @@ zombie.o: ../pvz/zombie.cpp ../pvz/zombie.h \
 
 sunflower.o: ../pvz/sunflower.cpp ../pvz/sunflower.h \
 		../pvz/plant.h \
+		../pvz/gamescreen.h \
 		../pvz/sun.h \
 		../pvz/mainwindow.h \
-		../pvz/gamescreen.h \
 		../pvz/zombie.h \
 		../pvz/peashooter.h \
 		../pvz/pea.h \
@@ -540,7 +547,8 @@ sun.o: ../pvz/sun.cpp ../pvz/sun.h \
 		../pvz/level.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sun.o ../pvz/sun.cpp
 
-plant.o: ../pvz/plant.cpp ../pvz/plant.h
+plant.o: ../pvz/plant.cpp ../pvz/plant.h \
+		../pvz/gamescreen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o plant.o ../pvz/plant.cpp
 
 score.o: ../pvz/score.cpp ../pvz/score.h
@@ -565,14 +573,14 @@ pea.o: ../pvz/pea.cpp ../pvz/pea.h \
 
 peashooter.o: ../pvz/peashooter.cpp ../pvz/peashooter.h \
 		../pvz/plant.h \
-		../pvz/pea.h \
-		../pvz/mainwindow.h \
 		../pvz/gamescreen.h \
-		../pvz/sunflower.h \
-		../pvz/sun.h \
+		../pvz/pea.h \
 		../pvz/zombie.h \
+		../pvz/sun.h \
+		../pvz/sunflower.h \
 		../pvz/lawn_mower.h \
 		../pvz/walnut.h \
+		../pvz/mainwindow.h \
 		../pvz/score.h \
 		../pvz/level.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o peashooter.o ../pvz/peashooter.cpp
@@ -581,14 +589,16 @@ drag.o: ../pvz/drag.cpp ../pvz/drag.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o drag.o ../pvz/drag.cpp
 
 walnut.o: ../pvz/walnut.cpp ../pvz/walnut.h \
-		../pvz/plant.h
+		../pvz/plant.h \
+		../pvz/gamescreen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o walnut.o ../pvz/walnut.cpp
 
 level.o: ../pvz/level.cpp ../pvz/level.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o level.o ../pvz/level.cpp
 
 lawn_mower.o: ../pvz/lawn_mower.cpp ../pvz/lawn_mower.h \
-		../pvz/plant.h
+		../pvz/plant.h \
+		../pvz/gamescreen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lawn_mower.o ../pvz/lawn_mower.cpp
 
 qrc_pvzresources.o: qrc_pvzresources.cpp 

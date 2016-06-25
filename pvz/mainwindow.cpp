@@ -37,13 +37,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     scene = new QGraphicsScene(this);
     gs->setScene(scene);
-    scene->setSceneRect(0,0,1031,726);
+    //scene->setSceneRect(0,0,1031,726);
     QPixmap bkgnd(":/new/images/images/Background1");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
-    scene->setSceneRect(0,0,1031,726);
+    scene->setSceneRect(0,0,1000,700);
     for (int i = 0 ; i < 5 ; i++){
         LMs[i]= new lawn_mower();
         scene->addItem(LMs[i]);
@@ -53,17 +53,17 @@ MainWindow::MainWindow(QWidget *parent) :
     t1 = new QTimer();
     // QThread* thread1 = new QThread();
     // t1->setInterval(3000);
-    // t1->moveToThread(thread1);
-   // connect(thread1, SIGNAL(started()), t1, SLOT(start()));
+//     t1->moveToThread(thread1);
+  //  connect(thread1, SIGNAL(started()), t1, SLOT(start()));
     t1->start(3000);
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-    //thread1->start();
+  // thread1->start();
 
     t2 = new QTimer();
-   //  QThread* thread2 = new QThread();
-    // t2->setInterval(10);
-    // t2->moveToThread(thread2);
-    // connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+  //   QThread* thread2 = new QThread();
+  //  t2->setInterval(10);
+  //  t2->moveToThread(thread2);
+  //   connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
     t2->start(10);
     //thread2->start();
@@ -87,18 +87,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ck=new QTimer();
     ck->start(20);
     //creatzom(1);
-   // QThread* thread3 = new QThread();
-  //  ck->setInterval(20);
-   // ck->moveToThread(thread3);
-   // connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+ //   QThread* thread3 = new QThread();
+//    ck->setInterval(20);
+  //  ck->moveToThread(thread3);
+  //  connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(ck,SIGNAL(timeout()),SLOT(check()));
-   // thread3->start();
+    //thread3->start();
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
-   // connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
+    connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
 
 //    thread1->wait();
-//    thread2->wait();
-//    thread3->wait();
+  //  thread2->wait();
+    //thread3->wait();
 }
 
 void MainWindow::check()
@@ -121,6 +121,7 @@ void MainWindow::check()
 
 void MainWindow::planting()
 {
+    qDebug()<<gs->retI()<<"   "<<gs->retJ();
     if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 0){
         gs->IfGridIsFull[gs->retI()][gs->retJ()] = 1;
         if (ThePlantingPlant == "peashooterB"){
@@ -157,15 +158,15 @@ void MainWindow::MakeSunOnScene(){
     Sun = new sun();
     qreal sunX = rand() % 900 + 200;
     Sun->setPos(sunX,0);
-    SunVec.push_back(Sun);
+    SunVec.insert(Sun);
     scene->addItem(Sun);
 }
 
 
 void MainWindow::MoveAllSuns()
 {
-        for (int i= 0; i< SunVec.size() ; i++){
-            SunVec.at(i)->move_sun();
+        for (QSet <sun*>::iterator i= SunVec.begin(); i!=SunVec.end() ; i++){
+            (*i)->move_sun();
         }
 
 }

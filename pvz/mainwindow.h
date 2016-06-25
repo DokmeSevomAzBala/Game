@@ -22,6 +22,7 @@
 #include <QMouseEvent>
 #include <QString>
 #include <QThread>
+#include <QSet>
 namespace Ui {
 class MainWindow;
 }
@@ -37,7 +38,7 @@ class MainWindow : public QMainWindow
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
-    QVector <sun*> SunVec;
+    QSet <sun*> SunVec;
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
