@@ -17,6 +17,7 @@ class lawn_mower:public plant
 
 public:
     lawn_mower();
+public slots:
     void move_lawn();
 };
 

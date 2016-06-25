@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'lawn_mower.h'
 **
-** Created: Fri Jun 24 18:33:30 2016
+** Created: Fri Jun 24 19:22:51 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,18 +23,21 @@ static const uint qt_meta_data_lawn_mower[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      12,   11,   11,   11, 0x0a,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_lawn_mower[] = {
-    "lawn_mower\0"
+    "lawn_mower\0\0move_lawn()\0"
 };
 
 const QMetaObject lawn_mower::staticMetaObject = {
@@ -64,6 +67,13 @@ int lawn_mower::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = plant::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: move_lawn(); break;
+        default: ;
+        }
+        _id -= 1;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

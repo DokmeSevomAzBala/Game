@@ -1,3 +1,4 @@
+#include <QTimer>
 #include <QGraphicsScene>
 #include "lawn_mower.h"
 
@@ -9,19 +10,15 @@ lawn_mower::lawn_mower()
     QPixmap m(":/new/images/images/lawn_mower_2");
     PlantPic = m;
     setPixmap(PlantPic);
+    QTimer* time = new QTimer();
+    connect(time,SIGNAL(timeout()),this,SLOT(move_lawn()));
+    time->start(50);
 
 
 }
 void lawn_mower::move_lawn()
 {
-    //creat a lawn
-    lawn_mower* lawn1;
-    lawn1 = new lawn_mower();
-    scene()->addItem(lawn1);
+    setPos(x()+10,y());
+
 }
 
-//pea* p1;
-//p1=new pea();
-//w->scene->addItem(p1);
-//p1->setPos(this->Xpos+70,this->Ypos);
-//p1->move_p(Xpos+70,Ypos);
