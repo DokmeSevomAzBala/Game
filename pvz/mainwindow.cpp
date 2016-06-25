@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     gs->show();
     this->setFixedSize(1031,726);
     Level::loadLevels();
+    zombie::moverstart();
 
     // Validate level file (if it exists or readable).
     if (!Level::validLevelFile())
