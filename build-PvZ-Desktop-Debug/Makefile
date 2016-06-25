@@ -58,7 +58,6 @@ SOURCES       = ../pvz/main.cpp \
 		../pvz/gamescreen.cpp \
 		../pvz/pea.cpp \
 		../pvz/peashooter.cpp \
-		../pvz/drag.cpp \
 		../pvz/walnut.cpp \
 		../pvz/level.cpp \
 		../pvz/lawn_mower.cpp qrc_pvzresources.cpp \
@@ -82,7 +81,6 @@ OBJECTS       = main.o \
 		gamescreen.o \
 		pea.o \
 		peashooter.o \
-		drag.o \
 		walnut.o \
 		level.o \
 		lawn_mower.o \
@@ -163,7 +161,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/score.h \
 		../pvz/pea.h \
 		../pvz/peashooter.h \
-		../pvz/drag.h \
 		../pvz/gamescreen.h \
 		../pvz/walnut.h \
 		../pvz/level.h \
@@ -177,7 +174,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../pvz/gamescreen.cpp \
 		../pvz/pea.cpp \
 		../pvz/peashooter.cpp \
-		../pvz/drag.cpp \
 		../pvz/walnut.cpp \
 		../pvz/level.cpp \
 		../pvz/lawn_mower.cpp
@@ -353,8 +349,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/pvzresources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/drag.h ../pvz/gamescreen.h ../pvz/walnut.h ../pvz/level.h ../pvz/lawn_mower.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/drag.cpp ../pvz/walnut.cpp ../pvz/level.cpp ../pvz/lawn_mower.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/mainwindow.h ../pvz/zombie.h ../pvz/sunflower.h ../pvz/sun.h ../pvz/plant.h ../pvz/score.h ../pvz/pea.h ../pvz/peashooter.h ../pvz/gamescreen.h ../pvz/walnut.h ../pvz/level.h ../pvz/lawn_mower.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../pvz/main.cpp ../pvz/mainwindow.cpp ../pvz/zombie.cpp ../pvz/sunflower.cpp ../pvz/sun.cpp ../pvz/plant.cpp ../pvz/score.cpp ../pvz/gamescreen.cpp ../pvz/pea.cpp ../pvz/peashooter.cpp ../pvz/walnut.cpp ../pvz/level.cpp ../pvz/lawn_mower.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../pvz/mainwindow.ui $(DISTDIR)/
 
 
@@ -584,9 +580,6 @@ peashooter.o: ../pvz/peashooter.cpp ../pvz/peashooter.h \
 		../pvz/score.h \
 		../pvz/level.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o peashooter.o ../pvz/peashooter.cpp
-
-drag.o: ../pvz/drag.cpp ../pvz/drag.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o drag.o ../pvz/drag.cpp
 
 walnut.o: ../pvz/walnut.cpp ../pvz/walnut.h \
 		../pvz/plant.h \

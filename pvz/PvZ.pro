@@ -26,7 +26,6 @@ SOURCES += main.cpp\
     gamescreen.cpp \
     pea.cpp \
     peashooter.cpp \
-    drag.cpp \
     walnut.cpp \
     level.cpp \
     lawn_mower.cpp
@@ -41,7 +40,6 @@ HEADERS  += mainwindow.h \
     score.h \
     pea.h \
     peashooter.h \
-    drag.h \
     gamescreen.h \
     walnut.h\
     level.h \

@@ -122,7 +122,6 @@ void MainWindow::check()
 void MainWindow::planting()
 {
     if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 0){
-        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
         if (ThePlantingPlant == "peashooterB"){
             pshr = new peashooter();
             scene->addItem(pshr);
@@ -150,10 +149,8 @@ void MainWindow::planting()
             gs->IfGridIsFull[gs->retI()][gs->retJ()] = true;
 
      }
-        qDebug()<<"KLLLLLLLLLLLLLLLL"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
 
     }
-    qDebug()<<"KHIKGIKG"<<gs->IfGridIsFull[gs->retI()][gs->retJ()];
 
         ThePlantingPlant = "";
 //    else if (gs->IfGridIsFull[gs->retI()][gs->retJ()] == 1){
