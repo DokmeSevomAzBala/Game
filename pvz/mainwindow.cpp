@@ -45,20 +45,20 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->setSceneRect(0,0,1031,726);
 
     t1 = new QTimer();
-     QThread* thread1 = new QThread();
-     t1->setInterval(3000);
-     t1->moveToThread(thread1);
-    connect(thread1, SIGNAL(started()), t1, SLOT(start()));
+    // QThread* thread1 = new QThread();
+    // t1->setInterval(3000);
+     //t1->moveToThread(thread1);
+    //connect(thread1, SIGNAL(started()), t1, SLOT(start()));
     connect(t1,SIGNAL(timeout()),this,SLOT(MakeSunOnScene()));
-    thread1->start();
+    t1->start(3000);
 
     t2 = new QTimer();
-     QThread* thread2 = new QThread();
-     t2->setInterval(10);
-     t2->moveToThread(thread2);
-     connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+    // QThread* thread2 = new QThread();
+   //  t2->setInterval(10);
+    // t2->moveToThread(thread2);
+     //connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(t2,SIGNAL(timeout()),this,SLOT(MoveAllSuns()));
-    thread2->start();
+    t2->start(10);
 
     //    connect(t1,SIGNAL(timeout()),sunfl,SLOT(MakeSunForSunFlower()));
     creatzom(Level::level);
@@ -76,12 +76,12 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->addItem(MyScore);
     QTimer *ck;
     ck=new QTimer();
-    QThread* thread3 = new QThread();
-    ck->setInterval(20);
-    ck->moveToThread(thread3);
-    connect(thread2, SIGNAL(started()), t2, SLOT(start()));
+    //QThread* thread3 = new QThread();
+    //ck->setInterval(20);
+    //ck->moveToThread(thread3);
+    //connect(thread2, SIGNAL(started()), t2, SLOT(start()));
     connect(ck,SIGNAL(timeout()),SLOT(check()));
-    thread3->start();
+    ck->start(20);
 
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     //connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
@@ -100,6 +100,9 @@ MainWindow::MainWindow(QWidget *parent) :
         LMs[i]= new lawn_mower();
         scene->addItem(LMs[i]);
         LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
+//       thread1->wait();
+//      thread2->wait();
+//       thread3->wait();
     }
 }
 

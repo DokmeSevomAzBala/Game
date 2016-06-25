@@ -1,5 +1,6 @@
 #include "sunflower.h"
 #include "mainwindow.h"
+#include <QThread>
 extern MainWindow *w;
 
 sunflower::sunflower()
@@ -8,8 +9,11 @@ sunflower::sunflower()
     seeding_time = 10;
     life_time = 15;
     setPixmap(QPixmap(":/new/images/images/SunFlower"));
+    QThread *tt=new QThread();
     MakeSunTimer = new QTimer;
-    MakeSunTimer->start(7000);
+    MakeSunTimer->setInterval(7000);
+    MakeSunTimer->moveToThread(tt);
+    connect(tt, SIGNAL(started()), MakeSunTimer, SLOT(start()));
     connect (MakeSunTimer,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
 
 
