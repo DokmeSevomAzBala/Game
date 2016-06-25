@@ -87,6 +87,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->walnutB,SIGNAL(clicked()),this,SLOT(planting_walnut()));
     connect(ui->sunflowerB,SIGNAL(clicked()),this,SLOT(planting_sunflower()));
 
+    for (int i = 0 ; i < 5 ; i++){
+        LMs[i]= new lawn_mower();
+        scene->addItem(LMs[i]);
+        LMs[i]->setPos(gs->grid[0][i].x()-80,gs->grid[0][i].y()+20);
+    }
 }
 void MainWindow::planting_peashooter()
 {

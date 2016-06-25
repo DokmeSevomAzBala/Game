@@ -5,6 +5,7 @@
 #include "zombie.h"
 #include "lawn_mower.h"
 #include "pea.h"
+#include "lawn_mower.h"
 #include "walnut.h"
 #include "peashooter.h"
 #include "score.h"
@@ -42,6 +43,7 @@ class MainWindow : public QMainWindow
     lawn_mower* lawn;
     peashooter* pshr;
     GameScreen *gs;
+    lawn_mower* LMs[5];
 public:
     score *MyScore;
     void screen(qreal,qreal);

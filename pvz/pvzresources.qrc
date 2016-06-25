@@ -14,7 +14,7 @@
         <file>images/Sunflower.png</file>
         <file>images/zombie.png</file>
         <file>images/Walnut.png</file>
-        <file>images/Lawn_mower_2.PNG</file>
+        <file>images/Lawn_Mower.png</file>
     </qresource>
     <qresource prefix="/CSVs">
         <file>pvz_levels.csv</file>

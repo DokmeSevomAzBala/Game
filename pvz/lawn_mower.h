@@ -1,6 +1,5 @@
 #ifndef LAWN_MOWER_H
 #define LAWN_MOWER_H
-
 #include "plant.h"
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
@@ -11,10 +10,9 @@
 #include <QGraphicsItem>
 
 
-class lawn_mower:public plant
+class lawn_mower: public plant
 {
-    Q_OBJECT
-
+   Q_OBJECT
 public:
     lawn_mower();
 public slots:
