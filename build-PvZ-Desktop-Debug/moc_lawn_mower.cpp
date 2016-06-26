@@ -73,7 +73,7 @@ void lawn_mower::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 }
 
 const QMetaObject lawn_mower::staticMetaObject = {
-    { &plant::staticMetaObject, qt_meta_stringdata_lawn_mower.data,
+    { &QObject::staticMetaObject, qt_meta_stringdata_lawn_mower.data,
       qt_meta_data_lawn_mower,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
@@ -88,12 +88,14 @@ void *lawn_mower::qt_metacast(const char *_clname)
     if (!_clname) return Q_NULLPTR;
     if (!strcmp(_clname, qt_meta_stringdata_lawn_mower.stringdata))
         return static_cast<void*>(const_cast< lawn_mower*>(this));
-    return plant::qt_metacast(_clname);
+    if (!strcmp(_clname, "QGraphicsPixmapItem"))
+        return static_cast< QGraphicsPixmapItem*>(const_cast< lawn_mower*>(this));
+    return QObject::qt_metacast(_clname);
 }
 
 int lawn_mower::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = plant::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

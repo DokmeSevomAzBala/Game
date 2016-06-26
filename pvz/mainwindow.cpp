@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QSound>
 #include <QStringList>
+//#include <QSound>
 //bool  GameScreen::IfGridIsFull[9][5]
 qreal x1 = 65;
 #include <QTcpSocket>
@@ -19,11 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow), socket(new QTcpSocket)
 {
-    QSound::play(":/new/images/images/plants_vs_zombies.wav");
-//    player = new QMediaPlayer;
-//    player->setMedia(QUrl(":/new/images/images/plants_vs_zombies.wav"));
-//    player->setVolume(150);
-//    player->play();
+   QSound::play(":/new/images/images/plants_vs_zombies.wav");
     ui->setupUi(this);
     gs = new GameScreen(ui->view);          //gs is a static object of gamesecreen, gamescreen is
                                             //the qgraphicsview that we click on it.
@@ -254,7 +251,7 @@ void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
     //ba set zombie tu mainwindow kar kon
     for (int i = 0 ; i < 9 ; i++){
         for (int j = 0; j < 5 ; j++){
-            for (auto iter = zombieset.begin() ; iter!= zombieset.end() ; iter++){ //bebin in zombie to kodum khate
+            for (QSet<zombie*>::iterator iter = zombieset.begin() ; iter!= zombieset.end() ; iter++){ //bebin in zombie to kodum khate
             if (gs->IfPeashooterISIn[i][j] == 1 && (*iter)->countInRow[j] > 0
                     && shooter->x() < (*iter)->x()){
 //                    QTimer *t = new QTimer();
@@ -292,9 +289,22 @@ QString MainWindow::retPlantType()
 void MainWindow::creatzom(int l)
 {
     QStringList poses=Level::poses(l);
-    zombieset=zombie::lvlStart(poses);
-    for(QSet<zombie*>::iterator it=zombieset.begin();it!=zombieset.end();it++){
+
+    QSet<zombie*>zombies;
+    zombies=zombie::lvlStart(poses);
+
+    for(QSet<zombie*>::iterator it=zombies.begin();it!=zombies.end();it++){
         scene->addItem(*it);
+
+        //gs->setX(250);
+        //gs->setY(310);
+//        for (int i1 = 0 ; i1 < 5 ; i1++){
+//            //qDebug()<<"FFF" << zomz.at(i1)->retJz() << zomz.at(i1)->get_y();
+//            // IfZombieIsInW[zomz.at(i1)->retJz()] = 1;
+//          //injaaaaaaaaaa ro migoftammm niloo!!!!!!!!!!!!!!!!!!!!!!
+//            //IfZombieIsInW[retJz()] = 1;
+//        }
+        //qDebug() << gs->retJ();
 
     }
 

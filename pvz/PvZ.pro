@@ -8,7 +8,7 @@
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
-QT       += core gui network multimedia
+QT       += core gui network widgets
 
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia

@@ -1,4 +1,5 @@
 #include <QMessageBox>
+#include <QGraphicsPixmapItem>
 #include "zombie.h"
 /*
  * @descr constructor of class
@@ -6,11 +7,13 @@
  * @return nothing
  */
 QTimer * zombie::move=new QTimer;
+
+QSet<zombie*> zombie::zombieset;
 int zombie::countInRow[5];
 
 void zombie::moverstart()
 {
-    move->start(20);
+    move->start(2);
 
 }
 
@@ -25,6 +28,7 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    countInRow[retJz()]++;
    ps = new peashooter();
 }
+
 /*
  * @descr destructor of class
  * @param nothing
@@ -32,9 +36,16 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
  */
 zombie::~zombie()
 {
+
     countInRow[retJz()]--;
     if ( retJz() == 1)
     qDebug() <<retJz()<<"SSS"<<countInRow[retJz()];
+    zombieset.remove(this);
+    if(zombieset.empty()){
+        qDebug()<<"win!!";
+        Level::level+=1;
+        Level::savegame(Level::level);
+    }
 
 }
 
@@ -57,19 +68,18 @@ int zombie::retJz()
 
 QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
-    //zombie* zz;
-    QSet <zombie*> zomz;
+    zombie* zz;
     qreal i,j;
     int n;
     for(n=1;n<lev.size();n++){
         i=lev.at(n).split(",").at(0).toInt();
   //      qDebug()<<lev.at(n).split(",").size();
         j=lev.at(n).split(",").at(1).toInt();
-        zombie* zz=new zombie(i,j);
+        zz=new zombie(i,j);
+        zombieset.insert(zz);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
-        zomz.insert(zz);
     }
-    return zomz;
+    return zombieset;
 }
 /*
  * @descr set y position
@@ -109,6 +119,13 @@ void zombie::walk()
     }
     if(k==false){
         setPos(x()-1 ,y());
+        if(this->x()<20){
+            QGraphicsPixmapItem* m = new QGraphicsPixmapItem();
+            m->setPixmap(QPixmap(":/new/images/images/gameover"));
+               scene()->addItem(m);
+               m->setPos(500,500);
+
+        }
      }
 }
 

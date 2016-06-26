@@ -16,6 +16,7 @@
 #include "sunflower.h"
 #include "lawn_mower.h"
 #include "walnut.h"
+#include "level.h"
 /*
  *this class will make zambie and the zombie can move
  */
@@ -27,7 +28,10 @@ class zombie:public QObject,public QGraphicsPixmapItem
     int power;  //how many bullet will kill zombie
     //QPixmap ZomPic;
     static QTimer* move;
+
+    static QSet<zombie*> zombieset;
     void advance(int phase);
+
 
 public:
     peashooter *ps;

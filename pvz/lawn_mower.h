@@ -12,7 +12,7 @@
  * this class will move the lawnmower
  */
 
-#include "timerThread.h"
+#include "timerthread.h"
 
 
 class lawn_mower:public QObject , public QGraphicsPixmapItem

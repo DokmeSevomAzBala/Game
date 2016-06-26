@@ -16,6 +16,8 @@
         <file>images/Walnut.png</file>
         <file>images/Lawn_Mower.png</file>
         <file>images/plants_vs_zombies.wav</file>
+        <file>images/gameover.png</file>
+        <file>music.mp3</file>
     </qresource>
     <qresource prefix="/CSVs">
         <file>pvz_levels.csv</file>

@@ -2,7 +2,7 @@
 #include "pea.h"
 #include <QDebug>
 #include <QTimer>
-#include "timerThread.h"
+#include "timerthread.h"
 #ifndef PEASHOOTER_H
 #define PEASHOOTER_H
 /*

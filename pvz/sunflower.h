@@ -3,7 +3,7 @@
 
 #include "plant.h"
 #include "sun.h"
-#include "timerThread.h"
+#include "timerthread.h"
 #include <QTimer>
 #include <QObject>
 #include <QTime>
