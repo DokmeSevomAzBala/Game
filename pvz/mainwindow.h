@@ -25,6 +25,7 @@
 #include <QTcpSocket>
 #include <QThread>
 #include <QMediaPlayer>
+#include <QMediaPlaylist>
 #include "timerthread.h"
 
 #include <QSet>
@@ -38,6 +39,7 @@ class MainWindow;
  */
 class MainWindow : public QMainWindow
 {
+    QMediaPlaylist * playlist;
     QMediaPlayer* player;
     Q_OBJECT
     Ui::MainWindow *ui;

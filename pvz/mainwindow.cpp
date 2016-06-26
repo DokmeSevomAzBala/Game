@@ -20,7 +20,17 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow), socket(new QTcpSocket)
 {
-   QSound::play(":/new/images/images/plants_vs_zombies.wav");
+    player = new QMediaPlayer;
+//    player->setMedia(QUrl("qrc:/new/images/music.mp3"));
+//    player->play();
+    playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/new/images/music.mp3"));
+    playlist->setPlaybackMode( QMediaPlaylist::Loop );
+    player->setPlaylist( playlist );
+    playlist->setCurrentIndex(0);
+    player->setVolume(100);
+    player->play();
+   //QSound::play(":/new/images/images/plants_vs_zombies.wav");
     ui->setupUi(this);
     gs = new GameScreen(ui->view);          //gs is a static object of gamesecreen, gamescreen is
                                             //the qgraphicsview that we click on it.
@@ -72,17 +82,16 @@ MainWindow::MainWindow(QWidget *parent) :
     createSunTimer = new QTimer;
     connect(createSunTimer, SIGNAL(timeout()), this, SLOT(createSun()));
     createSunTimer->start(5000);
+    creatzom(Level::level);
+    //QSet<zombie*>::iterator iterat = zombieset.begin();
     t1->start();
     advanceTimer = new QTimer;
     connect(advanceTimer, SIGNAL(timeout()), scene, SLOT(advance()));
-
     advanceTimer->start(10);
     timerThread *t2 = new timerThread();
     t2->run(10);
     t2->start();
 
-
-    creatzom(Level::level);
     QGraphicsPixmapItem *item = new QGraphicsPixmapItem();
     item->setPixmap(QPixmap(":/new/images/images/score_background_note"));
     scene->addItem(item);
@@ -102,6 +111,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ck->run(20);
     connect(ck,SIGNAL(mysignal()),SLOT(check()));
     ck->start();
+
+    connect(ck,SIGNAL(mysignal()),SLOT(f()));
 
 }
 void MainWindow::read_connect()
@@ -243,6 +254,7 @@ void MainWindow::createSun()
 {
     s = new sun;
     scene->addItem(s);
+    SunVec.insert(s);
 }
 
 
@@ -337,9 +349,14 @@ void MainWindow::disconnect()
 }
 
 void MainWindow::f(){
-    QPixmap pa(":/new/images/images/ConeHead");
-    scene->addPixmap(pa);
-    QGraphicsPixmapItem * pad = new QGraphicsPixmapItem();
-   scene->addItem(pad);
-   pad->setPos(600,600);
+    if( (*(zombieset.end()))->state == 1 ){
+        qDebug()<<"GGGG";
+        advanceTimer->stop();
+        createSunTimer->stop();
+        for (QSet<sun*>::iterator iter = SunVec.begin(); iter!=SunVec.end();iter++){
+            scene->removeItem(*iter);
+        }
+
+    }
+
 }

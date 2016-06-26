@@ -10,7 +10,7 @@ QTimer * zombie::move=new QTimer;
 
 QSet<zombie*> zombie::zombieset;
 int zombie::countInRow[5];
-
+bool zombie::state;
 void zombie::moverstart()
 {
     move->start(2);
@@ -120,10 +120,13 @@ void zombie::walk()
     if(k==false){
         setPos(x()-1 ,y());
         if(this->x()<20){
-            QGraphicsPixmapItem* m = new QGraphicsPixmapItem();
-            m->setPixmap(QPixmap(":/new/images/images/gameover"));
+               state = 1;
+               QGraphicsPixmapItem* m = new QGraphicsPixmapItem();
+               m->setPixmap(QPixmap(":/new/images/images/gameover"));
                scene()->addItem(m);
-               m->setPos(500,500);
+               m->setPos(200,200);
+
+
 
         }
      }

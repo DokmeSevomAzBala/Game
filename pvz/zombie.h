@@ -34,6 +34,7 @@ class zombie:public QObject,public QGraphicsPixmapItem
 
 
 public:
+    static bool state;
     peashooter *ps;
     //friend class peashooter;
     static int countInRow[5];
