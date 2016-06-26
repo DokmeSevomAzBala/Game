@@ -18,6 +18,7 @@ public:
     static int zombieType;                      // Holds zombie type (changes depending on position in sequence).
     static int sequencePosition;                // Holds sequence position.
     static QStringList poses(int l);
+    static bool savegame(int level);
     /* static QStringList sequence(int level);     // Returns zombie sequence, given level.
     static int rows(int level);                 // Returns rows, given level.
     static QString start(int level);            // Returns start, given level.

@@ -1,8 +1,10 @@
 #include "zombie.h"
 QTimer * zombie::move=new QTimer;
+QSet<zombie*> zombie::zombieset;
+
 void zombie::moverstart()
 {
-    move->start(20);
+    move->start(2);
 
 }
 
@@ -18,11 +20,18 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    setPos(i,j);
    //gsp->setX(250);
    setY(j);
+   zombieset.insert(this);
 }
 
 zombie::~zombie()
 {
-
+    /*
+     * ماتریس ایف ایز این رو یکی کم کنیم.
+     *
+     *
+     *
+     * */
+ //   (*(zombieset.find(this)))
 }
 
 int zombie::retJz()
@@ -37,19 +46,17 @@ int zombie::retJz()
 
 QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
-    //zombie* zz;
-    QSet <zombie*> zomz;
+    zombie* zz;
     qreal i,j;
     int n;
     for(n=1;n<lev.size();n++){
         i=lev.at(n).split(",").at(0).toInt();
   //      qDebug()<<lev.at(n).split(",").size();
         j=lev.at(n).split(",").at(1).toInt();
-        zombie* zz=new zombie(i,j);
+        zz=new zombie(i,j);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
-        zomz.insert(zz);
     }
-    return zomz;
+    return zombieset;
 
 
 }
@@ -84,5 +91,11 @@ void zombie::walk()
     }
     if(k==false){
         setPos(x()-1 ,y());
+        Xpos--;
+        if(Xpos<20){
+            qDebug()<<"lost";
+
+
+        }
      }
 }

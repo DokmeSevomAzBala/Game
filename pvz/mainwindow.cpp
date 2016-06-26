@@ -209,17 +209,18 @@ void MainWindow::IfZombieAndPeashooterAreInSameRaw(peashooter * shooter)
 void MainWindow::creatzom(int l)
 {
     QStringList poses=Level::poses(l);
-    zombieset=zombie::lvlStart(poses);
-    for(QSet<zombie*>::iterator it=zombieset.begin();it!=zombieset.end();it++){
+    QSet<zombie*>zombies=zombie::lvlStart(poses);
+
+    for(QSet<zombie*>::iterator it=zombies.begin();it!=zombies.end();it++){
         scene->addItem(*it);
         //gs->setX(250);
         //gs->setY(310);
-        for (int i1 = 0 ; i1 < 5 ; i1++){
-            //qDebug()<<"FFF" << zomz.at(i1)->retJz() << zomz.at(i1)->get_y();
-            // IfZombieIsInW[zomz.at(i1)->retJz()] = 1;
-          //injaaaaaaaaaa ro migoftammm niloo!!!!!!!!!!!!!!!!!!!!!!
-            //IfZombieIsInW[retJz()] = 1;
-        }
+//        for (int i1 = 0 ; i1 < 5 ; i1++){
+//            //qDebug()<<"FFF" << zomz.at(i1)->retJz() << zomz.at(i1)->get_y();
+//            // IfZombieIsInW[zomz.at(i1)->retJz()] = 1;
+//          //injaaaaaaaaaa ro migoftammm niloo!!!!!!!!!!!!!!!!!!!!!!
+//            //IfZombieIsInW[retJz()] = 1;
+//        }
         //qDebug() << gs->retJ();
 
     }

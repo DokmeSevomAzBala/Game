@@ -40,6 +40,20 @@ QStringList Level::poses(int l)
 {
     return levelList.at(l-1);
 }
+
+bool Level::savegame(int level)
+{
+    QFile save_file(":/CSVs/pvz_levels.csv");
+    if (!save_file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return 1;
+    QString writtofile="current level:";
+    writtofile.append(level);
+    QTextStream write(&save_file);
+    write<<writtofile;
+    return 0;
+
+}
+
 /*
 QStringList Level::sequence(int level)
 {

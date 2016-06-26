@@ -25,6 +25,8 @@ class zombie:public QObject,public QGraphicsPixmapItem
     int power;  //how many bullet will kill zombie
     //QPixmap ZomPic;
     static QTimer* move;
+    static QSet<zombie*> zombieset;
+
 
 
 public:
