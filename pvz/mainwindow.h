@@ -23,8 +23,8 @@
 #include <QString>
 #include <QTcpSocket>
 #include <QThread>
-
-#include "timerThread.h"
+#include <QMediaPlayer>
+#include "timerthread.h"
 
 #include <QSet>
 
@@ -34,10 +34,12 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
+    QMediaPlayer* player;
     Q_OBJECT
     Ui::MainWindow *ui;
     //qreal x_mouse;
     //qreal y_mouse;
+    QGraphicsTextItem* sunScore;
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
@@ -47,10 +49,13 @@ class MainWindow : public QMainWindow
     peashooter* pshr;
     static GameScreen* gs;          //gs is static object of gamescreen,
                                    //it's the object that we click on it
-    void IfZombieAndPeashooterAreInSameRaw(peashooter*);        //if they are in same row,
-                                                                //peashooter should make pea
+
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
+    QSet<zombie*> zombieset;
+    sun *s;
+    QTimer* createSunTimer;
+    QTimer* advanceTimer;
 public:
     QString retPlantType();
     QString str;
@@ -65,9 +70,11 @@ public:
 public slots:
    // void read_connect();
     void creatzom(int);
-    void MakeSunOnScene();
-    void MoveAllSuns();
+    void IfZombieAndPeashooterAreInSameRaw(peashooter*);        //if they are in same row,
+                                                                //peashooter should make pea
 private slots:
+    void UpdateScore();
+    void createSun();
     void check();
     void planting();
     void on_walnutB_clicked();

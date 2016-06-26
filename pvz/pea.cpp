@@ -10,9 +10,8 @@
 pea::pea()
 {
 
-   QPixmap pixmap(":/new/images/images/Giant_Pea.png");
-   P=pixmap;
-   setPixmap(P);
+   P = new QPixmap (":/new/images/images/Giant_Pea.png");
+   setPixmap(*P);
 
 }
 
@@ -43,4 +42,13 @@ void pea::delay( int millisecondsToWait )
 
 
 pea::~pea(){}
+void pea::advance(int phase){
+    if (!phase) return;
+    move_p();
+}
 
+void pea::DeletePea()
+{
+    delete P;
+    scene()->removeItem(this);
+}

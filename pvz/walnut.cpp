@@ -7,9 +7,9 @@ walnut::walnut()
     cost = 30;
     seeding_time = 50;
 
-    QPixmap m(":/new/images/images/Walnut.png");
-    PlantPic = m;
-    setPixmap(PlantPic);
+    PlantPic = new QPixmap(":/new/images/images/Walnut.png");
+    //PlantPic = m;
+    setPixmap(*PlantPic);
 
 }
 

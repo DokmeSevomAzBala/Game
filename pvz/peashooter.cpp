@@ -3,29 +3,43 @@
 //#include "mainwindow.h"
 #include <QGraphicsScene>
 //extern MainWindow *w;
-
+bool peashooter::IfPeashooter[5];
+bool peashooter::MakePea[5];
 peashooter::peashooter()
 {
 
     cost = 100;
     seeding_time = 10;
     life_time = 20;
-
-    QPixmap m(":/new/images/images/PeaShooter.png");
-  PlantPic=m;
-  setPixmap(PlantPic);
+    peaTimer = new QTime;
+    peaTimer->start();
+     PlantPic= new QPixmap(":/new/images/images/PeaShooter.png");
+     setPixmap(*PlantPic);
 
 }
 void peashooter::make_pea()
 {
- pea* p1;
- p1=new pea();
- scene()->addItem(p1);
- p1->setPos(this->x()+70,this->y());
- //p1->move_p();
- QTimer * ti = new QTimer();
- ti->start(10);
-connect (ti, SIGNAL(timeout()),p1,SLOT(move_p()));
+//    qDebug() <<"LL";
+//    p1 = new pea();
+//    scene()->addItem(p1);
+// p1->setPos(this->x()+70,this->y());
+// QTimer * ti = new QTimer();
+// ti->start(10);
+//connect (ti, SIGNAL(timeout()),p1,SLOT(move_p()));
+}
+
+
+void peashooter::advance(int phase)
+{
+    if (!phase) return;
+    if (peaTimer->elapsed() >= 1000 && MakePea[gsp->retJ()] == 1)
+    {
+        p1 = new pea();  // Create new bullet.
+        scene()->addItem(p1);   // Add bullet to scene.
+        p1->setPos(this->x()+70,this->y());
+        peaTimer->restart();   // Restart shooting interval.
+        return;                     // Only shoot first zombie.
+    }
 }
 
 //void peashooter::IfZombieAndPeashooterAreInSameRaw()

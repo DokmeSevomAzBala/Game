@@ -2,18 +2,9 @@
 #include <QGraphicsScene>
 #include "lawn_mower.h"
 
-lawn_mower::lawn_mower()
+lawn_mower::lawn_mower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
-
-    QPixmap m(":/new/images/images/Lawn_Mower");
-    setPixmap(m);
-     PlantPic = m;
-    setPixmap(PlantPic);
-
-
-
-
-
+    setPixmap( QPixmap (":/new/images/images/Lawn_Mower"));
 
 }
 
@@ -36,4 +27,5 @@ void lawn_mower::movinglawn()
         this->~lawn_mower();
     }
 }
+
 

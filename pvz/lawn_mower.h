@@ -10,11 +10,11 @@
 #include <QGraphicsItem>
 
 
-class lawn_mower: public plant
+class lawn_mower:public QObject , public QGraphicsPixmapItem
 {
    Q_OBJECT
 public:
-    lawn_mower();
+    lawn_mower(QGraphicsItem *parent = 0);
     ~lawn_mower();
     void move_lawn();
 

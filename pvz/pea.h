@@ -22,12 +22,13 @@ class pea:public QObject , public QGraphicsPixmapItem
     friend class peashooter;
 private:
 
- QPixmap P;
+ QPixmap *P;
  int p_x;
 int p_y;
-
+    void advance (int phase);
 public:
-void delay( int);
+    void DeletePea();
+    void delay(int);
     pea();
     ~pea();
  //void move_p(int,int);

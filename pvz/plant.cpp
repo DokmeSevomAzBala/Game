@@ -42,3 +42,9 @@ void plant::die(){
     }
 
 }
+
+void plant::advance(int phase)
+{
+
+}
+

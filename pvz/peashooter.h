@@ -8,11 +8,16 @@
 class peashooter: public plant
 {
     Q_OBJECT
- //friend class pea;
-public:
- //void IfZombieAndPeashooterAreInSameRaw();
+    void advance(int phase);
 
-peashooter();
+public:
+    pea* p1;
+    //void IfZombieAndPeashooterAreInSameRaw();
+    static bool IfPeashooter[5];
+    static bool MakePea[5];
+    peashooter();
+    QTime* peaTimer;
+
 public slots:
 void make_pea();
 

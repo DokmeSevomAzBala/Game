@@ -1,5 +1,7 @@
 #include "zombie.h"
 QTimer * zombie::move=new QTimer;
+int zombie::countInRow[5];
+
 void zombie::moverstart()
 {
     move->start(20);
@@ -10,18 +12,19 @@ void zombie::moverstart()
 zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
-   power=10;
-   //gsp = new GameScreen();
+   power=5;
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
-   //int i=qrand()%5;
-   //setPos(700,i*100+50);
    setPos(i,j);
-   //gsp->setX(250);
    setY(j);
+   countInRow[retJz()]++;
+   ps = new peashooter();
 }
 
 zombie::~zombie()
 {
+    countInRow[retJz()]--;
+    if ( retJz() == 1)
+    qDebug() <<retJz()<<"SSS"<<countInRow[retJz()];
 
 }
 
@@ -35,10 +38,10 @@ int zombie::retJz()
     else if (get_y() == 540) return 4;
 }
 
-QVector<zombie*> zombie::lvlStart(QStringList lev)
+QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
     //zombie* zz;
-    QVector <zombie*> zomz;
+    QSet <zombie*> zomz;
     qreal i,j;
     int n;
     for(n=1;n<lev.size();n++){
@@ -47,7 +50,7 @@ QVector<zombie*> zombie::lvlStart(QStringList lev)
         j=lev.at(n).split(",").at(1).toInt();
         zombie* zz=new zombie(i,j);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
-        zomz.push_back(zz);
+        zomz.insert(zz);
     }
     return zomz;
 
@@ -71,9 +74,9 @@ void zombie::walk()
             k=true;
         }
         else if(typeid(*(colliding_items[i])) == typeid(pea) ){
-            ((pea*)colliding_items[i])->~pea();
+            ((pea*)colliding_items[i])->DeletePea();
             power--;
-            if(power<=0)
+            if(power <= 0)
                 this->~zombie();
         }
 
@@ -85,4 +88,22 @@ void zombie::walk()
     if(k==false){
         setPos(x()-1 ,y());
      }
+}
+
+
+void zombie::advance(int phase)
+{
+    if (!phase) return;
+    for (int i=0 ; i < 5 ; i++){
+
+        if (ps->peaTimer->elapsed() >= 1000 && countInRow[i] > 0 && ps->IfPeashooter[i]==1)
+        {
+            ps->MakePea[i] = 1;
+
+        }
+        else if(countInRow[i] == 0) {
+            ps->MakePea[i] = 0;
+        }
+    }
+
 }
