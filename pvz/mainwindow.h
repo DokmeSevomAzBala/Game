@@ -73,7 +73,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
-    //void read_connect();
+    void read_connect();
     void creatzom(int);
     void IfZombieAndPeashooterAreInSameRaw(peashooter*);        //if they are in same row,
                                                                 //peashooter should make pea

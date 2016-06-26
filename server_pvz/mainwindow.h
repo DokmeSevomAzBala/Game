@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "server.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    server* myserver1;
 private:
     Ui::MainWindow *ui;
 };

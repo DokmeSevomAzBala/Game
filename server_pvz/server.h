@@ -6,7 +6,7 @@
 #include<QTcpSocket>
 #include<QGraphicsScene>
 #include<QGraphicsView>
-
+#include <QDebug>
 class server : public QWidget
 {
     Q_OBJECT

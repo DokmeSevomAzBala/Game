@@ -2,23 +2,24 @@
 
 server::server(QWidget *parent):QWidget (parent)
 {
+    qDebug()<<"o";
     myserver = new QTcpServer(this);
     if (!myserver->listen(QHostAddress::LocalHost, 12345)) {
     //ui->log->setPlainText("Failure while starting server: " + myserver->errorString());
     return;
     }
-    connect(myserver, SIGNAL(new_connection()),this, SLOT(new_connection()));
+    connect(myserver, SIGNAL(newConnection()),this, SLOT(new_connection()));
 }
 void server::new_connection()
 {
+    qDebug() <<"bb";
 
     while (myserver->hasPendingConnections()) {
     QTcpSocket *con = myserver->nextPendingConnection();
     myclients << con;
     //ui->disconnectClients->setEnabled(true);
-    connect(con, SIGNAL(disconnected()), this,
-    SLOT(removeConnection()));
-    connect(con, SIGNAL(readyRead()), this, SLOT(newMessage()));
+    connect(con, SIGNAL(disconnected()), this,SLOT(remove_connection()));
+    connect(con, SIGNAL(readyRead()), this, SLOT(new_message()));
     //ui->log->insertPlainText(
     QString("* New connection: %1, port %2\n")
     .arg(con->peerAddress().toString())

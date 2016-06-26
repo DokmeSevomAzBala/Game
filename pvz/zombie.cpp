@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "zombie.h"
 /*
  * @descr constructor of class
