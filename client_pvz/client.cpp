@@ -17,7 +17,7 @@ client::client(QWidget *parent): QWidget(parent)
      scene = new QGraphicsScene();
      scene->setSceneRect(0,0,1000,800);
      view->setScene(scene);
-     displayMenu();
+     display_menu();
 
 
 }
@@ -47,14 +47,14 @@ void client::read_message()
         qDebug()<<"no connection exist any more";
         return;
     }
-    qDebug()<<"it connected to: "<<mysocket->localAddress()<<"  port: "<<5044;
+    qDebug()<<" connected to: "<<mysocket->localAddress()<<"  port: "<<5044;
     myreceivedData.append(mysocket->readAll());
     if(!myreceivedData.contains(QChar(23)))
         return;
     QStringList message = myreceivedData.split(QChar(23));
     myreceivedData = message.takeLast();
-    foreach(const QString &msg, message)
-    {
+//    foreach(const QString &msg, message)
+//    {
 
-    }
+//    }
 }

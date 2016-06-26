@@ -1,6 +1,13 @@
 #include "zombie.h"
+/*
+ * @descr constructor of class
+ * @param qreal,QGraphicsIem
+ * @return nothing
+ */
 QTimer * zombie::move=new QTimer;
+
 QSet<zombie*> zombie::zombieset;
+int zombie::countInRow[5];
 
 void zombie::moverstart()
 {
@@ -12,26 +19,30 @@ void zombie::moverstart()
 zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
-   power=10;
-   //gsp = new GameScreen();
+   power=5;
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
-   //int i=qrand()%5;
-   //setPos(700,i*100+50);
    setPos(i,j);
-   //gsp->setX(250);
    setY(j);
-   zombieset.insert(this);
+   countInRow[retJz()]++;
+   ps = new peashooter();
 }
 
+/*
+ * @descr destructor of class
+ * @param nothing
+ * @return nothing
+ */
 zombie::~zombie()
 {
-    /*
-     * ماتریس ایف ایز این رو یکی کم کنیم.
-     *
-     *
-     *
-     * */
- //   (*(zombieset.find(this)))
+
+    countInRow[retJz()]--;
+    if ( retJz() == 1)
+    qDebug() <<retJz()<<"SSS"<<countInRow[retJz()];
+    zombieset.remove(this);
+    if(zombieset.empty()){
+        qDebug()<<"win!!";
+    }
+
 }
 
 int zombie::retJz()
@@ -43,6 +54,13 @@ int zombie::retJz()
     else if (get_y() == 430) return 3;
     else if (get_y() == 540) return 4;
 }
+/*
+ * @descr
+ * @param QStringList
+ * @return vector <zombie*>
+ */
+//QVector<zombie*> zombie::lvlStart(QStringList lev)
+
 
 QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
@@ -54,21 +72,27 @@ QSet<zombie*> zombie::lvlStart(QStringList lev)
   //      qDebug()<<lev.at(n).split(",").size();
         j=lev.at(n).split(",").at(1).toInt();
         zz=new zombie(i,j);
+        zombieset.insert(zz);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
     }
     return zombieset;
-
-
 }
-
+/*
+ * @descr set y position
+ * @param qreal
+ * @return nothing
+ */
 void zombie::setY(qreal h)
 {
     Ypos = h+30;
 }
-
+/*
+ * @descr walking zombie
+ * @param nothing
+ * @return nothing
+ */
 void zombie::walk()
 {
-
     QList<QGraphicsItem *> colliding_items = collidingItems();
     bool k=false;
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
@@ -78,9 +102,9 @@ void zombie::walk()
             k=true;
         }
         else if(typeid(*(colliding_items[i])) == typeid(pea) ){
-            ((pea*)colliding_items[i])->~pea();
+            ((pea*)colliding_items[i])->DeletePea();
             power--;
-            if(power<=0)
+            if(power <= 0)
                 this->~zombie();
         }
 
@@ -98,4 +122,22 @@ void zombie::walk()
 
         }
      }
+}
+
+
+void zombie::advance(int phase)
+{
+    if (!phase) return;
+    for (int i=0 ; i < 5 ; i++){
+
+        if (ps->peaTimer->elapsed() >= 1000 && countInRow[i] > 0 && ps->IfPeashooter[i]==1)
+        {
+            ps->MakePea[i] = 1;
+
+        }
+        else if(countInRow[i] == 0) {
+            ps->MakePea[i] = 0;
+        }
+    }
+
 }

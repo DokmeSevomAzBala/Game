@@ -17,9 +17,10 @@ public:
     void mousePressEvent(QMouseEvent*);
     //GameScreen();
     QPoint grid[9][5];
-    static bool IfGridIsFull[9][5];
     static bool IfPeashooterISIn[9][5];
     static bool IfZombieIsIn[5];
+    static bool IfGridIsFull[9][5];
+
     void GridPoint(QMouseEvent*);
      qreal retX(){return X;}
      qreal retY(){return Y;}

@@ -2,38 +2,44 @@
 #include <QGraphicsScene>
 #include "lawn_mower.h"
 
-lawn_mower::lawn_mower()
+lawn_mower::lawn_mower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
+    setPixmap( QPixmap (":/new/images/images/Lawn_Mower"));
 
-//    life_time = 25;
-//    cost = 30;
-//    seeding_time = 50;
-  //  QPixmap m(":/new/images/images/lawn_mower_2");
-   //
-    QPixmap m(":/new/images/images/Lawn_Mower");
-    setPixmap(m);
-     PlantPic = m;
-    setPixmap(PlantPic);
-
-
-
-
-
+/*
+ * @descr constructor of the class
+ * @param nothing
+ * @return nothing
+ */
 
 }
-
+/*
+ * @descr destructor of the cass
+ * @param param nothing
+ * @return nothing
+ */
 lawn_mower::~lawn_mower()
 {
 
 }
+/*
+ * @descr move the lawn mower by sending slot
+ * @param nothing
+ * @return nothing
+ */
 void lawn_mower::move_lawn()
 {
-    QTimer* time = new QTimer();
-    time->start(50);
-    connect(time,SIGNAL(timeout()),this,SLOT(movinglawn()));
+    timerThread* time = new timerThread();
+    time->run(50);
+    connect(time,SIGNAL(mysignal()),this,SLOT(movinglawn()));
+    time->start();
 
 }
-
+/*
+ * @descr move the lawn mower
+ * @param nothing
+ * @return nothing
+ */
 void lawn_mower::movinglawn()
 {
     setPos(x()+10,y());
@@ -41,4 +47,5 @@ void lawn_mower::movinglawn()
         this->~lawn_mower();
     }
 }
+
 

@@ -3,15 +3,22 @@
 
 #include "plant.h"
 #include "sun.h"
+#include "timerthread.h"
 #include <QTimer>
 #include <QObject>
-
+#include <QTime>
 class sunflower : public plant
 {
     Q_OBJECT
     QTimer *MakeSunTimer;
     QTimer *DeleteSunTimer;
+    QTime* createSunTimer;
+/*
+ * this class will make suns
+ */
 
+    void advance(int phase);
+    sun * sun1;
 public:
     sunflower();
 public slots:

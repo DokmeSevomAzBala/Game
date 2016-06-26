@@ -6,6 +6,11 @@ qreal GameScreen::Y;
 bool  GameScreen::IfGridIsFull[9][5];
 bool  GameScreen::IfPeashooterISIn[9][5];
 bool  GameScreen::IfZombieIsIn[5];
+/*
+ * @descr constructor of class
+ * @param QWidget
+ * @return nothing
+ */
 GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
@@ -23,6 +28,11 @@ GameScreen::GameScreen(QWidget *parent) :
     }
     create();
 }
+/*
+ * @descr
+ * @param QMouseEvent
+ * @return nothing
+ */
 void GameScreen::GridPoint(QMouseEvent *e)
 {
     qreal x = e->x();
@@ -31,8 +41,8 @@ void GameScreen::GridPoint(QMouseEvent *e)
     for (int i = 0 ; i < 9 ; i++){
         for (int j = 0 ; j < 5 ; j++){
             if (i < 8 && j < 4 ){
-               if(x > this->grid[i][j].x() && x < (this->grid[i+1][j].x()) &&
-                  y > this->grid[i][j].y() && y < (this->grid[i][j+1].y())){
+               if(x > (this->grid[i][j].x()) && x < (this->grid[i+1][j].x()) &&
+                  y > (this->grid[i][j].y()) && y < (this->grid[i][j+1].y())){
                    X = grid [i][j].x();
                    Y = grid [i][j].y();
                 }
@@ -45,8 +55,8 @@ void GameScreen::GridPoint(QMouseEvent *e)
                }
             }
             else if (j == 4 && i < 8){
-                if(x > this->grid[i][j].x() && x < (this->grid[i+1][j].x()) &&
-                   y > this->grid[i][j].y() && y < (this->grid[i][j].y() + 100)){
+                if(x > (this->grid[i][j].x()) && x < (this->grid[i+1][j].x()) &&
+                   y > (this->grid[i][j].y()) && y < (this->grid[i][j].y() + 100)){
                     X = grid [i][j].x();
                     Y = grid [i][j].y();
 
@@ -62,16 +72,23 @@ void GameScreen::GridPoint(QMouseEvent *e)
         }
     }
 }
-
+/*
+ * @descr effect of pressing mousse
+ * @param QMouseEvent
+ * @return nothing
+ */
 void GameScreen::mousePressEvent(QMouseEvent *e)
 {
     QGraphicsView::mousePressEvent(e);
-    qDebug()<<e->pos();
     GridPoint(e);
     click();
 }
 
-
+/*
+ * @descr
+ * @param nothing
+ * @return int
+ */
 int GameScreen::retI(){
     if (X == 250) return 0;
     else if (X == 335) return 1;
@@ -83,7 +100,11 @@ int GameScreen::retI(){
     else if (X == 820) return 7;
     else if (X == 950) return 8;
 }
-
+/*
+ * @descr
+ * @param nothing
+ * @return int
+ */
 int GameScreen::retJ(){
     if (Y == 65) return 0;
     else if (Y == 190) return 1;

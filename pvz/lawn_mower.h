@@ -8,13 +8,19 @@
 #include <QDebug>
 #include <QObject>
 #include <QGraphicsItem>
+/*
+ * this class will move the lawnmower
+ */
+
+#include "timerthread.h"
 
 
-class lawn_mower: public plant
+class lawn_mower:public QObject , public QGraphicsPixmapItem
+
 {
    Q_OBJECT
 public:
-    lawn_mower();
+    lawn_mower(QGraphicsItem *parent = 0);
     ~lawn_mower();
     void move_lawn();
 

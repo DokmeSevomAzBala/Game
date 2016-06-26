@@ -2,19 +2,26 @@
 #include "pea.h"
 #include <QDebug>
 #include <QTimer>
+#include "timerthread.h"
 #ifndef PEASHOOTER_H
 #define PEASHOOTER_H
-
+/*
+ * this class will shoot the bullet of the peashooters
+ */
 class peashooter: public plant
 {
     Q_OBJECT
- //friend class pea;
-public:
- //void IfZombieAndPeashooterAreInSameRaw();
+    void advance(int phase);
 
-peashooter();
+public:
+    pea* p1;
+    //void IfZombieAndPeashooterAreInSameRaw();
+    static bool IfPeashooter[5];
+    static bool MakePea[5];
+    peashooter();
+    QTime* peaTimer;
 public slots:
-void make_pea();
+ void make_pea();
 
 };
 

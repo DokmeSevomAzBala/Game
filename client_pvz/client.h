@@ -2,16 +2,16 @@
 #define CLIENT_H
 
 #include <QWidget>
-#include<QTcpSocket>
-#include<QString>
-#include<QTcpServer>
-#include<QGraphicsView>
+#include <QTcpSocket>
+#include <QString>
+#include <QTcpServer>
+#include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QMouseEvent>
-
 class client:public QWidget
 {
     Q_OBJECT
+    //Q_FOREACH
 public:
     explicit client(QWidget *parent=0);
     QGraphicsScene *scene;

@@ -14,7 +14,9 @@
 #include <QTime>
 #include <QCoreApplication>
 using namespace std;
-
+/*
+ * this class will make the peas
+ */
 class pea:public QObject , public QGraphicsPixmapItem
 {
      //Q_OS_WIN
@@ -22,12 +24,14 @@ class pea:public QObject , public QGraphicsPixmapItem
     friend class peashooter;
 private:
 
- QPixmap P;
- int p_x;
-int p_y;
+ QPixmap *P;
+ //int p_x;
+   //int p_y;
+    void advance (int phase);
 
 public:
-void delay( int);
+    void DeletePea();
+    void delay(int);
     pea();
     ~pea();
  //void move_p(int,int);

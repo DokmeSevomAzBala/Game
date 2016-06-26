@@ -7,9 +7,16 @@
 #include <QDebug>
 #include <QPoint>
 #include "gamescreen.h"
+/*
+ * this class is base of all plants' classes
+ */
 class plant :public QObject , public QGraphicsPixmapItem  //public QGraphicsPixmapItem
 {
      Q_OBJECT
+    // Virtual QGraphicsItem functions.
+
+    void advance(int);
+
 public:
     int cost;           //how much we should pay to plant it?
     int seeding_time;   //how much time should pass that we can plant another one again
@@ -19,7 +26,7 @@ public:
     static GameScreen* gsp;
     static int retIgsp();
     static int retJgsp();
-    QPixmap PlantPic;
+    QPixmap* PlantPic;
     void Place(QPoint);
     plant(QGraphicsItem *parent = 0);
     ~plant();

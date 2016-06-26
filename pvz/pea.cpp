@@ -6,41 +6,48 @@
 #include "mainwindow.h"
 #include <QThread>
 //extern MainWindow *w;
-
+/*
+ * @descr constructor of the cass
+ * @param param nothing
+ * @return nothing
+ */
 pea::pea()
 {
 
-   QPixmap pixmap(":/new/images/images/Giant_Pea.png");
-   P=pixmap;
-   setPixmap(P);
+   P = new QPixmap (":/new/images/images/Giant_Pea.png");
+   setPixmap(*P);
 
 }
+/*
+ * @descr move the pea
+ * @param nothing
+ * @return nothing
+ */
 
 void pea::move_p()
 {
 
     this->setPos(this->x()+5,this->y());
-//    p_x=a;
-//    p_y=b;
-//    while(p_x<1000){
-//        this->delay(500);
-//      p_x=p_x+15;
-//      this->setPos(p_x,p_y);
-
-//   }
-    //this->~pea();
+    if(this->x()>1000)
+    this->~pea();
 
 
 }
-void pea::delay( int millisecondsToWait )
-{
-    QTime dieTime = QTime::currentTime().addMSecs( millisecondsToWait );
-    while( QTime::currentTime() < dieTime )
-    {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
-    }
-}
 
 
+/*
+ * @descr destructor of the cass
+ * @param nothing
+ * @return nothing
+ */
 pea::~pea(){}
+void pea::advance(int phase){
+    if (!phase) return;
+    move_p();
+}
 
+void pea::DeletePea()
+{
+    delete P;
+    scene()->removeItem(this);
+}
