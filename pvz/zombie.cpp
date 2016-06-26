@@ -115,8 +115,7 @@ void zombie::walk()
     }
     if(k==false){
         setPos(x()-1 ,y());
-        Xpos--;
-        if(Xpos<20){
+        if(this->x()<20){
             qDebug()<<"lost";
 
 
