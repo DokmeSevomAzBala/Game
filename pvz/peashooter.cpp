@@ -5,9 +5,14 @@
 //extern MainWindow *w;
 bool peashooter::IfPeashooter[5];
 bool peashooter::MakePea[5];
+
+/*
+ * @descr constructor of the cass
+ * @param nothing
+ * @return nothing
+ */
 peashooter::peashooter()
 {
-
     cost = 100;
     seeding_time = 10;
     life_time = 20;
@@ -17,6 +22,11 @@ peashooter::peashooter()
      setPixmap(*PlantPic);
 
 }
+/*
+ * @descr makes pea
+ * @param nothing
+ * @return nothing
+ */
 void peashooter::make_pea()
 {
 //    qDebug() <<"LL";
@@ -32,7 +42,7 @@ void peashooter::make_pea()
 void peashooter::advance(int phase)
 {
     if (!phase) return;
-    if (peaTimer->elapsed() >= 1000 && MakePea[gsp->retJ()] == 1)
+    if (peaTimer->elapsed() >= 800 && MakePea[gsp->retJ()] == 1)
     {
         p1 = new pea();  // Create new bullet.
         scene()->addItem(p1);   // Add bullet to scene.
@@ -41,25 +51,3 @@ void peashooter::advance(int phase)
         return;                     // Only shoot first zombie.
     }
 }
-
-//void peashooter::IfZombieAndPeashooterAreInSameRaw()
-//{
-
-//    for (int i = 0 ; i < 9 ; i++){
-//        for (int j = 0; j < 5 ; j++){
-//            if (gsp->IfPeashooterISIn[i][j] == 1 ){
-//                qDebug()<<gsp->retJ();
-//                    qDebug()<<gsp->IfZombieIsIn[0][gsp->retJ()];
-//            }
-//            for (int k = 0 ; k < 5 ; k++){
-//                if(gsp->IfZombieIsIn[0][k] == 1){
-//                    qDebug() <<"fdsafdsfdagffssdfg";
-//                    this->make_pea();
-//                }
-
-//            }
-//        }
-//    }
-//}
-
-////////////////////////////

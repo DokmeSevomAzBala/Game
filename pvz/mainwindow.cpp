@@ -10,11 +10,13 @@
 #include <QSound>
 //bool  GameScreen::IfGridIsFull[9][5]
 qreal x1 = 65;
+#include <QTcpSocket>
+#include <QStringList>
 GameScreen* MainWindow::gs;
 bool MainWindow::IfZombieIsInW[5];
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow), socket(new QTcpSocket)
 {
     QSound::play(":/new/images/images/plants_vs_zombies.wav");
 //    player = new QMediaPlayer;
@@ -25,10 +27,12 @@ MainWindow::MainWindow(QWidget *parent) :
     gs = new GameScreen(ui->view);          //gs is a static object of gamesecreen, gamescreen is
                                             //the qgraphicsview that we click on it.
     gs->setFixedSize(ui->view->size());     //fix the size, no need to maximize.
-
     socket = new QTcpSocket();              //socket is for client and server.
     //socket->connectToHost("0.0.0.0",12345);
     ThePlantingPlant = "";
+//    socket = new QTcpSocket();
+  //  socket->connectToHost("0.0.0.0", 12345);
+   // connect(socket, SIGNAL(readyRead()),this,SLOT(read_connect()));
     // Make scene and make dimensions same as graphicsView.
     scene = new QGraphicsScene(gs);
     ui->view->setStyleSheet("background:transparent");
@@ -195,11 +199,30 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(gs,SIGNAL(click()),this,SLOT(planting()));
     //connect(gs,SIGNAL(create()),this,SLOT(creatzom()));
 
-//    thread1->wait();
-  //  thread2->wait();
-    //thread3->wait(
 
 }
+
+//void MainWindow::read_connect()
+//{
+//    if(socket->state()!= QAbstractSocket::ConnectedState)
+//    {
+//        qDebug()<<"no connectin exist Dg";
+//        return;
+//    }
+//    //qDebug()<<"connected to: "<<socket->localAddress()<<"   port:  "<<12345;
+//    str.append(socket->readAll());
+//    if (!str.contains(QChar(23)))
+//        return;
+//    QStringList msge = str.split(QChar(23));
+//    str = msge.takeLast();
+//    foreach(const QString &ms,msge)
+//    {
+//       // ui->chat->insertPlainText(message + "\n");
+
+//    }
+
+//}
+
 
 void MainWindow::check()
 

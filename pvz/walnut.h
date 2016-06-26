@@ -1,6 +1,8 @@
 #ifndef WALLNUT_H
 #define WALLNUT_H
-
+/*
+ * this class will make walnut
+ */
 #include "plant.h"
 #include <QGraphicsPixmapItem>
 #include <QPixmap>

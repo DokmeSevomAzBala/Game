@@ -1,4 +1,9 @@
 #include "zombie.h"
+/*
+ * @descr constructor of class
+ * @param qreal,QGraphicsIem
+ * @return nothing
+ */
 QTimer * zombie::move=new QTimer;
 int zombie::countInRow[5];
 
@@ -19,7 +24,11 @@ zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmap
    countInRow[retJz()]++;
    ps = new peashooter();
 }
-
+/*
+ * @descr destructor of class
+ * @param nothing
+ * @return nothing
+ */
 zombie::~zombie()
 {
     countInRow[retJz()]--;
@@ -37,6 +46,13 @@ int zombie::retJz()
     else if (get_y() == 430) return 3;
     else if (get_y() == 540) return 4;
 }
+/*
+ * @descr
+ * @param QStringList
+ * @return vector <zombie*>
+ */
+//QVector<zombie*> zombie::lvlStart(QStringList lev)
+
 
 QSet<zombie*> zombie::lvlStart(QStringList lev)
 {
@@ -53,18 +69,23 @@ QSet<zombie*> zombie::lvlStart(QStringList lev)
         zomz.insert(zz);
     }
     return zomz;
-
-
 }
-
+/*
+ * @descr set y position
+ * @param qreal
+ * @return nothing
+ */
 void zombie::setY(qreal h)
 {
     Ypos = h+30;
 }
-
+/*
+ * @descr walking zombie
+ * @param nothing
+ * @return nothing
+ */
 void zombie::walk()
 {
-
     QList<QGraphicsItem *> colliding_items = collidingItems();
     bool k=false;
     for (int i = 0, n = colliding_items.size(); i < n; ++i){

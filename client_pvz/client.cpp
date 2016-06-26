@@ -47,7 +47,7 @@ void client::read_message()
         qDebug()<<"no connection exist any more";
         return;
     }
-    qDebug()<<"it connected to: "<<mysocket->localAddress()<<"  port: "<<5044;
+    qDebug()<<" connected to: "<<mysocket->localAddress()<<"  port: "<<5044;
     myreceivedData.append(mysocket->readAll());
     if(!myreceivedData.contains(QChar(23)))
         return;

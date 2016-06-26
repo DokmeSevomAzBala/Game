@@ -2,10 +2,10 @@
 #define CLIENT_H
 
 #include <QWidget>
-#include<QTcpSocket>
-#include<QString>
-#include<QTcpServer>
-#include<QGraphicsView>
+#include <QTcpSocket>
+#include <QString>
+#include <QTcpServer>
+#include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QMouseEvent>
 class client:public QWidget

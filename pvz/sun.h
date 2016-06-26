@@ -10,7 +10,9 @@
 #include <QWidget>
 #include <QTimer>
 #include <QGraphicsScene>
-
+/*
+ * this class will count the score of suns
+ */
 class sun : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT

@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 QT       += core gui network multimedia
 
+
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 TARGET = PvZ
