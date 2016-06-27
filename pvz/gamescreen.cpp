@@ -15,7 +15,7 @@ GameScreen::GameScreen(QWidget *parent) :
     QGraphicsView(parent)
 {
     int x[] = {250,335,405,495,570,660,750,820,950};
-    int y[] = {65,190,310,430,540};
+    int y[] = {65,190,310,420,540};
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j < 5; j++)
@@ -109,7 +109,7 @@ int GameScreen::retJ(){
     if (Y == 65) return 0;
     else if (Y == 190) return 1;
     else if (Y == 310) return 2;
-    else if (Y == 430) return 3;
+    else if (Y == 420) return 3;
     else if (Y == 540) return 4;
 
 }

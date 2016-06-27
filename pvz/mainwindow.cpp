@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     playlist->setPlaybackMode( QMediaPlaylist::Loop );
     player->setPlaylist( playlist );
     playlist->setCurrentIndex(0);
-    player->setVolume(100);
+    player->setVolume(200);
     player->play();
    //QSound::play(":/new/images/images/plants_vs_zombies.wav");
     ui->setupUi(this);

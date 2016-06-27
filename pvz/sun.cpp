@@ -25,6 +25,7 @@ sun::sun() :  sunType(1)
 
 sun::sun(QPoint sunFlowerPos) : sunType(0)
 {
+    clicked = 0;
     this->setPos(sunFlowerPos);
     pix = new QPixmap(":/new/images/images/Sun.png");
     setPixmap(*pix);
@@ -61,7 +62,7 @@ void sun::DeleteSun()
 void sun::mousePressEvent (QGraphicsSceneMouseEvent *event){
         QGraphicsPixmapItem::mousePressEvent(event);
         pressed = 1;
-        SetSunPoint(25);
+        SetSunPoint(50);
         DeleteSun();
         clicked = 1;
         //delete this;

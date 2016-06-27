@@ -44,7 +44,7 @@ public:
     int retJz();
     static QSet<zombie *> lvlStart(QStringList lev);
     qreal get_x(){return Xpos;}
-    qreal get_y(){return Ypos;}
+    qreal get_y(){return this->y();}
     void setY(qreal h);
     //static GameScreen* gsp;
 

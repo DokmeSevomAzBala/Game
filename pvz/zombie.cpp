@@ -38,6 +38,7 @@ zombie::~zombie()
 {
 
     countInRow[retJz()]--;
+    qDebug()<<"LLLL"<<countInRow[retJz()];
     if ( retJz() == 1)
     qDebug() <<retJz()<<"SSS"<<countInRow[retJz()];
     zombieset.remove(this);
@@ -52,11 +53,11 @@ zombie::~zombie()
 int zombie::retJz()
 {
     //qDebug() << get_y();
-    if (get_y() == 65) return 0;
-    else if (get_y() == 190) return 1;
-    else if (get_y() == 310) return 2;
-    else if (get_y() == 430) return 3;
-    else if (get_y() == 540) return 4;
+    if (get_y() == 35) return 0;
+    else if (get_y() == 160) return 1;
+    else if (get_y() == 280) return 2;
+    else if (get_y() == 400) return 3;
+    else if (get_y() == 510) return 4;
 }
 /*
  * @descr
@@ -108,8 +109,9 @@ void zombie::walk()
         else if(typeid(*(colliding_items[i])) == typeid(pea) ){
             ((pea*)colliding_items[i])->DeletePea();
             power--;
-            if(power <= 0)
-                this->~zombie();
+            if(power <= 0){
+                qDebug() <<"MMMMMMMMM";
+                this->~zombie();}
         }
 
         else if (typeid(*(colliding_items[i])) == typeid(lawn_mower)){

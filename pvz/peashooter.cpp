@@ -42,12 +42,14 @@ void peashooter::make_pea()
 void peashooter::advance(int phase)
 {
     if (!phase) return;
-    if (peaTimer->elapsed() >= 800 && MakePea[gsp->retJ()] == 1)
+    for (int i =0 ; i<5 ; i++){
+    if (peaTimer->elapsed() >= 800 && MakePea[i] == 1)
     {
         p1 = new pea();  // Create new bullet.
         scene()->addItem(p1);   // Add bullet to scene.
         p1->setPos(this->x()+70,this->y());
         peaTimer->restart();   // Restart shooting interval.
         return;                     // Only shoot first zombie.
+    }
     }
 }
