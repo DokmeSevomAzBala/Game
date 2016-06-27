@@ -1,5 +1,7 @@
 #include "sunflower.h"
 #include "mainwindow.h"
+
+
 //extern MainWindow *w;
 /*
  * @descr constructor of class
@@ -7,13 +9,24 @@
  * @return nothing
  */
 sunflower::sunflower(){
+
     cost = 50;
     seeding_time = 10;
     life_time = 15;
     setPixmap(QPixmap(":/new/images/images/SunFlower"));
+<<<<<<< HEAD
     MakeSunTimer = new QTimer;
     MakeSunTimer->start(7000);
     connect (MakeSunTimer,SIGNAL(timeout()),this,SLOT(MakeSunForSunFlower()));
+=======
+
+    MakeSunTimer = new timerThread();
+    MakeSunTimer->run(7000);
+    connect (MakeSunTimer,SIGNAL(mysignal()),this,SLOT(MakeSunForSunFlower()));
+    MakeSunTimer->start();
+
+
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 }
 /*
  * @descr make sun for sunflower

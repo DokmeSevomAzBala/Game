@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'sunflower.h'
 **
+<<<<<<< HEAD
 ** Created: Sun Jun 26 13:26:04 2016
+=======
+** Created: Sat Jun 25 21:58:48 2016
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!

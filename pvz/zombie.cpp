@@ -1,15 +1,24 @@
 #include "zombie.h"
+<<<<<<< HEAD
 /*
  * @descr constructor of class
  * @param qreal,QGraphicsIem
  * @return nothing
  */
+=======
+QTimer * zombie::move=new QTimer;
+void zombie::moverstart()
+{
+    move->start(20);
+
+}
+
+
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 zombie::zombie(qreal i,qreal j,QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
    setPixmap(QPixmap(":/new/images/images/zombie"));
    power=10;
-   move=new QTimer;
-   move->start(25);
    //gsp = new GameScreen();
    connect (move,SIGNAL(timeout()),this,SLOT(walk()));
    //int i=qrand()%5;
@@ -37,15 +46,20 @@ int zombie::retJz()
     else if (get_y() == 430) return 3;
     else if (get_y() == 540) return 4;
 }
+<<<<<<< HEAD
 /*
  * @descr
  * @param QStringList
  * @return vector <zombie*>
  */
 QVector<zombie*> zombie::lvlStart(QStringList lev)
+=======
+
+QSet<zombie*> zombie::lvlStart(QStringList lev)
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 {
     //zombie* zz;
-    QVector <zombie*> zomz;
+    QSet <zombie*> zomz;
     qreal i,j;
     int n;
     for(n=1;n<lev.size();n++){
@@ -54,7 +68,7 @@ QVector<zombie*> zombie::lvlStart(QStringList lev)
         j=lev.at(n).split(",").at(1).toInt();
         zombie* zz=new zombie(i,j);
         //gsp->IfZombieIsIn[0][zz->retJz()] = 1;
-        zomz.push_back(zz);
+        zomz.insert(zz);
     }
     return zomz;
 }

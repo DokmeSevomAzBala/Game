@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
+<<<<<<< HEAD
 ** Created: Sun Jun 26 13:26:01 2016
+=======
+** Created: Sat Jun 25 23:06:35 2016
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -32,6 +36,7 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x0a,
+<<<<<<< HEAD
       27,   11,   11,   11, 0x0a,
       41,   11,   11,   11, 0x0a,
       58,   11,   11,   11, 0x0a,
@@ -40,15 +45,30 @@ static const uint qt_meta_data_MainWindow[] = {
       91,   11,   11,   11, 0x08,
      112,   11,   11,   11, 0x08,
      137,   11,   11,   11, 0x08,
+=======
+      26,   11,   11,   11, 0x0a,
+      43,   11,   11,   11, 0x0a,
+      57,   11,   11,   11, 0x08,
+      65,   11,   11,   11, 0x08,
+      76,   11,   11,   11, 0x08,
+      97,   11,   11,   11, 0x08,
+     122,   11,   11,   11, 0x08,
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
+<<<<<<< HEAD
     "MainWindow\0\0read_connect()\0creatzom(int)\0"
     "MakeSunOnScene()\0MoveAllSuns()\0check()\0"
     "planting()\0on_walnutB_clicked()\0"
     "on_peashooterB_clicked()\0"
+=======
+    "MainWindow\0\0creatzom(int)\0MakeSunOnScene()\0"
+    "MoveAllSuns()\0check()\0planting()\0"
+    "on_walnutB_clicked()\0on_peashooterB_clicked()\0"
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
     "on_sunflowerB_clicked()\0"
 };
 
@@ -81,6 +101,7 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
+<<<<<<< HEAD
         case 0: read_connect(); break;
         case 1: creatzom((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: MakeSunOnScene(); break;
@@ -90,6 +111,16 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 6: on_walnutB_clicked(); break;
         case 7: on_peashooterB_clicked(); break;
         case 8: on_sunflowerB_clicked(); break;
+=======
+        case 0: creatzom((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: MakeSunOnScene(); break;
+        case 2: MoveAllSuns(); break;
+        case 3: check(); break;
+        case 4: planting(); break;
+        case 5: on_walnutB_clicked(); break;
+        case 6: on_peashooterB_clicked(); break;
+        case 7: on_sunflowerB_clicked(); break;
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
         default: ;
         }
         _id -= 9;

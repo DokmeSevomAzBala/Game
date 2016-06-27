@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[10];
-    char stringdata[124];
+    char stringdata[127];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,18 +30,18 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 5), // "click"
-QT_MOC_LITERAL(2, 17, 0), // ""
-QT_MOC_LITERAL(3, 18, 14), // "MakeSunOnScene"
-QT_MOC_LITERAL(4, 33, 11), // "MoveAllSuns"
-QT_MOC_LITERAL(5, 45, 5), // "check"
-QT_MOC_LITERAL(6, 51, 8), // "planting"
-QT_MOC_LITERAL(7, 60, 18), // "on_walnutB_clicked"
-QT_MOC_LITERAL(8, 79, 22), // "on_peashooterB_clicked"
-QT_MOC_LITERAL(9, 102, 21) // "on_sunflowerB_clicked"
+QT_MOC_LITERAL(1, 11, 8), // "creatzom"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 14), // "MakeSunOnScene"
+QT_MOC_LITERAL(4, 36, 11), // "MoveAllSuns"
+QT_MOC_LITERAL(5, 48, 5), // "check"
+QT_MOC_LITERAL(6, 54, 8), // "planting"
+QT_MOC_LITERAL(7, 63, 18), // "on_walnutB_clicked"
+QT_MOC_LITERAL(8, 82, 22), // "on_peashooterB_clicked"
+QT_MOC_LITERAL(9, 105, 21) // "on_sunflowerB_clicked"
 
     },
-    "MainWindow\0click\0\0MakeSunOnScene\0"
+    "MainWindow\0creatzom\0\0MakeSunOnScene\0"
     "MoveAllSuns\0check\0planting\0"
     "on_walnutB_clicked\0on_peashooterB_clicked\0"
     "on_sunflowerB_clicked"
@@ -59,24 +59,20 @@ static const uint qt_meta_data_MainWindow[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
-
- // signals: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x06 /* Public */,
+       0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   55,    2, 0x0a /* Public */,
-       4,    0,   56,    2, 0x0a /* Public */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
-       8,    0,   60,    2, 0x08 /* Private */,
-       9,    0,   61,    2, 0x08 /* Private */,
-
- // signals: parameters
-    QMetaType::Void,
+       1,    1,   54,    2, 0x0a /* Public */,
+       3,    0,   57,    2, 0x0a /* Public */,
+       4,    0,   58,    2, 0x0a /* Public */,
+       5,    0,   59,    2, 0x08 /* Private */,
+       6,    0,   60,    2, 0x08 /* Private */,
+       7,    0,   61,    2, 0x08 /* Private */,
+       8,    0,   62,    2, 0x08 /* Private */,
+       9,    0,   63,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -93,7 +89,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->click(); break;
+        case 0: _t->creatzom((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->MakeSunOnScene(); break;
         case 2: _t->MoveAllSuns(); break;
         case 3: _t->check(); break;
@@ -103,17 +99,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->on_sunflowerB_clicked(); break;
         default: ;
         }
-    } else if (_c == QMetaObject::IndexOfMethod) {
-        int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
-        {
-            typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::click)) {
-                *result = 0;
-            }
-        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -150,11 +136,5 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 8;
     }
     return _id;
-}
-
-// SIGNAL 0
-void MainWindow::click()
-{
-    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

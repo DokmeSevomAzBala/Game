@@ -17,7 +17,12 @@ public:
     static qreal Y;
     qreal zomX;
     qreal zomY;
+<<<<<<< HEAD
     explicit GameScreen(QWidget *parent = 0);
+=======
+public:
+    GameScreen(QWidget *parent = 0);
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
     void mousePressEvent(QMouseEvent*);
     //GameScreen();
     QPoint grid[9][5];

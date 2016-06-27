@@ -23,6 +23,11 @@
 #include <QMouseEvent>
 #include <QString>
 #include <QThread>
+
+#include "timerthread.h"
+
+#include <QSet>
+
 namespace Ui {
 class MainWindow;
 }
@@ -41,7 +46,7 @@ class MainWindow : public QMainWindow
     sunflower *sunfl;
     QTimer *t1;
     QTimer *t2;
-    QVector <sun*> SunVec;
+    QSet <sun*> SunVec;
     walnut* wl;
     lawn_mower* lawn;
     peashooter* pshr;
@@ -49,6 +54,7 @@ class MainWindow : public QMainWindow
     void IfZombieAndPeashooterAreInSameRaw(peashooter*);
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
+    QSet<zombie*> zombieset;
 public:
 //    QString str;
 //    QTcpSocket *socket;

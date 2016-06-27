@@ -3,6 +3,7 @@
 
 #include "plant.h"
 #include "sun.h"
+#include "timerThread.h"
 #include <QTimer>
 #include <QObject>
 /*
@@ -11,8 +12,8 @@
 class sunflower : public plant
 {
     Q_OBJECT
-    QTimer *MakeSunTimer;
-    QTimer *DeleteSunTimer;
+    timerThread *MakeSunTimer;
+    timerThread *DeleteSunTimer;
 
 public:
     sunflower();

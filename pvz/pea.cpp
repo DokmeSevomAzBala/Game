@@ -27,18 +27,17 @@ pea::pea()
 
 void pea::move_p()
 {
-    this->setPos(this->x()+5,this->y());
-//    p_x=a;
-//    p_y=b;
-//    while(p_x<1000){
-//        this->delay(500);
-//      p_x=p_x+15;
-//      this->setPos(p_x,p_y);
 
-//   }
-    //this->~pea();
+    this->setPos(this->x()+5,this->y());
+    if(this->x()>1000)
+    this->~pea();
+
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a0058f86f68060bf216e51c4e8fcccf33f2929c
 
 //void pea::delay( int millisecondsToWait )
 //{
