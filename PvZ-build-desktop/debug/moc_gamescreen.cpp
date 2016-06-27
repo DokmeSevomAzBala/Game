@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gamescreen.h'
 **
-** Created: Fri Jun 24 18:49:36 2016
+** Created: Sun Jun 26 13:26:08 2016
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,21 +23,22 @@ static const uint qt_meta_data_GameScreen[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x05,
+      20,   11,   11,   11, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_GameScreen[] = {
-    "GameScreen\0\0click()\0"
+    "GameScreen\0\0click()\0create()\0"
 };
 
 const QMetaObject GameScreen::staticMetaObject = {
@@ -70,9 +71,10 @@ int GameScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: click(); break;
+        case 1: create(); break;
         default: ;
         }
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
@@ -81,5 +83,11 @@ int GameScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void GameScreen::click()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, 0);
+}
+
+// SIGNAL 1
+void GameScreen::create()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

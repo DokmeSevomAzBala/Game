@@ -26,10 +26,20 @@ void plant::Place(QPoint point)
     setPos(point);
 }
 
+/*
+ * @descr constructor of the cass
+ * @param QGraphicsItem
+ * @return nothing
+ */
 plant::plant(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     gsp = new GameScreen();
 }
+/*
+ * @descr destructor of the cass
+ * @param nothing
+ * @return nothing
+ */
 plant::~plant(){
     qDebug()<<"die die die die die die3:))";
 }

@@ -14,7 +14,9 @@
 #include <QTime>
 #include <QCoreApplication>
 using namespace std;
-
+/*
+ * this class will make the peas
+ */
 class pea:public QObject , public QGraphicsPixmapItem
 {
      //Q_OS_WIN

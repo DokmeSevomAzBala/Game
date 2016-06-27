@@ -5,7 +5,9 @@
 #include "sun.h"
 #include <QTimer>
 #include <QObject>
-
+/*
+ * this class will make suns
+ */
 class sunflower : public plant
 {
     Q_OBJECT

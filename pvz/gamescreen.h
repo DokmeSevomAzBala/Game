@@ -4,15 +4,19 @@
 #include <QGraphicsView>
 #include <QObject>
 #include <QMouseEvent>
-
+/*
+ * this class will balance the plants and zombies and make them in a straight path
+ * Example include static bool IfGridIsFull[9][5],static bool IfPeashooterISIn[9][5], static bool IfZombieIsIn[5]
+ */
 class GameScreen : public QGraphicsView
 {
     Q_OBJECT
+
+public:
     static qreal X;
     static qreal Y;
     qreal zomX;
     qreal zomY;
-public:
     explicit GameScreen(QWidget *parent = 0);
     void mousePressEvent(QMouseEvent*);
     //GameScreen();

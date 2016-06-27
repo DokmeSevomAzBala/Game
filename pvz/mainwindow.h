@@ -17,6 +17,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QVector>
+#include <QTcpSocket>
 #include <QGraphicsView>
 #include <QWidget>
 #include <QMouseEvent>
@@ -25,7 +26,10 @@
 namespace Ui {
 class MainWindow;
 }
-
+/*
+ * this class will control all the events in the game
+ * all the functions are important
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -46,6 +50,8 @@ class MainWindow : public QMainWindow
     lawn_mower* LMs[5];
     QString ThePlantingPlant;
 public:
+//    QString str;
+//    QTcpSocket *socket;
     static bool IfZombieIsInW[5];
     score *MyScore;
     void screen(qreal,qreal);
@@ -54,6 +60,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
+    //void read_connect();
     void creatzom(int);
     void MakeSunOnScene();
     void MoveAllSuns();

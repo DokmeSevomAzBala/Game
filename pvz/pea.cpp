@@ -6,7 +6,11 @@
 #include "mainwindow.h"
 #include <QThread>
 //extern MainWindow *w;
-
+/*
+ * @descr constructor of the cass
+ * @param param nothing
+ * @return nothing
+ */
 pea::pea()
 {
 
@@ -15,6 +19,11 @@ pea::pea()
    setPixmap(P);
 
 }
+/*
+ * @descr move the pea
+ * @param nothing
+ * @return nothing
+ */
 
 void pea::move_p()
 {
@@ -30,15 +39,20 @@ void pea::move_p()
     //this->~pea();
 
 }
-void pea::delay( int millisecondsToWait )
-{
-    QTime dieTime = QTime::currentTime().addMSecs( millisecondsToWait );
-    while( QTime::currentTime() < dieTime )
-    {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
-    }
-}
 
+//void pea::delay( int millisecondsToWait )
+//{
+//    QTime dieTime = QTime::currentTime().addMSecs( millisecondsToWait );
+//    while( QTime::currentTime() < dieTime )
+//    {
+//        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+//    }
+//}
 
+/*
+ * @descr destructor of the cass
+ * @param nothing
+ * @return nothing
+ */
 pea::~pea(){}
 

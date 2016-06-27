@@ -8,8 +8,9 @@
 #include <QDebug>
 #include <QObject>
 #include <QGraphicsItem>
-
-
+/*
+ * this class will move the lawnmower
+ */
 class lawn_mower: public plant
 {
    Q_OBJECT

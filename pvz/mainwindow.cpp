@@ -7,16 +7,25 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QMessageBox>
+#include <QTcpSocket>
+#include <QStringList>
 //bool  GameScreen::IfGridIsFull[9][5];
+
+
 GameScreen* MainWindow::gs;
 bool MainWindow::IfZombieIsInW[5];
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow), socket(new QTcpSocket)
 {
     ui->setupUi(this);
     gs = new GameScreen(ui->view);
     gs->setFixedSize(ui->view->size());
+
+//    socket = new QTcpSocket();
+  //  socket->connectToHost("0.0.0.0", 12345);
+   // connect(socket, SIGNAL(readyRead()),this,SLOT(read_connect()));
+
 
     // Make scene and make dimensions same as graphicsView.
     scene = new QGraphicsScene(gs);
@@ -99,6 +108,28 @@ MainWindow::MainWindow(QWidget *parent) :
 //    thread2->wait();
 //    thread3->wait();
 }
+
+//void MainWindow::read_connect()
+//{
+//    if(socket->state()!= QAbstractSocket::ConnectedState)
+//    {
+//        qDebug()<<"no connectin exist Dg";
+//        return;
+//    }
+//    //qDebug()<<"connected to: "<<socket->localAddress()<<"   port:  "<<12345;
+//    str.append(socket->readAll());
+//    if (!str.contains(QChar(23)))
+//        return;
+//    QStringList msge = str.split(QChar(23));
+//    str = msge.takeLast();
+//    foreach(const QString &ms,msge)
+//    {
+//       // ui->chat->insertPlainText(message + "\n");
+
+//    }
+
+//}
+
 
 void MainWindow::check()
 

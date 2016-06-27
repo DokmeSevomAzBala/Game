@@ -4,7 +4,9 @@
 #include <QTimer>
 #ifndef PEASHOOTER_H
 #define PEASHOOTER_H
-
+/*
+ * this class will shoot the bullet of the peashooters
+ */
 class peashooter: public plant
 {
     Q_OBJECT
